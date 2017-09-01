@@ -1,0 +1,101 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath, amssymb,amsthm,enumerate}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ } 
+
+\title{Probability Theory Homework I}
+\author{Bohao Tang}
+\date{\today} 
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}[1]
+	\item
+	\begin{enumerate}[(i)]
+		\item 
+		\begin{proof}
+		We have $a_1 > 0$ and since $a_n \to 0$, there exists $N$ such that for every $n > N$,
+		$a_n < a_1$. Therefore $\max_{1 \le n} \{a_n\}$ is $\max_{1 \le n \le N} \{a_n\}$, and
+		then the max exits since $N < \infty$ 
+		\end{proof}
+		\item
+		\begin{proof}
+		Suppose $A$ is uncountable, then $A \setminus \{0\}$ is also uncountable. Since
+		$A \setminus \{0\} = \cup_{n=1}^{\infty} A_n$ where $A_n = \{a \in A: a \ge 1/n \}$,
+		then there must exits a $N$ such that $A_N$ is uncountable. Then there must exist $N+1$
+		elements $\{a_1,\cdots,a_{N+1}\}$ in $A_N \subset A$ such that $\forall i: \  a_i \ge 1/N$.
+		And therefore we have $\sum_{i=1}^{N+1} a_i \ge \frac{N+1}{N} > 1$. A contradiction, so $A$
+		must be countable.	
+		\end{proof}
+	\end{enumerate}
+	\item
+	\begin{enumerate}[(i)]
+		\item 
+		\begin{proof}
+			Suppose in $(M,d_1)$: $x_n \to x$ and in $(M,d_2)$: $x_n \to y$ and $x \ne y$,
+			which infers $d_2(x,y) > 0$.
+			Then we consider an array $y_n$, where $y_{2k+1} = x$ and $y_{2k} = x_k$.
+			It's easy to see that $y_n$ has limit $x$ in $(M,d_1)$, so according to the assumption
+			in problem, $y_n$ must tend to some $z \in M$.
+			Therefore $d_2(y_{2k+1}, y{2k}) \le d_2(y_{2k+1}, z) + d_2(z, y{2k})$ tends to $0$.
+			However $d_2(y_{2k+1}, y{2k}) \ge d_2(y_{2k+1}, y) - d_2(y, y{2k}) = d_2(x,y) - d_2(y,x_k) > d_2(x,y)/2 > 0$ when $k$ is large enough (since $x_n \to y$ in $(M,d_2)$).
+			A contradiction, therefore $x = y$.
+		\end{proof}
+		\item
+		\begin{proof}
+			For every sequence $(x_n, y_n)$ in the set, if $(x_n, y_n) \to (x_0, y_0)$. Then since
+			function $y - x^2$ is continuous with $(x,y)$, we have $\lim y_n - x_n^2 = y_0 - x_0^2$, and since $(x_n,y_n) \in \{(x,y): y \ge x^2 \}$, we have $\lim y_n - x_n^2 \ge 0$ and therefore $y_0 \ge x_0^2$ and $(x_0,y_0) \in \{(x,y): y \ge x^2 \}$, which means the set is closed.
+		\end{proof}
+		\item
+		\begin{enumerate}[(a)]
+			\item $\cap_{n=1}^\infty (0, 1 + \frac{1}{n}) = (0 , 1]$ which is not open.
+			\item $\{(x,x^2): x \in [0,1]\} \cap \{(x,x): x \in [0,1]\} = \{(0,0),(1,1)\}$ which is
+			not connected. 
+		\end{enumerate}
+	\end{enumerate}
+	\item
+	\begin{enumerate}[(i)]
+		\item 
+		\begin{proof}
+			Suppose $M$ is infinite, since $M$ is compact, an infinite subarray of $M$ must have an accumulation point, which means we can find an array $\{x_n\}$ of distinct elements in $M$
+			such that $x_n \to x$ and $x \notin \{x_n\}$. Therefore $\{x_n\}$ is a subset of $M$ hence compact, but not closed. However, since $M$ is a metric space, hence $T_2$ space, every compact set in $M$ must be closed. A contradiction, which means $M$ is finite
+		\end{proof}
+		\item 
+		\begin{proof}
+			For every open cover $\{O_\alpha\}$ of $f(K)$, $\{f^{-1}(O_\alpha)\}$ will be an open
+			cover of $K$. Since $K$ is compact, there exists an finite subcover $\{f^{-1}(O_{\alpha_i})\}_1^N$. Then it's easy to see $\{O_{\alpha_i}\}_1^N$ is an finite open subcover of $f(K)$. Therefore, $f(K)$ is compact.
+		\end{proof}
+	\end{enumerate}
+	\item 
+	\begin{enumerate}[(i)]
+		\item
+		\begin{proof}
+			By using derivative, $f_n(x)$ is increase in $[0, \frac{1}{\sqrt{3} n}]$ and decrease in
+			$[\frac{1}{\sqrt{3} n}, 1]$. So $\sup_{x\in[0,1]} |f_n(x) - 0| = f_n(\frac{1}{\sqrt{3} n}) > \frac{1}{2} > 0$, therefore $f_n$ don't uniformly convergent to $0$ in $[0,1]$. But in $[\delta,1]$, when $n$ is large enough such that $\frac{1}{\sqrt{3} n} < \delta$, $\sup_{x\in[\delta,1]} |f_n(x) - 0| = f_n(\delta) = \frac{\sqrt{n \delta}}{n^2 \delta^2 + 1} \to 0$, therefore, $f_n$ uniformly convergent to $0$ in every $[\delta, 1]$ where $\delta > 0$.
+		\end{proof}
+		\item
+		$|(1+n^2)^{-2} \sin(n x)|, |n (1+n^2)^{-2} \cos(n x)|, |(-1)^n n^2 (1+n^2)^{-2} \sin(n x)|$
+		are all less than $\frac{1}{1 + n^2}$, where $\sum_1^\infty \frac{1}{1 + n^2} < \infty$. Therefore (a), (b), (c) are all uniformly convergent to some function. 
+	\end{enumerate}
+	\item
+	\begin{enumerate}[(i)]
+		\item 
+		Since every nonempty interval in $\mathbb{R}$ contains rational and irrational number. Therefore every upper sum is $1$ and every lower sum is $0$, hence $f$ is not Riemann integrable.  
+	\end{enumerate}
+
+\end{enumerate}
+
+\end{document}
+
+
+
+
+
+
+
