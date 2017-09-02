@@ -77,20 +77,53 @@
 		\item
 		\begin{proof}
 			By using derivative, $f_n(x)$ is increase in $[0, \frac{1}{\sqrt{3} n}]$ and decrease in
-			$[\frac{1}{\sqrt{3} n}, 1]$. So $\sup_{x\in[0,1]} |f_n(x) - 0| = f_n(\frac{1}{\sqrt{3} n}) > \frac{1}{2} > 0$, therefore $f_n$ don't uniformly convergent to $0$ in $[0,1]$. But in $[\delta,1]$, when $n$ is large enough such that $\frac{1}{\sqrt{3} n} < \delta$, $\sup_{x\in[\delta,1]} |f_n(x) - 0| = f_n(\delta) = \frac{\sqrt{n \delta}}{n^2 \delta^2 + 1} \to 0$, therefore, $f_n$ uniformly convergent to $0$ in every $[\delta, 1]$ where $\delta > 0$.
+			$[\frac{1}{\sqrt{3} n}, 1]$. So we have $\sup_{x\in[0,1]} |f_n(x) - 0| = f_n(\frac{1}{\sqrt{3} n}) > \frac{1}{2} > 0$, therefore $f_n$ don't uniformly convergent to $0$ in $[0,1]$. But in $[\delta,1]$, when $n$ is large enough such that $\frac{1}{\sqrt{3} n} < \delta$, $\sup_{x\in[\delta,1]} |f_n(x) - 0| = f_n(\delta) = \frac{\sqrt{n \delta}}{n^2 \delta^2 + 1} \to 0$, therefore, $f_n$ uniformly convergent to $0$ in every $[\delta, 1]$ where $\delta > 0$.
 		\end{proof}
 		\item
 		$|(1+n^2)^{-2} \sin(n x)|, |n (1+n^2)^{-2} \cos(n x)|, |(-1)^n n^2 (1+n^2)^{-2} \sin(n x)|$
-		are all less than $\frac{1}{1 + n^2}$, where $\sum_1^\infty \frac{1}{1 + n^2} < \infty$. Therefore (a), (b), (c) are all uniformly convergent to some function. 
+		are all less than $\frac{1}{1 + n^2}$, where $\sum_1^\infty \frac{1}{1 + n^2} < \infty$. Therefore (a), (b), (c) are all uniformly convergent to some function.
+		
+		Since $(\frac{\sin(n x)}{(1+n^2)^2})' = n (1+n^2)^{-2} \cos(n x)$, which is continuous and (a) and (b)
+		convergent uniformly, we have $\left( \sum_{n=1}^{\infty} (1+n^2)^{-2} \sin(n x) \right)' = \sum_{n=1}^{\infty} n (1+n^2)^{-2} \cos(n x)$.
+		And in the same way, we can prove that $\left( \sum_{n=1}^{\infty} n (1+n^2)^{-2} \cos(n x) \right)' = \sum_{n=1}^{\infty} (-1) n^2 (1+n^2)^{-2} \sin(n x)$.
+		So, $f'' = \sum_{n=1}^{\infty} (-1) n^2 (1+n^2)^{-2} \sin(n x)$ exists and it's continuous since uniform convergence and the continuousness of $\sin (nx)$. 
 	\end{enumerate}
 	\item
 	\begin{enumerate}[(i)]
 		\item 
-		Since every nonempty interval in $\mathbb{R}$ contains rational and irrational number. Therefore every upper sum is $1$ and every lower sum is $0$, hence $f$ is not Riemann integrable.  
+		Since every nonempty interval in $\mathbb{R}$ contains rational and irrational number. Therefore every upper sum is $1$ and every lower sum is $0$, hence $f$ is not Riemann integrable.
+		\item
+		\begin{proof}
+			In this situation we have that $f$ is uniformly continuous in $[a,b]$, which means
+			$\forall \epsilon > 0, \exists \delta > 0$ $\forall |x - y| < \delta$
+			we have $|f(x) - f(y)| < \epsilon$. For this $\epsilon$ and $\delta$, for every partition
+			$0 = x_0 < x_1 < \cdots < x_N = 1$  with $\max_{0 \le i \le N-1} (x_{i+1} - x_i) < \epsilon$,
+			we have that upper sum minus lower sum will less than $\epsilon \times (1-0) = \epsilon$, which means
+			$|\text{upper sum} - \text{lower sum}| \to 0$ when $\max_{0 \le i \le N-1} (x_{i+1} - x_i) \to 0$. 
+			Therefore $f$ is Riemann integrable. 	
+		\end{proof} 
+		\item 
+		\begin{proof}
+			We have $0 \le f_n(x) < 1, \forall x \in [0,1]$ and $\forall \delta > 0$, $f_n$
+			uniformly convergent to $0$, hence $\lim \int_\delta^1 f_n(x) d x = 0, \forall \delta > 0$.
+			Therefore we have:
+			$$\int_0^1 f_n(x) d x = \int_0^\delta f_n(x) d x + \int_\delta^1 f_n(x) d x < \delta + \int_\delta^1 f_n(x) d x$$
+			then:
+			$$\varlimsup_{n\to\infty} \int_0^1 f_n(x) d x < \delta, \hspace{0.5cm} \forall \delta > 0$$
+			which means $\varlimsup \int_0^1 f_n(x) d x = 0$, together with $f_n \ge 0$,
+			we have $\lim \int_0^1 f_n(x) d x = 0$.
+		\end{proof} 
 	\end{enumerate}
-
 \end{enumerate}
 
+\section*{\normalsize{Bonus:}}
+
+Suppose the strategy is to switch the number with probability $p(x)$ when we get $x$,
+then calculate the probability that we end with a larger number if two numbers are $x$ and $2x$.
+It's:
+$$\textbf{P}(\text{end with larger number}) = \frac{1}{2} p(x) + \frac{1}{2} \left( 1 - p(2x) \right) = \frac{1}{2} + \frac{p(2) - p(2x)}{2}$$
+So we only need $p(x) > p(2x)$, for example we can switch the number with probability $\frac{1}{1+x}$ when we get $x$,
+and then we will have more chance than $1/2$ to get the best number for every $x$.
 \end{document}
 
 
