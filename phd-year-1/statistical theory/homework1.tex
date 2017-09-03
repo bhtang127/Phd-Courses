@@ -43,7 +43,7 @@ footskip=.25in]{geometry}
         \item $\frac{2 \times 3 + 3 \times 2}{\binom{5}{2} \times 2 !} = \frac{3}{5}$
         \item $\frac{\binom{3}{2} \times 2 !}{\binom{5}{2} \times 2 !} = \frac{3}{10}$
     \end{enumerate}
-    \item I think it's to choose $n$ ordered character from a-z , where $n$ is the sum of the numbers of one's last and given name. Then:
+    \item I think it's to choose $n$ ordered characters from a-z , where $n$ is the sum of the numbers of one's last and given names. Then:
     \begin{enumerate}
         \item $26 \times 26 \times 26 = 17576$
         \item $26 \times 26 + 26 \times 26 \times 26 = 18252$
@@ -57,10 +57,11 @@ footskip=.25in]{geometry}
     \item 
     It's the sum of ways to choose $t$ elements in $(x_1,x_2,\cdots,x_n)$ to be $1$ , where $t$ ranges from $k$ to $n$. And that's $\sum_{t=k}^{n} \binom{n}{t}$
     \item 
-    $\textbf{P} = \frac{|\text{choose $r$ spaces occupied out of the rest $N-2$ spaces}|}{|\text{choose $r$ occupied out of N}|} = \frac{\binom{N - 2}{r}}{\binom{N}{r}} = \frac{(N - r) (N - r - 1)}{N (N - 1)}$
-    \item I'm a little confused about the meaning of "double" here, I think it means 2 dices are in same number.
+    $\textbf{P} = \frac{|\text{choose $r$ spaces occupied out of the rest $N-2$ spaces}|}{|\text{choose $r$ occupied out of N}|} = \frac{\binom{N - 2}{r}}{\binom{N}{r}} = \frac{(N - r) (N - r - 1)}{N (N - 1)}$,
+    where $r \le N-2$. And obviously $\textbf{P} = 0$ when $r > N-2$.
+    \item I'm a little confused about the meaning of "doubles" here, I think it means 2 dices are in same number.
     \begin{enumerate}
-        \item $\textbf{P} = \frac{2}{6 \times 6} / \frac{6}{6 \times 6} = \frac{1}{3}$
+        \item $\textbf{P} = \frac{|\{(1,1),(2,2)\}|}{6 \times 6} / \frac{|\{(1,1),(1,2),(2,1),(1,3),(3,1),(2,2)\}|}{6 \times 6} = \frac{1}{3}$
         \item $\textbf{P} = \frac{5 + 5}{6 \times 6} / \frac{6 \times 6 - 6}{6 \times 6} = \frac{1}{3}$
     \end{enumerate}
     \item 
@@ -69,7 +70,7 @@ footskip=.25in]{geometry}
     $\frac{1/3 \times 1/2}{1/3 \times 1/2 + 1/3 \times 1 + 1/3 \times 0} = \frac{1}{3}$
     \item 
     if the $n^{th}$ stamp is of type $i$, then it's new means the first $n - 1$ stamps are of types other than $i$, whose probability is $(1 - p_i)^{n-1}$. Therefore, 
-    $$\textbf{P}(\text{new}) = \sum_1^m \textbf{P}(\text{new} | \text{$n^{th}$ of type i}) \textbf{P}(\text{$n^{th}$ of type i}) = \sum_1^m p_i (1-p_i)^{n-1}$$
+    $$\textbf{P}(\text{new}) = \sum_1^m \textbf{P}(\text{new} | \text{$n^{th}$ is of type i}) \textbf{P}(\text{$n^{th}$ is of type i}) = \sum_1^m p_i (1-p_i)^{n-1}$$
 \end{enumerate}
 
 \section*{\normalsize{Extra Credit:}}
