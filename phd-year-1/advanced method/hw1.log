@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.18)  7 SEP 2017 11:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.18)  7 SEP 2017 13:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -471,7 +471,7 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 123.
  [2]
-<rcode.pdf, id=47, 597.23125pt x 845.1575pt>
+<rcode.pdf, id=60, 597.23125pt x 845.1575pt>
 File: rcode.pdf Graphic file (type pdf)
  <use rcode.pdf>
 Package pdftex.def Info: rcode.pdf used on input line 170.
@@ -481,7 +481,7 @@ File: rcode.pdf Graphic file (type pdf)
 Package pdftex.def Info: rcode.pdf used on input line 170.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 
-<rcode.pdf, id=50, page=1, 597.23125pt x 845.1575pt>
+<rcode.pdf, id=63, page=1, 597.23125pt x 845.1575pt>
 File: rcode.pdf Graphic file (type pdf)
  <use rcode.pdf, page 1>
 Package pdftex.def Info: rcode.pdf, page1 used on input line 170.
@@ -511,22 +511,15 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 172.
  (./hw1.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 172.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 172.
-
-
-Package rerunfilecheck Warning: File `hw1.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `hw1.out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  3CA3239718C073A929D2B422A5E28221;217.
+Package rerunfilecheck Info: File `hw1.out' has not changed.
+(rerunfilecheck)             Checksum: 3CA3239718C073A929D2B422A5E28221;217.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 172.
  ) 
 Here is how much of TeX's memory you used:
- 8975 strings out of 493089
- 128505 string characters out of 6134841
- 241705 words of memory out of 5000000
- 12314 multiletter control sequences out of 15000+600000
+ 8980 strings out of 493089
+ 128551 string characters out of 6134841
+ 241725 words of memory out of 5000000
+ 12319 multiletter control sequences out of 15000+600000
  19227 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  37i,18n,42p,439b,477s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -546,10 +539,10 @@ e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/
 2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2
 015/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texli
 ve/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on hw1.pdf (4 pages, 245896 bytes).
+Output written on hw1.pdf (4 pages, 246184 bytes).
 PDF statistics:
- 156 PDF objects out of 1000 (max. 8388607)
- 116 compressed objects within 2 object streams
+ 169 PDF objects out of 1000 (max. 8388607)
+ 129 compressed objects within 2 object streams
  29 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 53 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -37,7 +37,7 @@ footskip=.25in]{geometry}
        
         First, for every vector $\textbf{x}$ in $W^\bot$, it has a representation $\textbf{x} = \sum_{i=1}^n \omega_i \textbf{b}_i$ for some $\omega_i \in \mathbb{R}^n$.
         Since $\textbf{x} \in W^\bot$, we have $\langle \textbf{x} , \textbf{b}_j \rangle = 0$, for all $j = 1,2,\cdots,k$.
-        Therefore $\omega_j = 0$ for $1 \le j \le k$, which means $\textbf{x} \in V$ and $W^\bot \subset V$.
+        Therefore $\omega_j = 0$ for all $1 \le j \le k$, which means $\textbf{x} \in V$ and $W^\bot \subset V$.
         
         In the other side, for every vector $\textbf{y} = \sum_{t=k+1}^n \gamma_t \textbf{b}_t \in V$, it's quite direct to see that $\langle \textbf{y} , \textbf{b}_j \rangle = 0$, for all $j = 1,2,\cdots,k$,
         hence $\langle \textbf{y} , \textbf{w} \rangle = 0$, for all $\textbf{w} \in W$.
@@ -63,15 +63,15 @@ footskip=.25in]{geometry}
         \end{proof}
     \end{enumerate}
     \item
-    In the definition of projection in Lecture 2, $\textbf{y - $\Pi$(y|x)}$ should be orthogonal to $\textbf{x}$. So there is nothing need to be proved. 
+    In the definition of projection in Lecture 2, $\textbf{y - $\Pi$(y$|$x)}$ should be orthogonal to $\textbf{x}$. So there is nothing need to be proved. 
     Maybe we should changed the definition here that (suppose $\textbf{x} \neq \textbf{0}$, or there is no meaningful projection)
-    $$\Pi\textbf{(y|x)} \triangleq \argmin_{\textbf{u} \in \text{span}\{\textbf{x}\}} ||\textbf{y - u}||^2$$
+    $$\Pi\textbf{(y$|$x)} \triangleq \argmin_{\textbf{u} \in \text{span}\{\textbf{x}\}} ||\textbf{y - u}||^2$$
     \begin{proof}
         (This proof contains the part to assert that projection above is well defined)
         Suppose $\textbf{u} = b \textbf{x}$, then $||\textbf{y} - \textbf{u}||^2 = \textbf{y}'\textbf{y} - 2 b \textbf{x}'\textbf{y} + b^2 \textbf{x}'\textbf{x}$.
         It's a quadratic function with highest coefficient $\textbf{x}'\textbf{x} > 0$, therefore have a unique minimizer.
         Differentiate it with $b$, let it be zero and we get the normal equation $\textbf{x}'\textbf{y} = b \textbf{x}'\textbf{x}$,
-        which means (since $\Pi(\textbf{y|x}) = b \textbf{x}$) : $\langle \Pi(\textbf{y|x}), x \rangle = \langle \textbf{y}, x \rangle$ and therefore $\textbf{y} - \Pi(\textbf{y|x}) \  \bot \ \textbf{x}$.
+        which means (since $\Pi(\textbf{y$|$x}) = b \textbf{x}$) : $\langle \Pi(\textbf{y$|$x}), x \rangle = \langle \textbf{y}, x \rangle$ and therefore $\textbf{y} - \Pi(\textbf{y$|$x}) \  \bot \ \textbf{x}$.
     \end{proof}
 \end{enumerate}
 
@@ -89,7 +89,7 @@ footskip=.25in]{geometry}
     \end{proof}
     \item
     \begin{proof}
-        In the setting of mean only regression of \textbf{y} on \textbf{x}, we have $\hat{\beta} = \frac{\langle \textbf{y}, \textbf{x} \rangle}{\langle \textbf{x}, \textbf{x} \rangle}$.
+        In the setting of regression through origin of \textbf{y} on \textbf{x}, we have $\hat{\beta} = \frac{\langle \textbf{y}, \textbf{x} \rangle}{\langle \textbf{x}, \textbf{x} \rangle}$.
         Therefore residual is $\textbf{r} = \textbf{y} - \frac{\langle \textbf{y}, \textbf{x} \rangle}{\langle \textbf{x}, \textbf{x} \rangle} \textbf{x}$, therefore $\langle \textbf{r}, \textbf{x} \rangle = \langle \textbf{y}, \textbf{x} \rangle - \frac{\langle \textbf{y}, \textbf{x} \rangle}{\langle \textbf{x}, \textbf{x} \rangle}\cdot\langle \textbf{x}, \textbf{x} \rangle = 0$, $\textbf{r} \bot \textbf{x}$.
     \end{proof}
     \item
