@@ -1,13 +1,19 @@
 \documentclass[12pt]{article}
-\usepackage{amsmath, amssymb,amsthm,enumerate}
+\usepackage{amsmath, amssymb,amsthm,enumerate,bm}
 \usepackage{hyperref}
 \usepackage{cite}
+\usepackage{listings}
+%\usepackage[fencedCode,inlineFootnotes,citations,definitionLists,hashEnumerators,smartEllipses,hybrid]{markdown}
+
 \usepackage[a4paper,bindingoffset=0.2in,%
 left=0.8in,right=0.8in,top=1in,bottom=1in,%
 footskip=.25in]{geometry}
 
 \DeclareMathOperator*{\argmin}{argmin}
 \newcommand{\ttt}[1]{\textbf{#1}}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\ip}[4]{\langle \textbf{#1}_{#2} , \textbf{#3}_{#4} \rangle}
 
 \title{Advanced Methods Homework 1}
 \date{\today}
@@ -79,15 +85,15 @@ footskip=.25in]{geometry}
     \item
     \begin{proof}
         In the setting of mean only regression of \textbf{y}, we have $\hat{\mu} = \overline{\textbf{y}} = \sum_{i=1}^n y_i / n$.
-        And the residue is $\textbf{r} = \textbf{y} - \overline{\textbf{y}} \textbf{J}_n$, therefore sum of residue is $\sum r_i = \sum_1^n y_i - n \cdot \sum_1^n y_i / n = 0$.
+        And the residual is $\textbf{r} = \textbf{y} - \overline{\textbf{y}} \textbf{J}_n$, therefore sum of residual is $\sum r_i = \sum_1^n y_i - n \cdot \sum_1^n y_i / n = 0$.
     \end{proof}
     \item
     \begin{proof}
         In the setting of mean only regression of \textbf{y} on \textbf{x}, we have $\hat{\beta} = \frac{\langle \textbf{y}, \textbf{x} \rangle}{\langle \textbf{x}, \textbf{x} \rangle}$.
-        Therefore residue is $\textbf{r} = \textbf{y} - \frac{\langle \textbf{y}, \textbf{x} \rangle}{\langle \textbf{x}, \textbf{x} \rangle} \textbf{x}$, therefore $\langle \textbf{r}, \textbf{x} \rangle = \langle \textbf{y}, \textbf{x} \rangle - \frac{\langle \textbf{y}, \textbf{x} \rangle}{\langle \textbf{x}, \textbf{x} \rangle}\cdot\langle \textbf{x}, \textbf{x} \rangle = 0$, $\textbf{r} \bot \textbf{x}$.
+        Therefore residual is $\textbf{r} = \textbf{y} - \frac{\langle \textbf{y}, \textbf{x} \rangle}{\langle \textbf{x}, \textbf{x} \rangle} \textbf{x}$, therefore $\langle \textbf{r}, \textbf{x} \rangle = \langle \textbf{y}, \textbf{x} \rangle - \frac{\langle \textbf{y}, \textbf{x} \rangle}{\langle \textbf{x}, \textbf{x} \rangle}\cdot\langle \textbf{x}, \textbf{x} \rangle = 0$, $\textbf{r} \bot \textbf{x}$.
     \end{proof}
     \item
-    Notation as above, when $\textbf{y} \bot \textbf{x}$, we find that the residue $\textbf{r} = \textbf{y}$, which of course need not sum to zero.
+    Notation as above, when $\textbf{y} \bot \textbf{x}$, we find that the residual $\textbf{r} = \textbf{y}$, which of course need not sum to zero.
     \item
     \begin{proof}
         In this setting of regressing \textbf{y} on \textbf{x}, we get the normal equation that:
@@ -95,12 +101,12 @@ footskip=.25in]{geometry}
             \textbf{J}_n'\textbf{y} &=& \hat{\beta}_0 \textbf{J}_n'\textbf{J}_n + \hat{\beta}_1 \textbf{J}_n'\textbf{x} \\
             \textbf{x}'\textbf{y} &=& \hat{\beta}_0 \textbf{x}'\textbf{J}_n + \hat{\beta}_1 \textbf{x}'\textbf{x}
         \end{eqnarray} 
-    and also the residue $\textbf{r} = \textbf{y} - \hat{\beta}_0 \textbf{J}_n - \hat{\beta}_1 \textbf{x}$.
+    and also the residual $\textbf{r} = \textbf{y} - \hat{\beta}_0 \textbf{J}_n - \hat{\beta}_1 \textbf{x}$.
     Then: 
     $$\langle \textbf{r}, \textbf{J}_n \rangle = \textbf{J}_n'\textbf{y} - \hat{\beta}_0 \textbf{J}_n'\textbf{J}_n + \hat{\beta}_1 \textbf{J}_n'\textbf{x} = 0$$
     and
     $$\langle \textbf{r}, \textbf{x} \rangle = \textbf{x}'\textbf{y} - \hat{\beta}_0 \textbf{x}'\textbf{J}_n + \hat{\beta}_1 \textbf{x}'\textbf{x} = 0$$
-    So we get the residue $\textbf{r} \bot \textbf{J}_n$ and $\textbf{r} \bot \textbf{x}$.
+    So we get the residual $\textbf{r} \bot \textbf{J}_n$ and $\textbf{r} \bot \textbf{x}$.
     \end{proof}
 \end{enumerate}
 
@@ -112,11 +118,87 @@ footskip=.25in]{geometry}
         Given $\textbf{H}^2 = \textbf{H}$, then $\textbf{(I - H)}^2 = \textbf{I}^2 - 2 \textbf{H} + \textbf{H}^2 = \textbf{I} - 2 \textbf{H} + \textbf{H} = \textbf{I - H}$.
     \end{proof}
     \item
-    \item
+    After calculating, I think the method mentioned to estimate $\beta_2$ in this question is:
+    \begin{itemize}
+        \item First, regressing $\ttt{y}$ on $\ttt{x}_1$ through origin and get the residual $\ttt{r}_1$.
+        \item Second, regressing $\ttt{x}_2$ on $\ttt{x}_1$ through origin and get the residual $\ttt{r}_2$.
+        \item Finally, regressing $\ttt{r}_1$ on $\ttt{r}_2$ through origin and get the estimation $\hat{\beta}_2$.
+    \end{itemize}
     \begin{proof}
-        Suppose that $\ttt{X}$ is of size $m \times n$, where $m \ge n$ (). Then consider the singular value decomposition of $\ttt{X}$ is $\ttt{X} = \ttt{U} \ttt{S} \ttt{V}$, where $\ttt{U},\ttt{V}$ are orthogonal matrixes
+        To minimize $||\ttt{y} - \beta_1 \ttt{x}_1 - \beta_2 \ttt{x}_2||^2$, we can first suppose $\beta_2$ be a constant and minimize through $\beta_1$(it will be a function of $\beta_2$), and then minimize through $\beta_2$ to get the estimation.
+        So the goal is firstly to find the $\argmin_{\beta_1} ||(\ttt{y} - \beta_2 \ttt{x}_2) - \beta_1 \ttt{x}_1||^2$. This is simply a regression through origin and we can get that
+        $\beta_1^{min} = \frac{\la \ttt{y} - \beta_2 \ttt{x}_2, \ttt{x}_1 \ra}{\la \ttt{x}_1, \ttt{x}_2 \ra}$.
+
+        Therefore, the second step is to find the argmin of:
+        $$ ||\ttt{y} - \beta_2\ttt{x}_2 - \frac{\la \ttt{y} - \beta_2 \ttt{x}_2, \ttt{x}_1 \ra}{\la \ttt{x}_1, \ttt{x}_2 \ra} \ttt{x}_1||^2 = ||(\ttt{y} - \frac{\la \ttt{y}, \ttt{x}_1 \ra}{\la \ttt{x}_1, \ttt{x}_1 \ra}\ttt{x}_1) - \beta_2 (\ttt{x}_2 - \frac{\la \ttt{x}_2, \ttt{x}_1 \ra}{\la \ttt{x}_1, \ttt{x}_1 \ra} \ttt{x}_1)||^2$$
+        Also, we can find that:
+        \begin{eqnarray}
+            \ttt{r}_1 &=& \ttt{y} - \frac{\la \ttt{y}, \ttt{x}_1 \ra}{\la \ttt{x}_1, \ttt{x}_1 \ra}\ttt{x}_1\\
+            \ttt{r}_2 &=& \ttt{x}_2 - \frac{\la \ttt{x}_2, \ttt{x}_1 \ra}{\la \ttt{x}_1, \ttt{x}_1 \ra} \ttt{x}_1
+        \end{eqnarray}
+        Therefore, $\hat{\beta}_2$ comes from minimizing $||\ttt{r}_1 - \beta_2 \ttt{r}_2||^2$, which is just doing regression through origin of $\ttt{r}_1$ on $\ttt{r}_2$.
+        Then we finish the proof that the procedure described in the question is valid.
     \end{proof}
     \item
+    \begin{proof}
+        Suppose that $\ttt{X}$ is of size $m \times n$, where $m \le n$ (or we replace $\ttt{X}$ by $\ttt{X}'$, and we just need to prove the same thing).
+        Then consider the singular value decomposition of $\ttt{X}$ is $\ttt{X} = \ttt{U} \ttt{S} \ttt{V}$,
+        where $\ttt{U},\ttt{V}$ are orthogonal matrices and $\ttt{S} = \left( diag\{\lambda_1,\lambda_2,\cdots,\lambda_r,0,\cdots,0\}, \ttt{0} \right): \  \lambda_1 \ge \lambda_2 \ge \lambda_3 \ge \cdots \ge \lambda_r > 0$.
+        Here $r = rank(\ttt{X})$. Now consider the svd of $\ttt{X}', \ttt{X}'\ttt{X}, \ttt{X}\ttt{X}'$, we have:
+        \begin{eqnarray}
+            \ttt{X}' &=& \ttt{V}' \ttt{S}' \ttt{U}'\\
+            \ttt{X}'\ttt{X} &=& \ttt{V}' \begin{pmatrix} 
+                                            diag\{\lambda_1^2,\lambda_2^2,\cdots,\lambda_r^2,0,\cdots,0\} & \ttt{0} \\
+                                            \ttt{0} & \ttt{0} 
+                                         \end{pmatrix} \ttt{V} \\
+            \ttt{X}\ttt{X}' &=& \ttt{U}\ diag\{\lambda_1^2,\lambda_2^2,\cdots,\lambda_r^2,0,\cdots,0\}\ \ttt{U}'
+        \end{eqnarray}
+        Therefore we can see that the three matrices above all have and only have $r$ nonzero singular values, which means they are all of rank $r$.
+        Then we get $rank(\ttt{X}) = rank(\ttt{X}') = rank(\ttt{X}'\ttt{X}) = rank(\ttt{X}\ttt{X}')$.
+    \end{proof}
+    \item
+    If the design matrix is orthogonal, then we have:
+    $$\ttt{J} = ||\ttt{y} - \ttt{X}\bm{\beta}||^2 = \ttt{y}'\ttt{y} - 2 \ttt{y}'\ttt{X}\bm{\beta} + \bm{\beta}' \ttt{X}'\ttt{X} \bm{\beta} = \ttt{y}'\ttt{y} - 2 \ttt{y}'\ttt{X}\bm{\beta} + \bm{\beta}'\bm{\beta}$$
+    And then we get the normal equation as:
+    $$\frac{\partial \ttt{J}}{\partial \bm{\beta}} = 2 \bm{\beta} - 2 \ttt{X}'\ttt{y} = 0$$
+    So we have $\hat{\bm{\beta}} = \ttt{X}'\ttt{y}$. 
 \end{enumerate}
+
+\section{Computing and analysis}
+
+\begin{enumerate}   
+    \item
+    % \begin{markdown}
+    %     ```r
+        % mylm <- function(y,X){
+        %     D = cbind(1,X)
+        %     beta = solve(t(D) %*% D) %*% t(D) %*% y
+        %     fitted = D %*% beta
+        %     residuals = y - fitted
+        %     result = list(beta = beta, 
+        %                 fitted = fitted, 
+        %                 residuals = residuals)
+        %     return(result)
+        % }
+    %     ```
+    % \end{markdown}
+    \item
+    % \begin{markdown}
+    %     ```r
+    %     > test.X = cbind(sample(1:100),sample(1:100),sample(1:100))
+    %     > beta = c(5,-1,4,2)
+    %     > test.y = cbind(1,test.X) %*% beta + rnorm(100)
+    %     > model = lm(test.y~test.X)
+    %     > mymodel = mylm(test.y,test.X)
+    %     > 
+    %     > c(sum(abs(model$coefficients - mymodel$beta)),
+    %     +   sum(abs(model$fitted.values - mymodel$fitted)),
+    %     +   sum(abs(model$residuals - mymodel$residuals))
+    %     + )
+    %     [1] 4.596323e-14 2.444223e-11 2.455822e-11
+    %     ```
+    % \end{markdown}      
+
+\end{enumerate} 
 
 \end{document}

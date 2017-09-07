@@ -1,0 +1,12 @@
+        ```r
+        mylm <- function(y,X){
+          D = cbind(1,X)
+          beta = solve(t(D) %*% D) %*% t(D)) %*% y
+          fitted = D %*% beta
+          residuals = y - fitted
+          result = vector(beta = beta,
+                          fitted = fitted,
+                          residuals = residuals)
+          return(result)
+        }
+        ```
