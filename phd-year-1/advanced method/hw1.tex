@@ -3,7 +3,7 @@
 \usepackage{hyperref}
 \usepackage{cite}
 \usepackage{listings}
-%\usepackage[fencedCode,inlineFootnotes,citations,definitionLists,hashEnumerators,smartEllipses,hybrid]{markdown}
+\usepackage{pdfpages}
 
 \usepackage[a4paper,bindingoffset=0.2in,%
 left=0.8in,right=0.8in,top=1in,bottom=1in,%
@@ -165,40 +165,8 @@ footskip=.25in]{geometry}
 \end{enumerate}
 
 \section{Computing and analysis}
+Code is shown below and we simulate the data ourselves and test the $L_1$ norm of the differences of $\hat{\beta}$, fitted\_value and residuals from two results. 
 
-\begin{enumerate}   
-    \item
-    % \begin{markdown}
-    %     ```r
-        % mylm <- function(y,X){
-        %     D = cbind(1,X)
-        %     beta = solve(t(D) %*% D) %*% t(D) %*% y
-        %     fitted = D %*% beta
-        %     residuals = y - fitted
-        %     result = list(beta = beta, 
-        %                 fitted = fitted, 
-        %                 residuals = residuals)
-        %     return(result)
-        % }
-    %     ```
-    % \end{markdown}
-    \item
-    % \begin{markdown}
-    %     ```r
-    %     > test.X = cbind(sample(1:100),sample(1:100),sample(1:100))
-    %     > beta = c(5,-1,4,2)
-    %     > test.y = cbind(1,test.X) %*% beta + rnorm(100)
-    %     > model = lm(test.y~test.X)
-    %     > mymodel = mylm(test.y,test.X)
-    %     > 
-    %     > c(sum(abs(model$coefficients - mymodel$beta)),
-    %     +   sum(abs(model$fitted.values - mymodel$fitted)),
-    %     +   sum(abs(model$residuals - mymodel$residuals))
-    %     + )
-    %     [1] 4.596323e-14 2.444223e-11 2.455822e-11
-    %     ```
-    % \end{markdown}      
-
-\end{enumerate} 
+\includepdf[pages=-]{rcode.pdf}
 
 \end{document}
