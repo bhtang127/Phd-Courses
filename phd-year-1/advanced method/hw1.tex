@@ -90,7 +90,7 @@ footskip=.25in]{geometry}
     \item
     \begin{proof}
         In the setting of regression through origin of \textbf{y} on \textbf{x}, we have $\hat{\beta} = \frac{\langle \textbf{y}, \textbf{x} \rangle}{\langle \textbf{x}, \textbf{x} \rangle}$.
-        Therefore residual is $\textbf{r} = \textbf{y} - \frac{\langle \textbf{y}, \textbf{x} \rangle}{\langle \textbf{x}, \textbf{x} \rangle} \textbf{x}$, therefore $\langle \textbf{r}, \textbf{x} \rangle = \langle \textbf{y}, \textbf{x} \rangle - \frac{\langle \textbf{y}, \textbf{x} \rangle}{\langle \textbf{x}, \textbf{x} \rangle}\cdot\langle \textbf{x}, \textbf{x} \rangle = 0$, $\textbf{r} \bot \textbf{x}$.
+        Therefore residual is $\textbf{r} = \textbf{y} - \frac{\langle \textbf{y}, \textbf{x} \rangle}{\langle \textbf{x}, \textbf{x} \rangle} \textbf{x}$, therefore $\langle \textbf{r}, \textbf{x} \rangle = \langle \textbf{y}, \textbf{x} \rangle - \frac{\langle \textbf{y}, \textbf{x} \rangle}{\langle \textbf{x}, \textbf{x} \rangle}\cdot\langle \textbf{x}, \textbf{x} \rangle = 0$ $\Rightarrow$ $\textbf{r} \bot \textbf{x}$.
     \end{proof}
     \item
     Notation as above, when $\textbf{y} \bot \textbf{x}$, we find that the residual $\textbf{r} = \textbf{y}$, which of course need not sum to zero.
@@ -101,7 +101,7 @@ footskip=.25in]{geometry}
             \textbf{J}_n'\textbf{y} &=& \hat{\beta}_0 \textbf{J}_n'\textbf{J}_n + \hat{\beta}_1 \textbf{J}_n'\textbf{x} \\
             \textbf{x}'\textbf{y} &=& \hat{\beta}_0 \textbf{x}'\textbf{J}_n + \hat{\beta}_1 \textbf{x}'\textbf{x}
         \end{eqnarray} 
-    and also the residual $\textbf{r} = \textbf{y} - \hat{\beta}_0 \textbf{J}_n - \hat{\beta}_1 \textbf{x}$.
+    also the residual $\textbf{r} = \textbf{y} - \hat{\beta}_0 \textbf{J}_n - \hat{\beta}_1 \textbf{x}$.
     Then: 
     $$\langle \textbf{r}, \textbf{J}_n \rangle = \textbf{J}_n'\textbf{y} - \hat{\beta}_0 \textbf{J}_n'\textbf{J}_n + \hat{\beta}_1 \textbf{J}_n'\textbf{x} = 0$$
     and

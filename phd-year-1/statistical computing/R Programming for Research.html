@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)https://geanders.github.io/RProgrammingForResearch/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R Programming for Research</title>
+  <meta name="description" content="This is a bookdown version of the course notes for R Programming for Research, Colorado State University, Fall 2016.">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R Programming for Research">
+  <meta property="og:type" content="book">
+  
+  
+  <meta property="og:description" content="This is a bookdown version of the course notes for R Programming for Research, Colorado State University, Fall 2016.">
+  <meta name="github-repo" content="rstudio/bookdown-demo">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="R Programming for Research">
+  
+  <meta name="twitter:description" content="This is a bookdown version of the course notes for R Programming for Research, Colorado State University, Fall 2016.">
+  
+
+<meta name="author" content="Brooke Anderson and Rachel Severson">
+
+
+<meta name="date" content="2017-09-11">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+
+<link rel="next" href="https://geanders.github.io/RProgrammingForResearch/course-information.html">
+<script src="./R Programming for Research_files/jquery.min.js.下载"></script>
+<link href="./R Programming for Research_files/style.css" rel="stylesheet">
+<link href="./R Programming for Research_files/plugin-bookdown.css" rel="stylesheet">
+<link href="./R Programming for Research_files/plugin-highlight.css" rel="stylesheet">
+<link href="./R Programming for Research_files/plugin-search.css" rel="stylesheet">
+<link href="./R Programming for Research_files/plugin-fontsettings.css" rel="stylesheet">
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="./R Programming for Research_files/style(1).css" type="text/css">
+<script type="text/javascript" src="./R Programming for Research_files/MathJax.js.下载"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+<body><div id="MathJax_Message" style="display: none;"></div>
+
+
+
+  <div class="book without-animation with-summary   font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary"><div class="book-search" role="search"><input type="search" class="form-control" placeholder="Type to search"></div>
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://geanders.github.io/RProgrammingForResearch/">R Programming for Research</a></li>
+
+<li class="divider"></li>
+<li class="chapter active" data-level="" data-path="index.html"><a href="https://geanders.github.io/RProgrammingForResearch/index.html"><i class="fa fa-check"></i>Online course book, ERHS 535</a></li>
+<li class="chapter" data-level="" data-path="course-information.html"><a href="https://geanders.github.io/RProgrammingForResearch/course-information.html"><i class="fa fa-check"></i>Course information</a><ul style="display: none;">
+<li class="chapter" data-level="0.1" data-path="course-information.html"><a href="https://geanders.github.io/RProgrammingForResearch/course-information.html#course-overview"><i class="fa fa-check"></i><b>0.1</b> Course overview</a></li>
+<li class="chapter" data-level="0.2" data-path="course-information.html"><a href="https://geanders.github.io/RProgrammingForResearch/course-information.html#time-and-place"><i class="fa fa-check"></i><b>0.2</b> Time and place</a></li>
+<li class="chapter" data-level="0.3" data-path="course-information.html"><a href="https://geanders.github.io/RProgrammingForResearch/course-information.html#detailed-schedule"><i class="fa fa-check"></i><b>0.3</b> Detailed schedule</a></li>
+<li class="chapter" data-level="0.4" data-path="course-information.html"><a href="https://geanders.github.io/RProgrammingForResearch/course-information.html#grading"><i class="fa fa-check"></i><b>0.4</b> Grading</a><ul style="display: none;">
+<li class="chapter" data-level="0.4.1" data-path="course-information.html"><a href="https://geanders.github.io/RProgrammingForResearch/course-information.html#attendance-and-class-participation"><i class="fa fa-check"></i><b>0.4.1</b> Attendance and class participation</a></li>
+<li class="chapter" data-level="0.4.2" data-path="course-information.html"><a href="https://geanders.github.io/RProgrammingForResearch/course-information.html#weekly-in-course-group-exercises"><i class="fa fa-check"></i><b>0.4.2</b> Weekly in-course group exercises</a></li>
+<li class="chapter" data-level="0.4.3" data-path="course-information.html"><a href="https://geanders.github.io/RProgrammingForResearch/course-information.html#in-class-quizzes"><i class="fa fa-check"></i><b>0.4.3</b> In-class quizzes</a></li>
+<li class="chapter" data-level="0.4.4" data-path="course-information.html"><a href="https://geanders.github.io/RProgrammingForResearch/course-information.html#homework"><i class="fa fa-check"></i><b>0.4.4</b> Homework</a></li>
+<li class="chapter" data-level="0.4.5" data-path="course-information.html"><a href="https://geanders.github.io/RProgrammingForResearch/course-information.html#final-group-project"><i class="fa fa-check"></i><b>0.4.5</b> Final group project</a></li>
+</ul></li>
+<li class="chapter" data-level="0.5" data-path="course-information.html"><a href="https://geanders.github.io/RProgrammingForResearch/course-information.html#course-set-up"><i class="fa fa-check"></i><b>0.5</b> Course set-up</a></li>
+<li class="chapter" data-level="0.6" data-path="course-information.html"><a href="https://geanders.github.io/RProgrammingForResearch/course-information.html#coursebook"><i class="fa fa-check"></i><b>0.6</b> Coursebook</a><ul style="display: none;">
+<li class="chapter" data-level="0.6.1" data-path="course-information.html"><a href="https://geanders.github.io/RProgrammingForResearch/course-information.html#other-helpful-books-not-required"><i class="fa fa-check"></i><b>0.6.1</b> Other helpful books (not required)</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>I Part I: Preliminaries</b></span></li>
+<li class="chapter" data-level="1" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html"><i class="fa fa-check"></i><b>1</b> R Preliminaries</a><ul style="display: none;">
+<li class="chapter" data-level="1.1" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#r-and-r-studio"><i class="fa fa-check"></i><b>1.1</b> R and R Studio</a><ul style="display: none;">
+<li class="chapter" data-level="1.1.1" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#what-is-r"><i class="fa fa-check"></i><b>1.1.1</b> What is R?</a></li>
+<li class="chapter" data-level="1.1.2" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#open-source-software"><i class="fa fa-check"></i><b>1.1.2</b> Open-source software</a></li>
+<li class="chapter" data-level="1.1.3" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#what-is-rstudio"><i class="fa fa-check"></i><b>1.1.3</b> What is RStudio?</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#the-package-system"><i class="fa fa-check"></i><b>1.2</b> The “package” system</a><ul style="display: none;">
+<li class="chapter" data-level="1.2.1" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#r-packages"><i class="fa fa-check"></i><b>1.2.1</b> R packages</a></li>
+<li class="chapter" data-level="1.2.2" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#installing-from-cran"><i class="fa fa-check"></i><b>1.2.2</b> Installing from CRAN</a></li>
+<li class="chapter" data-level="1.2.3" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#loading-an-installed-package"><i class="fa fa-check"></i><b>1.2.3</b> Loading an installed package</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#basic-code-conventions-of-r"><i class="fa fa-check"></i><b>1.3</b> Basic code conventions of R</a><ul style="display: none;">
+<li class="chapter" data-level="1.3.1" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#rs-mvp-the-gets-arrow"><i class="fa fa-check"></i><b>1.3.1</b> R’s MVP: The <em>gets arrow</em></a></li>
+<li class="chapter" data-level="1.3.2" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#assignment-operator-wars---vs."><i class="fa fa-check"></i><b>1.3.2</b> Assignment operator wars: <code>&lt;-</code> vs. <code>=</code></a></li>
+<li class="chapter" data-level="1.3.3" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#naming-objects"><i class="fa fa-check"></i><b>1.3.3</b> Naming objects</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#rs-most-basic-object-types"><i class="fa fa-check"></i><b>1.4</b> R’s most basic object types</a><ul style="display: none;">
+<li class="chapter" data-level="1.4.1" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#vectors"><i class="fa fa-check"></i><b>1.4.1</b> Vectors</a></li>
+<li class="chapter" data-level="1.4.2" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#dataframes"><i class="fa fa-check"></i><b>1.4.2</b> Dataframes</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#using-r-functions"><i class="fa fa-check"></i><b>1.5</b> Using R functions</a><ul style="display: none;">
+<li class="chapter" data-level="1.5.1" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#function-structure"><i class="fa fa-check"></i><b>1.5.1</b> Function structure</a></li>
+<li class="chapter" data-level="1.5.2" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#function-help-files"><i class="fa fa-check"></i><b>1.5.2</b> Function help files</a></li>
+<li class="chapter" data-level="1.5.3" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#function-parameters"><i class="fa fa-check"></i><b>1.5.3</b> Function parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#r-scripts"><i class="fa fa-check"></i><b>1.6</b> R scripts</a><ul style="display: none;">
+<li class="chapter" data-level="1.6.1" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#commenting-code"><i class="fa fa-check"></i><b>1.6.1</b> Commenting code</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#in-course-exercise"><i class="fa fa-check"></i><b>1.7</b> In-course Exercise</a><ul style="display: none;">
+<li class="chapter" data-level="1.7.1" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#about-the-dataset"><i class="fa fa-check"></i><b>1.7.1</b> About the dataset</a></li>
+<li class="chapter" data-level="1.7.2" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#manually-creating-vectors-and-a-dataframe"><i class="fa fa-check"></i><b>1.7.2</b> Manually creating vectors and a dataframe</a></li>
+<li class="chapter" data-level="1.7.3" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#installing-and-using-a-package"><i class="fa fa-check"></i><b>1.7.3</b> Installing and using a package</a></li>
+<li class="chapter" data-level="1.7.4" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#getting-the-data-onto-your-computer"><i class="fa fa-check"></i><b>1.7.4</b> Getting the data onto your computer</a></li>
+<li class="chapter" data-level="1.7.5" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#getting-the-data-into-r"><i class="fa fa-check"></i><b>1.7.5</b> Getting the data into R</a></li>
+<li class="chapter" data-level="1.7.6" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#checking-out-the-data"><i class="fa fa-check"></i><b>1.7.6</b> Checking out the data</a></li>
+<li class="chapter" data-level="1.7.7" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#using-the-data-to-answer-questions"><i class="fa fa-check"></i><b>1.7.7</b> Using the data to answer questions</a></li>
+<li class="chapter" data-level="1.7.8" data-path="r-preliminaries.html"><a href="https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#writing-your-code-as-an-r-script"><i class="fa fa-check"></i><b>1.7.8</b> Writing your code as an R script</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Part II: Basics</b></span></li>
+<li class="chapter" data-level="2" data-path="entering-and-cleaning-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-1.html"><i class="fa fa-check"></i><b>2</b> Entering and cleaning data #1</a><ul style="display: none;">
+<li class="chapter" data-level="2.1" data-path="entering-and-cleaning-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-1.html#directories-and-pathnames"><i class="fa fa-check"></i><b>2.1</b> Directories and pathnames</a><ul style="display: none;">
+<li class="chapter" data-level="2.1.1" data-path="entering-and-cleaning-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-1.html#directory-structure"><i class="fa fa-check"></i><b>2.1.1</b> Directory structure</a></li>
+<li class="chapter" data-level="2.1.2" data-path="entering-and-cleaning-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-1.html#working-directory"><i class="fa fa-check"></i><b>2.1.2</b> Working directory</a></li>
+<li class="chapter" data-level="2.1.3" data-path="entering-and-cleaning-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-1.html#file-and-directory-pathnames"><i class="fa fa-check"></i><b>2.1.3</b> File and directory pathnames</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="entering-and-cleaning-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-1.html#diversion-paste"><i class="fa fa-check"></i><b>2.2</b> Diversion: <code>paste</code></a></li>
+<li class="chapter" data-level="2.3" data-path="entering-and-cleaning-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-1.html#reading-data-into-r"><i class="fa fa-check"></i><b>2.3</b> Reading data into R</a><ul style="display: none;">
+<li class="chapter" data-level="2.3.1" data-path="entering-and-cleaning-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-1.html#reading-local-flat-files"><i class="fa fa-check"></i><b>2.3.1</b> Reading local flat files</a></li>
+<li class="chapter" data-level="2.3.2" data-path="entering-and-cleaning-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-1.html#the-read_-functions"><i class="fa fa-check"></i><b>2.3.2</b> The <code>read_*</code> functions</a></li>
+<li class="chapter" data-level="2.3.3" data-path="entering-and-cleaning-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-1.html#reading-online-flat-files"><i class="fa fa-check"></i><b>2.3.3</b> Reading online flat files</a></li>
+<li class="chapter" data-level="2.3.4" data-path="entering-and-cleaning-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-1.html#saving-and-loading-r-objects"><i class="fa fa-check"></i><b>2.3.4</b> Saving and loading R objects</a></li>
+<li class="chapter" data-level="2.3.5" data-path="entering-and-cleaning-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-1.html#reading-other-file-types"><i class="fa fa-check"></i><b>2.3.5</b> Reading other file types</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="entering-and-cleaning-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-1.html#data-cleaning"><i class="fa fa-check"></i><b>2.4</b> Data cleaning</a><ul style="display: none;">
+<li class="chapter" data-level="2.4.1" data-path="entering-and-cleaning-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-1.html#renaming-columns"><i class="fa fa-check"></i><b>2.4.1</b> Renaming columns</a></li>
+<li class="chapter" data-level="2.4.2" data-path="entering-and-cleaning-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-1.html#selecting-columns"><i class="fa fa-check"></i><b>2.4.2</b> Selecting columns</a></li>
+<li class="chapter" data-level="2.4.3" data-path="entering-and-cleaning-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-1.html#filtering-to-certain-rows"><i class="fa fa-check"></i><b>2.4.3</b> Filtering to certain rows</a></li>
+<li class="chapter" data-level="2.4.4" data-path="entering-and-cleaning-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-1.html#add-or-change-columns"><i class="fa fa-check"></i><b>2.4.4</b> Add or change columns</a></li>
+<li class="chapter" data-level="2.4.5" data-path="entering-and-cleaning-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-1.html#piping"><i class="fa fa-check"></i><b>2.4.5</b> Piping</a></li>
+<li class="chapter" data-level="2.4.6" data-path="entering-and-cleaning-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-1.html#base-r-equivalents-to-dplyr-functions"><i class="fa fa-check"></i><b>2.4.6</b> Base R equivalents to <code>dplyr</code> functions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="entering-and-cleaning-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-1.html#dates-in-r"><i class="fa fa-check"></i><b>2.5</b> Dates in R</a></li>
+<li class="chapter" data-level="2.6" data-path="entering-and-cleaning-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-1.html#in-course-exercise-1"><i class="fa fa-check"></i><b>2.6</b> In-course Exercise</a><ul style="display: none;">
+<li class="chapter" data-level="2.6.1" data-path="entering-and-cleaning-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-1.html#checking-out-directory-structures"><i class="fa fa-check"></i><b>2.6.1</b> Checking out directory structures</a></li>
+<li class="chapter" data-level="2.6.2" data-path="entering-and-cleaning-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-1.html#using-relative-and-absolute-file-pathnames"><i class="fa fa-check"></i><b>2.6.2</b> Using relative and absolute file pathnames</a></li>
+<li class="chapter" data-level="2.6.3" data-path="entering-and-cleaning-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-1.html#reading-in-different-types-of-files"><i class="fa fa-check"></i><b>2.6.3</b> Reading in different types of files</a></li>
+<li class="chapter" data-level="2.6.4" data-path="entering-and-cleaning-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-1.html#cleaning-up-data-1"><i class="fa fa-check"></i><b>2.6.4</b> Cleaning up data #1</a></li>
+<li class="chapter" data-level="2.6.5" data-path="entering-and-cleaning-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-1.html#cleaning-up-data-2"><i class="fa fa-check"></i><b>2.6.5</b> Cleaning up data #2</a></li>
+<li class="chapter" data-level="2.6.6" data-path="entering-and-cleaning-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-1.html#piping-1"><i class="fa fa-check"></i><b>2.6.6</b> Piping</a></li>
+<li class="chapter" data-level="2.6.7" data-path="entering-and-cleaning-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-1.html#a-taste-of-whats-to-come"><i class="fa fa-check"></i><b>2.6.7</b> A taste of what’s to come…</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="exploring-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-1.html"><i class="fa fa-check"></i><b>3</b> Exploring data #1</a><ul style="display: none;">
+<li class="chapter" data-level="3.1" data-path="exploring-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-1.html#data-from-a-package"><i class="fa fa-check"></i><b>3.1</b> Data from a package</a></li>
+<li class="chapter" data-level="3.2" data-path="exploring-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-1.html#plots-to-explore-data"><i class="fa fa-check"></i><b>3.2</b> Plots to explore data</a><ul style="display: none;">
+<li class="chapter" data-level="3.2.1" data-path="exploring-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-1.html#initializing-a-ggplot-object"><i class="fa fa-check"></i><b>3.2.1</b> Initializing a ggplot object</a></li>
+<li class="chapter" data-level="3.2.2" data-path="exploring-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-1.html#plot-aesthetics"><i class="fa fa-check"></i><b>3.2.2</b> Plot aesthetics</a></li>
+<li class="chapter" data-level="3.2.3" data-path="exploring-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-1.html#adding-geoms"><i class="fa fa-check"></i><b>3.2.3</b> Adding geoms</a></li>
+<li class="chapter" data-level="3.2.4" data-path="exploring-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-1.html#constant-aesthetics"><i class="fa fa-check"></i><b>3.2.4</b> Constant aesthetics</a></li>
+<li class="chapter" data-level="3.2.5" data-path="exploring-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-1.html#useful-plot-additions"><i class="fa fa-check"></i><b>3.2.5</b> Useful plot additions</a></li>
+<li class="chapter" data-level="3.2.6" data-path="exploring-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-1.html#example-dataset"><i class="fa fa-check"></i><b>3.2.6</b> Example dataset</a></li>
+<li class="chapter" data-level="3.2.7" data-path="exploring-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-1.html#histograms"><i class="fa fa-check"></i><b>3.2.7</b> Histograms</a></li>
+<li class="chapter" data-level="3.2.8" data-path="exploring-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-1.html#scatterplots"><i class="fa fa-check"></i><b>3.2.8</b> Scatterplots</a></li>
+<li class="chapter" data-level="3.2.9" data-path="exploring-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-1.html#boxplots"><i class="fa fa-check"></i><b>3.2.9</b> Boxplots</a></li>
+<li class="chapter" data-level="3.2.10" data-path="exploring-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-1.html#extensions-of-ggplot2"><i class="fa fa-check"></i><b>3.2.10</b> Extensions of <code>ggplot2</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="exploring-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-1.html#simple-statistics-functions"><i class="fa fa-check"></i><b>3.3</b> Simple statistics functions</a><ul style="display: none;">
+<li class="chapter" data-level="3.3.1" data-path="exploring-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-1.html#summary-statistics"><i class="fa fa-check"></i><b>3.3.1</b> Summary statistics</a></li>
+<li class="chapter" data-level="3.3.2" data-path="exploring-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-1.html#summarize-function"><i class="fa fa-check"></i><b>3.3.2</b> <code>summarize</code> function</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="exploring-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-1.html#logical-vectors"><i class="fa fa-check"></i><b>3.4</b> Logical vectors</a></li>
+<li class="chapter" data-level="3.5" data-path="exploring-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-1.html#regression-models"><i class="fa fa-check"></i><b>3.5</b> Regression models</a><ul style="display: none;">
+<li class="chapter" data-level="3.5.1" data-path="exploring-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-1.html#formula-structure"><i class="fa fa-check"></i><b>3.5.1</b> Formula structure</a></li>
+<li class="chapter" data-level="3.5.2" data-path="exploring-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-1.html#linear-models"><i class="fa fa-check"></i><b>3.5.2</b> Linear models</a></li>
+<li class="chapter" data-level="3.5.3" data-path="exploring-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-1.html#generalized-linear-models-glms"><i class="fa fa-check"></i><b>3.5.3</b> Generalized linear models (GLMs)</a></li>
+<li class="chapter" data-level="3.5.4" data-path="exploring-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-1.html#references-statistics-in-r"><i class="fa fa-check"></i><b>3.5.4</b> References– statistics in R</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="exploring-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-1.html#in-course-exercise-2"><i class="fa fa-check"></i><b>3.6</b> In-course exercise</a><ul style="display: none;">
+<li class="chapter" data-level="3.6.1" data-path="exploring-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-1.html#loading-data-from-an-r-package"><i class="fa fa-check"></i><b>3.6.1</b> Loading data from an R package</a></li>
+<li class="chapter" data-level="3.6.2" data-path="exploring-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-1.html#exploring-the-data-using-logical-statements"><i class="fa fa-check"></i><b>3.6.2</b> Exploring the data using logical statements</a></li>
+<li class="chapter" data-level="3.6.3" data-path="exploring-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-1.html#exploring-the-data-using-simple-statistics-and-summarize"><i class="fa fa-check"></i><b>3.6.3</b> Exploring the data using simple statistics and <code>summarize</code></a></li>
+<li class="chapter" data-level="3.6.4" data-path="exploring-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-1.html#exploring-the-data-using-basic-plots-1"><i class="fa fa-check"></i><b>3.6.4</b> Exploring the data using basic plots #1</a></li>
+<li class="chapter" data-level="3.6.5" data-path="exploring-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-1.html#exploring-the-data-using-basic-plots-2"><i class="fa fa-check"></i><b>3.6.5</b> Exploring the data using basic plots #2</a></li>
+<li class="chapter" data-level="3.6.6" data-path="exploring-data-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-1.html#exploring-the-data-using-basic-plots-3"><i class="fa fa-check"></i><b>3.6.6</b> Exploring the data using basic plots #3</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="reporting-data-results-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reporting-data-results-1.html"><i class="fa fa-check"></i><b>4</b> Reporting data results #1</a><ul style="display: none;">
+<li class="chapter" data-level="4.1" data-path="reporting-data-results-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reporting-data-results-1.html#guidelines-for-good-plots"><i class="fa fa-check"></i><b>4.1</b> Guidelines for good plots</a></li>
+<li class="chapter" data-level="4.2" data-path="reporting-data-results-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reporting-data-results-1.html#high-data-density"><i class="fa fa-check"></i><b>4.2</b> High data density</a></li>
+<li class="chapter" data-level="4.3" data-path="reporting-data-results-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reporting-data-results-1.html#meaningful-labels"><i class="fa fa-check"></i><b>4.3</b> Meaningful labels</a></li>
+<li class="chapter" data-level="4.4" data-path="reporting-data-results-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reporting-data-results-1.html#references"><i class="fa fa-check"></i><b>4.4</b> References</a></li>
+<li class="chapter" data-level="4.5" data-path="reporting-data-results-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reporting-data-results-1.html#highlighting"><i class="fa fa-check"></i><b>4.5</b> Highlighting</a></li>
+<li class="chapter" data-level="4.6" data-path="reporting-data-results-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reporting-data-results-1.html#order"><i class="fa fa-check"></i><b>4.6</b> Order</a></li>
+<li class="chapter" data-level="4.7" data-path="reporting-data-results-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reporting-data-results-1.html#small-multiples"><i class="fa fa-check"></i><b>4.7</b> Small multiples</a></li>
+<li class="chapter" data-level="4.8" data-path="reporting-data-results-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reporting-data-results-1.html#advanced-customization"><i class="fa fa-check"></i><b>4.8</b> Advanced customization</a><ul style="display: none;">
+<li class="chapter" data-level="4.8.1" data-path="reporting-data-results-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reporting-data-results-1.html#scales"><i class="fa fa-check"></i><b>4.8.1</b> Scales</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="reporting-data-results-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reporting-data-results-1.html#to-find-out-more"><i class="fa fa-check"></i><b>4.9</b> To find out more</a></li>
+<li class="chapter" data-level="4.10" data-path="reporting-data-results-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reporting-data-results-1.html#in-course-exercise-3"><i class="fa fa-check"></i><b>4.10</b> In-course exercise</a><ul style="display: none;">
+<li class="chapter" data-level="4.10.1" data-path="reporting-data-results-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reporting-data-results-1.html#designing-a-plot"><i class="fa fa-check"></i><b>4.10.1</b> Designing a plot</a></li>
+<li class="chapter" data-level="4.10.2" data-path="reporting-data-results-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reporting-data-results-1.html#basic-scatterplots-with-r-base-graphics-and-ggplot"><i class="fa fa-check"></i><b>4.10.2</b> Basic scatterplots with R base graphics and ggplot</a></li>
+<li class="chapter" data-level="4.10.3" data-path="reporting-data-results-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reporting-data-results-1.html#fancier-graphs"><i class="fa fa-check"></i><b>4.10.3</b> Fancier graphs</a></li>
+<li class="chapter" data-level="4.10.4" data-path="reporting-data-results-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reporting-data-results-1.html#data-visualization-cheatsheet"><i class="fa fa-check"></i><b>4.10.4</b> Data visualization cheatsheet</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="reproducible-research-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reproducible-research-1.html"><i class="fa fa-check"></i><b>5</b> Reproducible research #1</a><ul style="display: none;">
+<li class="chapter" data-level="5.1" data-path="reproducible-research-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reproducible-research-1.html#what-is-reproducible-research"><i class="fa fa-check"></i><b>5.1</b> What is reproducible research?</a></li>
+<li class="chapter" data-level="5.2" data-path="reproducible-research-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reproducible-research-1.html#markdown"><i class="fa fa-check"></i><b>5.2</b> Markdown</a></li>
+<li class="chapter" data-level="5.3" data-path="reproducible-research-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reproducible-research-1.html#literate-programming-in-r"><i class="fa fa-check"></i><b>5.3</b> Literate programming in R</a></li>
+<li class="chapter" data-level="5.4" data-path="reproducible-research-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reproducible-research-1.html#style-guidelines"><i class="fa fa-check"></i><b>5.4</b> Style guidelines</a><ul style="display: none;">
+<li class="chapter" data-level="5.4.1" data-path="reproducible-research-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reproducible-research-1.html#line-length"><i class="fa fa-check"></i><b>5.4.1</b> Line length</a></li>
+<li class="chapter" data-level="5.4.2" data-path="reproducible-research-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reproducible-research-1.html#spacing"><i class="fa fa-check"></i><b>5.4.2</b> Spacing</a></li>
+<li class="chapter" data-level="5.4.3" data-path="reproducible-research-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reproducible-research-1.html#semicolons"><i class="fa fa-check"></i><b>5.4.3</b> Semicolons</a></li>
+<li class="chapter" data-level="5.4.4" data-path="reproducible-research-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reproducible-research-1.html#commenting"><i class="fa fa-check"></i><b>5.4.4</b> Commenting</a></li>
+<li class="chapter" data-level="5.4.5" data-path="reproducible-research-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reproducible-research-1.html#indentation"><i class="fa fa-check"></i><b>5.4.5</b> Indentation</a></li>
+<li class="chapter" data-level="5.4.6" data-path="reproducible-research-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reproducible-research-1.html#code-grouping"><i class="fa fa-check"></i><b>5.4.6</b> Code grouping</a></li>
+<li class="chapter" data-level="5.4.7" data-path="reproducible-research-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reproducible-research-1.html#broader-guidelines"><i class="fa fa-check"></i><b>5.4.7</b> Broader guidelines</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="reproducible-research-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reproducible-research-1.html#more-with-knitr"><i class="fa fa-check"></i><b>5.5</b> More with knitr</a><ul style="display: none;">
+<li class="chapter" data-level="5.5.1" data-path="reproducible-research-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reproducible-research-1.html#equations-in-knitr"><i class="fa fa-check"></i><b>5.5.1</b> Equations in <code>knitr</code></a></li>
+<li class="chapter" data-level="5.5.2" data-path="reproducible-research-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reproducible-research-1.html#figures-from-file"><i class="fa fa-check"></i><b>5.5.2</b> Figures from file</a></li>
+<li class="chapter" data-level="5.5.3" data-path="reproducible-research-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reproducible-research-1.html#saving-graphics-files"><i class="fa fa-check"></i><b>5.5.3</b> Saving graphics files</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="reproducible-research-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reproducible-research-1.html#saving-graphics-files-1"><i class="fa fa-check"></i><b>5.6</b> Saving graphics files</a><ul style="display: none;">
+<li class="chapter" data-level="5.6.1" data-path="reproducible-research-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reproducible-research-1.html#tables-in-r-markdown"><i class="fa fa-check"></i><b>5.6.1</b> Tables in R Markdown</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="reproducible-research-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reproducible-research-1.html#in-course-exercise-4"><i class="fa fa-check"></i><b>5.7</b> In-course exercise</a><ul style="display: none;">
+<li class="chapter" data-level="5.7.1" data-path="reproducible-research-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reproducible-research-1.html#creating-a-markdown-document"><i class="fa fa-check"></i><b>5.7.1</b> Creating a Markdown document</a></li>
+<li class="chapter" data-level="5.7.2" data-path="reproducible-research-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reproducible-research-1.html#adding-in-r-code"><i class="fa fa-check"></i><b>5.7.2</b> Adding in R code</a></li>
+<li class="chapter" data-level="5.7.3" data-path="reproducible-research-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reproducible-research-1.html#working-with-r-markdown-documents"><i class="fa fa-check"></i><b>5.7.3</b> Working with R Markdown documents</a></li>
+<li class="chapter" data-level="5.7.4" data-path="reproducible-research-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reproducible-research-1.html#r-style-guidelines"><i class="fa fa-check"></i><b>5.7.4</b> R style guidelines</a></li>
+<li class="chapter" data-level="5.7.5" data-path="reproducible-research-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/reproducible-research-1.html#trying-out-knitr-with-your-own-data"><i class="fa fa-check"></i><b>5.7.5</b> Trying out <code>knitr</code> with your own data</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Part III: Intermediate</b></span></li>
+<li class="chapter" data-level="6" data-path="entering-and-cleaning-data-2.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-2.html"><i class="fa fa-check"></i><b>6</b> Entering and cleaning data #2</a><ul style="display: none;">
+<li class="chapter" data-level="6.1" data-path="entering-and-cleaning-data-2.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-2.html#joining-datasets"><i class="fa fa-check"></i><b>6.1</b> Joining datasets</a></li>
+<li class="chapter" data-level="6.2" data-path="entering-and-cleaning-data-2.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-2.html#tidy-data"><i class="fa fa-check"></i><b>6.2</b> Tidy data</a></li>
+<li class="chapter" data-level="6.3" data-path="entering-and-cleaning-data-2.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-2.html#gathering"><i class="fa fa-check"></i><b>6.3</b> Gathering</a></li>
+<li class="chapter" data-level="6.4" data-path="entering-and-cleaning-data-2.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-2.html#in-course-exercise-5"><i class="fa fa-check"></i><b>6.4</b> In-course exercise</a><ul style="display: none;">
+<li class="chapter" data-level="6.4.1" data-path="entering-and-cleaning-data-2.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-2.html#designing-tidy-data"><i class="fa fa-check"></i><b>6.4.1</b> Designing tidy data</a></li>
+<li class="chapter" data-level="6.4.2" data-path="entering-and-cleaning-data-2.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-2.html#easier-data-wrangling"><i class="fa fa-check"></i><b>6.4.2</b> Easier data wrangling</a></li>
+<li class="chapter" data-level="6.4.3" data-path="entering-and-cleaning-data-2.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-2.html#more-extensive-data-wrangling"><i class="fa fa-check"></i><b>6.4.3</b> More extensive data wrangling</a></li>
+<li class="chapter" data-level="6.4.4" data-path="entering-and-cleaning-data-2.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-2.html#tidying-vadeaths-data"><i class="fa fa-check"></i><b>6.4.4</b> Tidying <code>VADeaths</code> data</a></li>
+<li class="chapter" data-level="6.4.5" data-path="entering-and-cleaning-data-2.html"><a href="https://geanders.github.io/RProgrammingForResearch/entering-and-cleaning-data-2.html#exploring-fatality-analysis-reporting-system-fars-data"><i class="fa fa-check"></i><b>6.4.5</b> Exploring Fatality Analysis Reporting System (FARS) data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="exploring-data-2.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-2.html"><i class="fa fa-check"></i><b>7</b> Exploring data #2</a><ul style="display: none;">
+<li class="chapter" data-level="7.1" data-path="exploring-data-2.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-2.html#parentheses"><i class="fa fa-check"></i><b>7.1</b> Parentheses</a></li>
+<li class="chapter" data-level="7.2" data-path="exploring-data-2.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-2.html#loops"><i class="fa fa-check"></i><b>7.2</b> Loops</a></li>
+<li class="chapter" data-level="7.3" data-path="exploring-data-2.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-2.html#other-control-structures"><i class="fa fa-check"></i><b>7.3</b> Other control structures</a><ul style="display: none;">
+<li class="chapter" data-level="7.3.1" data-path="exploring-data-2.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-2.html#if-else-loops"><i class="fa fa-check"></i><b>7.3.1</b> if / else loops</a></li>
+<li class="chapter" data-level="7.3.2" data-path="exploring-data-2.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-2.html#some-other-control-structures"><i class="fa fa-check"></i><b>7.3.2</b> Some other control structures</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="exploring-data-2.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-2.html#functions"><i class="fa fa-check"></i><b>7.4</b> Functions</a></li>
+<li class="chapter" data-level="7.5" data-path="exploring-data-2.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-2.html#regular-expressions"><i class="fa fa-check"></i><b>7.5</b> Regular expressions</a></li>
+<li class="chapter" data-level="7.6" data-path="exploring-data-2.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-2.html#in-course-exercise-6"><i class="fa fa-check"></i><b>7.6</b> In-course exercise</a><ul style="display: none;">
+<li class="chapter" data-level="7.6.1" data-path="exploring-data-2.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-2.html#exploring-fatality-analysis-reporting-system-fars-data-1"><i class="fa fa-check"></i><b>7.6.1</b> Exploring Fatality Analysis Reporting System (FARS) data</a></li>
+<li class="chapter" data-level="7.6.2" data-path="exploring-data-2.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-2.html#using-a-loop-to-create-state-specific-plots"><i class="fa fa-check"></i><b>7.6.2</b> Using a loop to create state-specific plots</a></li>
+<li class="chapter" data-level="7.6.3" data-path="exploring-data-2.html"><a href="https://geanders.github.io/RProgrammingForResearch/exploring-data-2.html#using-regression-models-to-explore-data"><i class="fa fa-check"></i><b>7.6.3</b> Using regression models to explore data</a></li>
+</ul></li>
+</ul></li>
+<li class="appendix"><span><b>Appendices</b></span></li>
+<li class="chapter" data-level="A" data-path="appendix-a-vocabulary.html"><a href="https://geanders.github.io/RProgrammingForResearch/appendix-a-vocabulary.html"><i class="fa fa-check"></i><b>A</b> Appendix A: Vocabulary</a><ul style="display: none;">
+<li class="chapter" data-level="A.1" data-path="appendix-a-vocabulary.html"><a href="https://geanders.github.io/RProgrammingForResearch/appendix-a-vocabulary.html#week-1-quiz-1"><i class="fa fa-check"></i><b>A.1</b> Week 1 (Quiz 1)</a></li>
+<li class="chapter" data-level="A.2" data-path="appendix-a-vocabulary.html"><a href="https://geanders.github.io/RProgrammingForResearch/appendix-a-vocabulary.html#week-2-quiz-2"><i class="fa fa-check"></i><b>A.2</b> Week 2 (Quiz 2)</a></li>
+<li class="chapter" data-level="A.3" data-path="appendix-a-vocabulary.html"><a href="https://geanders.github.io/RProgrammingForResearch/appendix-a-vocabulary.html#week-3-quiz-3"><i class="fa fa-check"></i><b>A.3</b> Week 3 (Quiz 3)</a></li>
+<li class="chapter" data-level="A.4" data-path="appendix-a-vocabulary.html"><a href="https://geanders.github.io/RProgrammingForResearch/appendix-a-vocabulary.html#week-4-quiz-4"><i class="fa fa-check"></i><b>A.4</b> Week 4 (Quiz 4)</a></li>
+<li class="chapter" data-level="A.5" data-path="appendix-a-vocabulary.html"><a href="https://geanders.github.io/RProgrammingForResearch/appendix-a-vocabulary.html#week-5-quiz-5"><i class="fa fa-check"></i><b>A.5</b> Week 5 (Quiz 5)</a></li>
+<li class="chapter" data-level="A.6" data-path="appendix-a-vocabulary.html"><a href="https://geanders.github.io/RProgrammingForResearch/appendix-a-vocabulary.html#week-6-quiz-6"><i class="fa fa-check"></i><b>A.6</b> Week 6 (Quiz 6)</a></li>
+<li class="chapter" data-level="A.7" data-path="appendix-a-vocabulary.html"><a href="https://geanders.github.io/RProgrammingForResearch/appendix-a-vocabulary.html#week-7-quiz-7"><i class="fa fa-check"></i><b>A.7</b> Week 7 (Quiz 7)</a></li>
+<li class="chapter" data-level="A.8" data-path="appendix-a-vocabulary.html"><a href="https://geanders.github.io/RProgrammingForResearch/appendix-a-vocabulary.html#week-8-quiz-8"><i class="fa fa-check"></i><b>A.8</b> Week 8 (Quiz 8)</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="appendix-b-homework.html"><a href="https://geanders.github.io/RProgrammingForResearch/appendix-b-homework.html"><i class="fa fa-check"></i><b>B</b> Appendix B: Homework</a><ul style="display: none;">
+<li class="chapter" data-level="B.1" data-path="appendix-b-homework.html"><a href="https://geanders.github.io/RProgrammingForResearch/appendix-b-homework.html#homework-1"><i class="fa fa-check"></i><b>B.1</b> Homework #1</a><ul style="display: none;">
+<li class="chapter" data-level="B.1.1" data-path="appendix-b-homework.html"><a href="https://geanders.github.io/RProgrammingForResearch/appendix-b-homework.html#option-1"><i class="fa fa-check"></i><b>B.1.1</b> Option 1</a></li>
+<li class="chapter" data-level="B.1.2" data-path="appendix-b-homework.html"><a href="https://geanders.github.io/RProgrammingForResearch/appendix-b-homework.html#option-2"><i class="fa fa-check"></i><b>B.1.2</b> Option 2</a></li>
+<li class="chapter" data-level="B.1.3" data-path="appendix-b-homework.html"><a href="https://geanders.github.io/RProgrammingForResearch/appendix-b-homework.html#special-swirl-commands"><i class="fa fa-check"></i><b>B.1.3</b> Special swirl commands</a></li>
+</ul></li>
+<li class="chapter" data-level="B.2" data-path="appendix-b-homework.html"><a href="https://geanders.github.io/RProgrammingForResearch/appendix-b-homework.html#homework-2"><i class="fa fa-check"></i><b>B.2</b> Homework #2</a></li>
+<li class="chapter" data-level="B.3" data-path="appendix-b-homework.html"><a href="https://geanders.github.io/RProgrammingForResearch/appendix-b-homework.html#homework-3"><i class="fa fa-check"></i><b>B.3</b> Homework #3</a></li>
+<li class="chapter" data-level="B.4" data-path="appendix-b-homework.html"><a href="https://geanders.github.io/RProgrammingForResearch/appendix-b-homework.html#homework-4"><i class="fa fa-check"></i><b>B.4</b> Homework #4</a></li>
+<li class="chapter" data-level="B.5" data-path="appendix-b-homework.html"><a href="https://geanders.github.io/RProgrammingForResearch/appendix-b-homework.html#homework-5"><i class="fa fa-check"></i><b>B.5</b> Homework #5</a></li>
+<li class="chapter" data-level="B.6" data-path="appendix-b-homework.html"><a href="https://geanders.github.io/RProgrammingForResearch/appendix-b-homework.html#homework-6"><i class="fa fa-check"></i><b>B.6</b> Homework #6</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references-1.html"><a href="https://geanders.github.io/RProgrammingForResearch/references-1.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org/" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body fixed">
+      <div class="body-inner">
+        <div class="book-header fixed" role="navigation" style="background-color: rgb(255, 255, 255);">
+          <a class="btn pull-left js-toolbar-action" aria-label="" href="https://geanders.github.io/RProgrammingForResearch/#"><i class="fa fa-align-justify"></i></a><a class="btn pull-left js-toolbar-action" aria-label="Search" href="https://geanders.github.io/RProgrammingForResearch/#"><i class="fa fa-search"></i></a><div class="dropdown pull-right  js-toolbar-action"><a class="btn toggle-dropdown" aria-label="Share" href="https://geanders.github.io/RProgrammingForResearch/#"><i class="fa fa-share-alt"></i></a><div class="dropdown-menu dropdown-left"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div><div class="buttons"><button class="button size-5 ">Facebook</button><button class="button size-5 ">Google+</button><button class="button size-5 ">Twitter</button><button class="button size-5 ">Weibo</button><button class="button size-5 ">Instapaper</button></div></div></div><a class="btn pull-right js-toolbar-action" aria-label="" href="https://geanders.github.io/RProgrammingForResearch/#"><i class="fa fa-facebook"></i></a><a class="btn pull-right js-toolbar-action" aria-label="" href="https://geanders.github.io/RProgrammingForResearch/#"><i class="fa fa-twitter"></i></a><div class="dropdown pull-left font-settings js-toolbar-action"><a class="btn toggle-dropdown" aria-label="Font Settings" href="https://geanders.github.io/RProgrammingForResearch/#"><i class="fa fa-font"></i></a><div class="dropdown-menu dropdown-right"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div><div class="buttons"><button class="button size-2 font-reduce">A</button><button class="button size-2 font-enlarge">A</button></div><div class="buttons"><button class="button size-2 ">Serif</button><button class="button size-2 ">Sans</button></div><div class="buttons"><button class="button size-3 ">White</button><button class="button size-3 ">Sepia</button><button class="button size-3 ">Night</button></div></div></div><a class="btn pull-left js-toolbar-action" aria-label="Edit" href="https://geanders.github.io/RProgrammingForResearch/#"><i class="fa fa-edit"></i></a><div class="dropdown pull-left  js-toolbar-action"><a class="btn toggle-dropdown" aria-label="Download" href="https://geanders.github.io/RProgrammingForResearch/#"><i class="fa fa-download"></i></a><div class="dropdown-menu dropdown-right"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div><div class="buttons"><button class="button size-1 ">PDF</button></div><div class="buttons"><button class="button size-1 ">EPUB</button></div></div></div><h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="https://geanders.github.io/RProgrammingForResearch/">R Programming for Research</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">R Programming for Research</h1>
+<h3 class="subtitle"><em>Colorado State University, ERHS 535</em></h3>
+<h4 class="author"><em>Brooke Anderson and Rachel Severson</em></h4>
+<h4 class="date"><em>2017-09-11</em></h4>
+</div>
+<div id="online-course-book-erhs-535" class="section level1 unnumbered">
+<h1>Online course book, ERHS 535</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fortunes<span class="op">::</span><span class="kw">fortune</span>(<span class="st">"write a book"</span>)</code></pre></div>
+<pre><code>## 
+## Have you ever wanted to write a book, but not known where to start? Now is
+## a very good time to jump in, because there is currently a very simple
+## recipe for success: just put R in the title and you will have to beat the
+## publishers off with a stick!
+##    -- Paul Murrell
+##       ASA Statistical Computing &amp; Graphics Newsletter 17(2) (November 2006)</code></pre>
+<p>This is the online book for Colorado State University’s ERHS 535 <em>R Programming for Research</em> course. This book includes course information, course notes, links to download pdfs of lecture slides, in-course exercises, homework assignments, and vocabulary lists for quizzes for this course. Because this is my first semester teaching the course with this online book, it will be evolving throughout the semester, as we get to new material.</p>
+<blockquote>
+<p>““Give someone a program, you frustrate them for a day; teach them how to program, you frustrate them for a lifetime.” —- David Leinweber”</p>
+</blockquote>
+<p>This work is licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
+<iframe src="./R Programming for Research_files/saved_resource.html" width="672" height="600px">
+</iframe>
+
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="https://geanders.github.io/RProgrammingForResearch/course-information.html" class="navigation navigation-next navigation-unique" aria-label="Next page" style="margin-right: 17px;"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="./R Programming for Research_files/app.min.js.下载"></script>
+<script src="./R Programming for Research_files/lunr.js.下载"></script>
+<script src="./R Programming for Research_files/plugin-search.js.下载"></script>
+<script src="./R Programming for Research_files/plugin-sharing.js.下载"></script>
+<script src="./R Programming for Research_files/plugin-fontsettings.js.下载"></script>
+<script src="./R Programming for Research_files/plugin-bookdown.js.下载"></script>
+<script src="./R Programming for Research_files/jquery.highlight.js.下载"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/geanders/RProgrammingForResearch/edit/master/index.Rmd",
+"text": "Edit"
+},
+"download": ["RProgrammingForResearch.pdf", "RProgrammingForResearch.epub"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+
+
+<audio controls="controls" style="display: none;"></audio></body><style type="text/css">#yddContainer{display:block;font-family:Microsoft YaHei;position:relative;width:100%;height:100%;top:-4px;left:-4px;font-size:12px;border:1px solid}#yddTop{display:block;height:22px}#yddTopBorderlr{display:block;position:static;height:17px;padding:2px 28px;line-height:17px;font-size:12px;color:#5079bb;font-weight:bold;border-style:none solid;border-width:1px}#yddTopBorderlr .ydd-sp{position:absolute;top:2px;height:0;overflow:hidden}.ydd-icon{left:5px;width:17px;padding:0px 0px 0px 0px;padding-top:17px;background-position:-16px -44px}.ydd-close{right:5px;width:16px;padding-top:16px;background-position:left -44px}#yddKeyTitle{float:left;text-decoration:none}#yddMiddle{display:block;margin-bottom:10px}.ydd-tabs{display:block;margin:5px 0;padding:0 5px;height:18px;border-bottom:1px solid}.ydd-tab{display:block;float:left;height:18px;margin:0 5px -1px 0;padding:0 4px;line-height:18px;border:1px solid;border-bottom:none}.ydd-trans-container{display:block;line-height:160%}.ydd-trans-container a{text-decoration:none;}#yddBottom{position:absolute;bottom:0;left:0;width:100%;height:22px;line-height:22px;overflow:hidden;background-position:left -22px}.ydd-padding010{padding:0 10px}#yddWrapper{color:#252525;z-index:10001;background:url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ab20.png);}#yddContainer{background:#fff;border-color:#4b7598}#yddTopBorderlr{border-color:#f0f8fc}#yddWrapper .ydd-sp{background-image:url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ydd-sprite.png)}#yddWrapper a,#yddWrapper a:hover,#yddWrapper a:visited{color:#50799b}#yddWrapper .ydd-tabs{color:#959595}.ydd-tabs,.ydd-tab{background:#fff;border-color:#d5e7f3}#yddBottom{color:#363636}#yddWrapper{min-width:250px;max-width:400px;}</style></html>

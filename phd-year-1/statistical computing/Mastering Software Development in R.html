@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://rdpeng.github.io/RProgDA/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Mastering Software Development in R</title>
+  
+  <meta name="description" content="The book covers R software development for building data science tools. As the field of data science evolves, it has become clear that software development skills are essential for producing useful data science results and products. You will obtain rigorous training in the R language, including the skills for handling complex data, building R packages and developing custom data visualizations. You will learn modern software development practices to build tools that are highly reusable, modular, and suitable for use in a team-based environment or a community of developers.">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Mastering Software Development in R">
+  <meta property="og:type" content="book">
+  <meta property="og:url" content="https://github.com/rdpeng/RProgDA">
+  <meta property="og:image" content="https://github.com/rdpeng/RProgDAcover-image.png">
+  <meta property="og:description" content="The book covers R software development for building data science tools. As the field of data science evolves, it has become clear that software development skills are essential for producing useful data science results and products. You will obtain rigorous training in the R language, including the skills for handling complex data, building R packages and developing custom data visualizations. You will learn modern software development practices to build tools that are highly reusable, modular, and suitable for use in a team-based environment or a community of developers.">
+  <meta name="github-repo" content="rdpeng/RProgDA">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Mastering Software Development in R">
+  
+  <meta name="twitter:description" content="The book covers R software development for building data science tools. As the field of data science evolves, it has become clear that software development skills are essential for producing useful data science results and products. You will obtain rigorous training in the R language, including the skills for handling complex data, building R packages and developing custom data visualizations. You will learn modern software development practices to build tools that are highly reusable, modular, and suitable for use in a team-based environment or a community of developers.">
+  <meta name="twitter:image" content="https://github.com/rdpeng/RProgDAcover-image.png">
+
+<meta name="author" content="Roger D. Peng, Sean Kross, and Brooke Anderson">
+
+
+<meta name="date" content="2016-12-21">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+
+<link rel="next" href="http://rdpeng.github.io/RProgDA/setup.html">
+
+<script src="./Mastering Software Development in R_files/jquery.min.js.下载"></script><script src="./Mastering Software Development in R_files/floating-frame.js.下载" type="text/javascript"></script>
+<link href="./Mastering Software Development in R_files/style.css" rel="stylesheet">
+<link href="./Mastering Software Development in R_files/plugin-bookdown.css" rel="stylesheet">
+<link href="./Mastering Software Development in R_files/plugin-highlight.css" rel="stylesheet">
+<link href="./Mastering Software Development in R_files/plugin-search.css" rel="stylesheet">
+<link href="./Mastering Software Development in R_files/plugin-fontsettings.css" rel="stylesheet">
+
+
+
+
+
+
+
+<script src="./Mastering Software Development in R_files/htmlwidgets.js.下载"></script>
+<link href="./Mastering Software Development in R_files/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="./Mastering Software Development in R_files/plotly-latest.min.js.下载"></script><style></style>
+<script src="./Mastering Software Development in R_files/plotly.js.下载"></script>
+<link href="./Mastering Software Development in R_files/crosstalk.css" rel="stylesheet">
+<script src="./Mastering Software Development in R_files/crosstalk.min.js.下载"></script>
+<link href="./Mastering Software Development in R_files/leaflet.css" rel="stylesheet">
+<script src="./Mastering Software Development in R_files/leaflet.js.下载"></script>
+<link href="./Mastering Software Development in R_files/leafletfix.css" rel="stylesheet">
+<script src="./Mastering Software Development in R_files/leaflet.js(1).下载"></script>
+<link href="./Mastering Software Development in R_files/MarkerCluster.css" rel="stylesheet">
+<link href="./Mastering Software Development in R_files/MarkerCluster.Default.css" rel="stylesheet">
+<script src="./Mastering Software Development in R_files/leaflet.markercluster.js.下载"></script>
+<script src="./Mastering Software Development in R_files/leaflet-providers.js.下载"></script>
+<script src="./Mastering Software Development in R_files/leaflet-providers-plugin.js.下载"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="./Mastering Software Development in R_files/style(1).css" type="text/css">
+<style>@media print{#s8obkrv4{display:none}}</style></head>
+
+<body>
+
+
+  <div class="book without-animation with-summary   font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary"><div class="book-search" role="search"><input type="search" class="form-control" placeholder="Type to search"></div>
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="http://rdpeng.github.io/RProgDA/">Mastering Software Development in R</a></li>
+
+<li class="divider"></li>
+<li class="chapter active" data-level="" data-path="index.html"><a href="http://rdpeng.github.io/RProgDA/index.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="setup.html"><a href="http://rdpeng.github.io/RProgDA/setup.html"><i class="fa fa-check"></i>Setup</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="the-r-programming-environment.html"><a href="http://rdpeng.github.io/RProgDA/the-r-programming-environment.html"><i class="fa fa-check"></i><b>1</b> The R Programming Environment</a><ul>
+<li class="chapter" data-level="1.1" data-path="crash-course-on-r-syntax.html"><a href="http://rdpeng.github.io/RProgDA/crash-course-on-r-syntax.html"><i class="fa fa-check"></i><b>1.1</b> Crash Course on R Syntax</a><ul style="display: none;">
+<li class="chapter" data-level="1.1.1" data-path="crash-course-on-r-syntax.html"><a href="http://rdpeng.github.io/RProgDA/crash-course-on-r-syntax.html#evaluation"><i class="fa fa-check"></i><b>1.1.1</b> Evaluation</a></li>
+<li class="chapter" data-level="1.1.2" data-path="crash-course-on-r-syntax.html"><a href="http://rdpeng.github.io/RProgDA/crash-course-on-r-syntax.html#r-objects"><i class="fa fa-check"></i><b>1.1.2</b> R Objects</a></li>
+<li class="chapter" data-level="1.1.3" data-path="crash-course-on-r-syntax.html"><a href="http://rdpeng.github.io/RProgDA/crash-course-on-r-syntax.html#numbers"><i class="fa fa-check"></i><b>1.1.3</b> Numbers</a></li>
+<li class="chapter" data-level="1.1.4" data-path="crash-course-on-r-syntax.html"><a href="http://rdpeng.github.io/RProgDA/crash-course-on-r-syntax.html#creating-vectors"><i class="fa fa-check"></i><b>1.1.4</b> Creating Vectors</a></li>
+<li class="chapter" data-level="1.1.5" data-path="crash-course-on-r-syntax.html"><a href="http://rdpeng.github.io/RProgDA/crash-course-on-r-syntax.html#mixing-objects"><i class="fa fa-check"></i><b>1.1.5</b> Mixing Objects</a></li>
+<li class="chapter" data-level="1.1.6" data-path="crash-course-on-r-syntax.html"><a href="http://rdpeng.github.io/RProgDA/crash-course-on-r-syntax.html#explicit-coercion"><i class="fa fa-check"></i><b>1.1.6</b> Explicit Coercion</a></li>
+<li class="chapter" data-level="1.1.7" data-path="crash-course-on-r-syntax.html"><a href="http://rdpeng.github.io/RProgDA/crash-course-on-r-syntax.html#matrices"><i class="fa fa-check"></i><b>1.1.7</b> Matrices</a></li>
+<li class="chapter" data-level="1.1.8" data-path="crash-course-on-r-syntax.html"><a href="http://rdpeng.github.io/RProgDA/crash-course-on-r-syntax.html#lists"><i class="fa fa-check"></i><b>1.1.8</b> Lists</a></li>
+<li class="chapter" data-level="1.1.9" data-path="crash-course-on-r-syntax.html"><a href="http://rdpeng.github.io/RProgDA/crash-course-on-r-syntax.html#factors"><i class="fa fa-check"></i><b>1.1.9</b> Factors</a></li>
+<li class="chapter" data-level="1.1.10" data-path="crash-course-on-r-syntax.html"><a href="http://rdpeng.github.io/RProgDA/crash-course-on-r-syntax.html#missing-values"><i class="fa fa-check"></i><b>1.1.10</b> Missing Values</a></li>
+<li class="chapter" data-level="1.1.11" data-path="crash-course-on-r-syntax.html"><a href="http://rdpeng.github.io/RProgDA/crash-course-on-r-syntax.html#data-frames"><i class="fa fa-check"></i><b>1.1.11</b> Data Frames</a></li>
+<li class="chapter" data-level="1.1.12" data-path="crash-course-on-r-syntax.html"><a href="http://rdpeng.github.io/RProgDA/crash-course-on-r-syntax.html#names"><i class="fa fa-check"></i><b>1.1.12</b> Names</a></li>
+<li class="chapter" data-level="1.1.13" data-path="crash-course-on-r-syntax.html"><a href="http://rdpeng.github.io/RProgDA/crash-course-on-r-syntax.html#attributes"><i class="fa fa-check"></i><b>1.1.13</b> Attributes</a></li>
+<li class="chapter" data-level="1.1.14" data-path="crash-course-on-r-syntax.html"><a href="http://rdpeng.github.io/RProgDA/crash-course-on-r-syntax.html#summary"><i class="fa fa-check"></i><b>1.1.14</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="the-importance-of-tidy-data.html"><a href="http://rdpeng.github.io/RProgDA/the-importance-of-tidy-data.html"><i class="fa fa-check"></i><b>1.2</b> The Importance of Tidy Data</a><ul style="display: none;">
+<li class="chapter" data-level="1.2.1" data-path="the-importance-of-tidy-data.html"><a href="http://rdpeng.github.io/RProgDA/the-importance-of-tidy-data.html#the-tidyverse"><i class="fa fa-check"></i><b>1.2.1</b> The “Tidyverse”</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="reading-tabular-data-with-the-readr-package.html"><a href="http://rdpeng.github.io/RProgDA/reading-tabular-data-with-the-readr-package.html" title="1.3 Reading Tabular Data with the readr Package"><i class="fa fa-check"></i><b>1.3</b> Reading Tabular Data with the <code>readr</code> Package</a></li>
+<li class="chapter" data-level="1.4" data-path="reading-web-based-data.html"><a href="http://rdpeng.github.io/RProgDA/reading-web-based-data.html"><i class="fa fa-check"></i><b>1.4</b> Reading Web-Based Data</a><ul style="display: none;">
+<li class="chapter" data-level="1.4.1" data-path="reading-web-based-data.html"><a href="http://rdpeng.github.io/RProgDA/reading-web-based-data.html#flat-files-online"><i class="fa fa-check"></i><b>1.4.1</b> Flat files online</a></li>
+<li class="chapter" data-level="1.4.2" data-path="reading-web-based-data.html"><a href="http://rdpeng.github.io/RProgDA/reading-web-based-data.html#requesting-data-through-a-web-api"><i class="fa fa-check"></i><b>1.4.2</b> Requesting data through a web API</a></li>
+<li class="chapter" data-level="1.4.3" data-path="reading-web-based-data.html"><a href="http://rdpeng.github.io/RProgDA/reading-web-based-data.html#scraping-web-data"><i class="fa fa-check"></i><b>1.4.3</b> Scraping web data</a></li>
+<li class="chapter" data-level="1.4.4" data-path="reading-web-based-data.html"><a href="http://rdpeng.github.io/RProgDA/reading-web-based-data.html#parsing-json-xml-or-html-data"><i class="fa fa-check"></i><b>1.4.4</b> Parsing JSON, XML, or HTML data</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="basic-data-manipulation.html"><a href="http://rdpeng.github.io/RProgDA/basic-data-manipulation.html"><i class="fa fa-check"></i><b>1.5</b> Basic Data Manipulation</a><ul style="display: none;">
+<li class="chapter" data-level="1.5.1" data-path="basic-data-manipulation.html"><a href="http://rdpeng.github.io/RProgDA/basic-data-manipulation.html#piping"><i class="fa fa-check"></i><b>1.5.1</b> Piping</a></li>
+<li class="chapter" data-level="1.5.2" data-path="basic-data-manipulation.html"><a href="http://rdpeng.github.io/RProgDA/basic-data-manipulation.html#summarizing-data"><i class="fa fa-check"></i><b>1.5.2</b> Summarizing data</a></li>
+<li class="chapter" data-level="1.5.3" data-path="basic-data-manipulation.html"><a href="http://rdpeng.github.io/RProgDA/basic-data-manipulation.html#selecting-and-filtering-data"><i class="fa fa-check"></i><b>1.5.3</b> Selecting and filtering data</a></li>
+<li class="chapter" data-level="1.5.4" data-path="basic-data-manipulation.html"><a href="http://rdpeng.github.io/RProgDA/basic-data-manipulation.html#adding-changing-or-renaming-columns"><i class="fa fa-check"></i><b>1.5.4</b> Adding, changing, or renaming columns</a></li>
+<li class="chapter" data-level="1.5.5" data-path="basic-data-manipulation.html"><a href="http://rdpeng.github.io/RProgDA/basic-data-manipulation.html#spreading-and-gathering-data"><i class="fa fa-check"></i><b>1.5.5</b> Spreading and gathering data</a></li>
+<li class="chapter" data-level="1.5.6" data-path="basic-data-manipulation.html"><a href="http://rdpeng.github.io/RProgDA/basic-data-manipulation.html#merging-datasets"><i class="fa fa-check"></i><b>1.5.6</b> Merging datasets</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="working-with-dates-times-time-zones.html"><a href="http://rdpeng.github.io/RProgDA/working-with-dates-times-time-zones.html" title="1.6 Working with Dates, Times, Time Zones"><i class="fa fa-check"></i><b>1.6</b> Working with Dates, Times, Time Zones</a><ul style="display: none;">
+<li class="chapter" data-level="1.6.1" data-path="working-with-dates-times-time-zones.html"><a href="http://rdpeng.github.io/RProgDA/working-with-dates-times-time-zones.html#converting-to-a-date-or-date-time-class"><i class="fa fa-check"></i><b>1.6.1</b> Converting to a date or date-time class</a></li>
+<li class="chapter" data-level="1.6.2" data-path="working-with-dates-times-time-zones.html"><a href="http://rdpeng.github.io/RProgDA/working-with-dates-times-time-zones.html#pulling-out-date-and-time-elements"><i class="fa fa-check"></i><b>1.6.2</b> Pulling out date and time elements</a></li>
+<li class="chapter" data-level="1.6.3" data-path="working-with-dates-times-time-zones.html"><a href="http://rdpeng.github.io/RProgDA/working-with-dates-times-time-zones.html#working-with-time-zones"><i class="fa fa-check"></i><b>1.6.3</b> Working with time zones</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="text-processing-and-regular-expressions.html"><a href="http://rdpeng.github.io/RProgDA/text-processing-and-regular-expressions.html" title="1.7 Text Processing and Regular Expressions"><i class="fa fa-check"></i><b>1.7</b> Text Processing and Regular Expressions</a><ul style="display: none;">
+<li class="chapter" data-level="1.7.1" data-path="text-processing-and-regular-expressions.html"><a href="http://rdpeng.github.io/RProgDA/text-processing-and-regular-expressions.html#text-manipulation-functions-in-r"><i class="fa fa-check"></i><b>1.7.1</b> Text Manipulation Functions in R</a></li>
+<li class="chapter" data-level="1.7.2" data-path="text-processing-and-regular-expressions.html"><a href="http://rdpeng.github.io/RProgDA/text-processing-and-regular-expressions.html#regular-expressions"><i class="fa fa-check"></i><b>1.7.2</b> Regular Expressions</a></li>
+<li class="chapter" data-level="1.7.3" data-path="text-processing-and-regular-expressions.html"><a href="http://rdpeng.github.io/RProgDA/text-processing-and-regular-expressions.html#regex-functions-in-r"><i class="fa fa-check"></i><b>1.7.3</b> RegEx Functions in R</a></li>
+<li class="chapter" data-level="1.7.4" data-path="text-processing-and-regular-expressions.html"><a href="http://rdpeng.github.io/RProgDA/text-processing-and-regular-expressions.html#the-stringr-package"><i class="fa fa-check"></i><b>1.7.4</b> The stringr Package</a></li>
+<li class="chapter" data-level="1.7.5" data-path="text-processing-and-regular-expressions.html"><a href="http://rdpeng.github.io/RProgDA/text-processing-and-regular-expressions.html#summary-1"><i class="fa fa-check"></i><b>1.7.5</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="the-role-of-physical-memory.html"><a href="http://rdpeng.github.io/RProgDA/the-role-of-physical-memory.html"><i class="fa fa-check"></i><b>1.8</b> The Role of Physical Memory</a><ul style="display: none;">
+<li class="chapter" data-level="1.8.1" data-path="the-role-of-physical-memory.html"><a href="http://rdpeng.github.io/RProgDA/the-role-of-physical-memory.html#back-of-the-envelope-calculations"><i class="fa fa-check"></i><b>1.8.1</b> Back of the Envelope Calculations</a></li>
+<li class="chapter" data-level="1.8.2" data-path="the-role-of-physical-memory.html"><a href="http://rdpeng.github.io/RProgDA/the-role-of-physical-memory.html#internal-memory-management-in-r"><i class="fa fa-check"></i><b>1.8.2</b> Internal Memory Management in R</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="working-with-large-datasets.html"><a href="http://rdpeng.github.io/RProgDA/working-with-large-datasets.html"><i class="fa fa-check"></i><b>1.9</b> Working with Large Datasets</a><ul style="display: none;">
+<li class="chapter" data-level="1.9.1" data-path="working-with-large-datasets.html"><a href="http://rdpeng.github.io/RProgDA/working-with-large-datasets.html#in-memory-strategies"><i class="fa fa-check"></i><b>1.9.1</b> In-memory strategies</a></li>
+<li class="chapter" data-level="1.9.2" data-path="working-with-large-datasets.html"><a href="http://rdpeng.github.io/RProgDA/working-with-large-datasets.html#out-of-memory-strategies"><i class="fa fa-check"></i><b>1.9.2</b> Out-of-memory strategies</a></li>
+</ul></li>
+<li class="chapter" data-level="1.10" data-path="diagnosing-problems.html"><a href="http://rdpeng.github.io/RProgDA/diagnosing-problems.html"><i class="fa fa-check"></i><b>1.10</b> Diagnosing Problems</a><ul style="display: none;">
+<li class="chapter" data-level="1.10.1" data-path="diagnosing-problems.html"><a href="http://rdpeng.github.io/RProgDA/diagnosing-problems.html#how-to-google-your-way-out-of-a-jam"><i class="fa fa-check"></i><b>1.10.1</b> How to Google Your Way Out of a Jam</a></li>
+<li class="chapter" data-level="1.10.2" data-path="diagnosing-problems.html"><a href="http://rdpeng.github.io/RProgDA/diagnosing-problems.html#asking-for-help"><i class="fa fa-check"></i><b>1.10.2</b> Asking for Help</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="advanced-r-programming.html"><a href="http://rdpeng.github.io/RProgDA/advanced-r-programming.html"><i class="fa fa-check"></i><b>2</b> Advanced R Programming</a><ul>
+<li class="chapter" data-level="2.1" data-path="control-structures.html"><a href="http://rdpeng.github.io/RProgDA/control-structures.html"><i class="fa fa-check"></i><b>2.1</b> Control Structures</a><ul style="display: none;">
+<li class="chapter" data-level="2.1.1" data-path="control-structures.html"><a href="http://rdpeng.github.io/RProgDA/control-structures.html#if-else"><i class="fa fa-check"></i><b>2.1.1</b> <code>if</code>-<code>else</code></a></li>
+<li class="chapter" data-level="2.1.2" data-path="control-structures.html"><a href="http://rdpeng.github.io/RProgDA/control-structures.html#for-loops"><i class="fa fa-check"></i><b>2.1.2</b> <code>for</code> Loops</a></li>
+<li class="chapter" data-level="2.1.3" data-path="control-structures.html"><a href="http://rdpeng.github.io/RProgDA/control-structures.html#next-break"><i class="fa fa-check"></i><b>2.1.3</b> <code>next</code>, <code>break</code></a></li>
+<li class="chapter" data-level="2.1.4" data-path="control-structures.html"><a href="http://rdpeng.github.io/RProgDA/control-structures.html#summary-2"><i class="fa fa-check"></i><b>2.1.4</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="functions.html"><a href="http://rdpeng.github.io/RProgDA/functions.html"><i class="fa fa-check"></i><b>2.2</b> Functions</a><ul style="display: none;">
+<li class="chapter" data-level="2.2.1" data-path="functions.html"><a href="http://rdpeng.github.io/RProgDA/functions.html#code"><i class="fa fa-check"></i><b>2.2.1</b> Code</a></li>
+<li class="chapter" data-level="2.2.2" data-path="functions.html"><a href="http://rdpeng.github.io/RProgDA/functions.html#function-interface"><i class="fa fa-check"></i><b>2.2.2</b> Function interface</a></li>
+<li class="chapter" data-level="2.2.3" data-path="functions.html"><a href="http://rdpeng.github.io/RProgDA/functions.html#r-package"><i class="fa fa-check"></i><b>2.2.3</b> R package</a></li>
+<li class="chapter" data-level="2.2.4" data-path="functions.html"><a href="http://rdpeng.github.io/RProgDA/functions.html#when-should-i-write-a-function"><i class="fa fa-check"></i><b>2.2.4</b> When Should I Write a Function?</a></li>
+<li class="chapter" data-level="2.2.5" data-path="functions.html"><a href="http://rdpeng.github.io/RProgDA/functions.html#summary-3"><i class="fa fa-check"></i><b>2.2.5</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="functional-programming.html"><a href="http://rdpeng.github.io/RProgDA/functional-programming.html"><i class="fa fa-check"></i><b>2.3</b> Functional Programming</a><ul style="display: none;">
+<li class="chapter" data-level="2.3.1" data-path="functional-programming.html"><a href="http://rdpeng.github.io/RProgDA/functional-programming.html#what-is-functional-programming"><i class="fa fa-check"></i><b>2.3.1</b> What is Functional Programming?</a></li>
+<li class="chapter" data-level="2.3.2" data-path="functional-programming.html"><a href="http://rdpeng.github.io/RProgDA/functional-programming.html#core-functional-programming-functions"><i class="fa fa-check"></i><b>2.3.2</b> Core Functional Programming Functions</a></li>
+<li class="chapter" data-level="2.3.3" data-path="functional-programming.html"><a href="http://rdpeng.github.io/RProgDA/functional-programming.html#functional-programming-concepts"><i class="fa fa-check"></i><b>2.3.3</b> Functional Programming Concepts</a></li>
+<li class="chapter" data-level="2.3.4" data-path="functional-programming.html"><a href="http://rdpeng.github.io/RProgDA/functional-programming.html#summary-4"><i class="fa fa-check"></i><b>2.3.4</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="expressions-environments.html"><a href="http://rdpeng.github.io/RProgDA/expressions-environments.html"><i class="fa fa-check"></i><b>2.4</b> Expressions &amp; Environments</a><ul style="display: none;">
+<li class="chapter" data-level="2.4.1" data-path="expressions-environments.html"><a href="http://rdpeng.github.io/RProgDA/expressions-environments.html#expressions"><i class="fa fa-check"></i><b>2.4.1</b> Expressions</a></li>
+<li class="chapter" data-level="2.4.2" data-path="expressions-environments.html"><a href="http://rdpeng.github.io/RProgDA/expressions-environments.html#environments"><i class="fa fa-check"></i><b>2.4.2</b> Environments</a></li>
+<li class="chapter" data-level="2.4.3" data-path="expressions-environments.html"><a href="http://rdpeng.github.io/RProgDA/expressions-environments.html#summary-5"><i class="fa fa-check"></i><b>2.4.3</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="error-handling-and-generation.html"><a href="http://rdpeng.github.io/RProgDA/error-handling-and-generation.html"><i class="fa fa-check"></i><b>2.5</b> Error Handling and Generation</a><ul style="display: none;">
+<li class="chapter" data-level="2.5.1" data-path="error-handling-and-generation.html"><a href="http://rdpeng.github.io/RProgDA/error-handling-and-generation.html#what-is-an-error"><i class="fa fa-check"></i><b>2.5.1</b> What is an error?</a></li>
+<li class="chapter" data-level="2.5.2" data-path="error-handling-and-generation.html"><a href="http://rdpeng.github.io/RProgDA/error-handling-and-generation.html#generating-errors"><i class="fa fa-check"></i><b>2.5.2</b> Generating Errors</a></li>
+<li class="chapter" data-level="2.5.3" data-path="error-handling-and-generation.html"><a href="http://rdpeng.github.io/RProgDA/error-handling-and-generation.html#when-to-generate-errors-or-warnings"><i class="fa fa-check"></i><b>2.5.3</b> When to generate errors or warnings</a></li>
+<li class="chapter" data-level="2.5.4" data-path="error-handling-and-generation.html"><a href="http://rdpeng.github.io/RProgDA/error-handling-and-generation.html#how-should-errors-be-handled"><i class="fa fa-check"></i><b>2.5.4</b> How should errors be handled?</a></li>
+<li class="chapter" data-level="2.5.5" data-path="error-handling-and-generation.html"><a href="http://rdpeng.github.io/RProgDA/error-handling-and-generation.html#summary-6"><i class="fa fa-check"></i><b>2.5.5</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="debugging.html"><a href="http://rdpeng.github.io/RProgDA/debugging.html"><i class="fa fa-check"></i><b>2.6</b> Debugging</a><ul style="display: none;">
+<li class="chapter" data-level="2.6.1" data-path="debugging.html"><a href="http://rdpeng.github.io/RProgDA/debugging.html#traceback"><i class="fa fa-check"></i><b>2.6.1</b> <code>traceback()</code></a></li>
+<li class="chapter" data-level="2.6.2" data-path="debugging.html"><a href="http://rdpeng.github.io/RProgDA/debugging.html#browsing-a-function-environment"><i class="fa fa-check"></i><b>2.6.2</b> Browsing a Function Environment</a></li>
+<li class="chapter" data-level="2.6.3" data-path="debugging.html"><a href="http://rdpeng.github.io/RProgDA/debugging.html#tracing-functions"><i class="fa fa-check"></i><b>2.6.3</b> Tracing Functions</a></li>
+<li class="chapter" data-level="2.6.4" data-path="debugging.html"><a href="http://rdpeng.github.io/RProgDA/debugging.html#using-debug-and-debugonce"><i class="fa fa-check"></i><b>2.6.4</b> Using <code>debug()</code> and <code>debugonce()</code></a></li>
+<li class="chapter" data-level="2.6.5" data-path="debugging.html"><a href="http://rdpeng.github.io/RProgDA/debugging.html#recover"><i class="fa fa-check"></i><b>2.6.5</b> <code>recover()</code></a></li>
+<li class="chapter" data-level="2.6.6" data-path="debugging.html"><a href="http://rdpeng.github.io/RProgDA/debugging.html#final-thoughts-on-debugging"><i class="fa fa-check"></i><b>2.6.6</b> Final Thoughts on Debugging</a></li>
+<li class="chapter" data-level="2.6.7" data-path="debugging.html"><a href="http://rdpeng.github.io/RProgDA/debugging.html#summary-7"><i class="fa fa-check"></i><b>2.6.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="profiling-and-benchmarking.html"><a href="http://rdpeng.github.io/RProgDA/profiling-and-benchmarking.html"><i class="fa fa-check"></i><b>2.7</b> Profiling and Benchmarking</a><ul style="display: none;">
+<li class="chapter" data-level="2.7.1" data-path="profiling-and-benchmarking.html"><a href="http://rdpeng.github.io/RProgDA/profiling-and-benchmarking.html#microbenchmark"><i class="fa fa-check"></i><b>2.7.1</b> <code>microbenchmark</code></a></li>
+<li class="chapter" data-level="2.7.2" data-path="profiling-and-benchmarking.html"><a href="http://rdpeng.github.io/RProgDA/profiling-and-benchmarking.html#profvis"><i class="fa fa-check"></i><b>2.7.2</b> <code>profvis</code></a></li>
+<li class="chapter" data-level="2.7.3" data-path="profiling-and-benchmarking.html"><a href="http://rdpeng.github.io/RProgDA/profiling-and-benchmarking.html#find-out-more"><i class="fa fa-check"></i><b>2.7.3</b> Find out more</a></li>
+<li class="chapter" data-level="2.7.4" data-path="profiling-and-benchmarking.html"><a href="http://rdpeng.github.io/RProgDA/profiling-and-benchmarking.html#summary-8"><i class="fa fa-check"></i><b>2.7.4</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="non-standard-evaluation.html"><a href="http://rdpeng.github.io/RProgDA/non-standard-evaluation.html"><i class="fa fa-check"></i><b>2.8</b> Non-standard Evaluation</a><ul style="display: none;">
+<li class="chapter" data-level="2.8.1" data-path="non-standard-evaluation.html"><a href="http://rdpeng.github.io/RProgDA/non-standard-evaluation.html#summary-9"><i class="fa fa-check"></i><b>2.8.1</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="object-oriented-programming.html"><a href="http://rdpeng.github.io/RProgDA/object-oriented-programming.html"><i class="fa fa-check"></i><b>2.9</b> Object Oriented Programming</a><ul style="display: none;">
+<li class="chapter" data-level="2.9.1" data-path="object-oriented-programming.html"><a href="http://rdpeng.github.io/RProgDA/object-oriented-programming.html#introduction-1"><i class="fa fa-check"></i><b>2.9.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.9.2" data-path="object-oriented-programming.html"><a href="http://rdpeng.github.io/RProgDA/object-oriented-programming.html#object-oriented-principles"><i class="fa fa-check"></i><b>2.9.2</b> Object Oriented Principles</a></li>
+<li class="chapter" data-level="2.9.3" data-path="object-oriented-programming.html"><a href="http://rdpeng.github.io/RProgDA/object-oriented-programming.html#s3"><i class="fa fa-check"></i><b>2.9.3</b> S3</a></li>
+<li class="chapter" data-level="2.9.4" data-path="object-oriented-programming.html"><a href="http://rdpeng.github.io/RProgDA/object-oriented-programming.html#s4"><i class="fa fa-check"></i><b>2.9.4</b> S4</a></li>
+<li class="chapter" data-level="2.9.5" data-path="object-oriented-programming.html"><a href="http://rdpeng.github.io/RProgDA/object-oriented-programming.html#reference-classes"><i class="fa fa-check"></i><b>2.9.5</b> Reference Classes</a></li>
+<li class="chapter" data-level="2.9.6" data-path="object-oriented-programming.html"><a href="http://rdpeng.github.io/RProgDA/object-oriented-programming.html#summary-10"><i class="fa fa-check"></i><b>2.9.6</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="gaining-your-tidyverse-citizenship.html"><a href="http://rdpeng.github.io/RProgDA/gaining-your-tidyverse-citizenship.html" title="2.10 Gaining Your ‘tidyverse’ Citizenship"><i class="fa fa-check"></i><b>2.10</b> Gaining Your ‘tidyverse’ Citizenship</a><ul style="display: none;">
+<li class="chapter" data-level="2.10.1" data-path="gaining-your-tidyverse-citizenship.html"><a href="http://rdpeng.github.io/RProgDA/gaining-your-tidyverse-citizenship.html#reuse-existing-data-structures"><i class="fa fa-check"></i><b>2.10.1</b> Reuse existing data structures</a></li>
+<li class="chapter" data-level="2.10.2" data-path="gaining-your-tidyverse-citizenship.html"><a href="http://rdpeng.github.io/RProgDA/gaining-your-tidyverse-citizenship.html#compose-simple-functions-with-the-pipe"><i class="fa fa-check"></i><b>2.10.2</b> Compose simple functions with the pipe</a></li>
+<li class="chapter" data-level="2.10.3" data-path="gaining-your-tidyverse-citizenship.html"><a href="http://rdpeng.github.io/RProgDA/gaining-your-tidyverse-citizenship.html#embrace-functional-programming"><i class="fa fa-check"></i><b>2.10.3</b> Embrace functional programming</a></li>
+<li class="chapter" data-level="2.10.4" data-path="gaining-your-tidyverse-citizenship.html"><a href="http://rdpeng.github.io/RProgDA/gaining-your-tidyverse-citizenship.html#design-for-humans"><i class="fa fa-check"></i><b>2.10.4</b> Design for humans</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="building-r-packages.html"><a href="http://rdpeng.github.io/RProgDA/building-r-packages.html"><i class="fa fa-check"></i><b>3</b> Building R Packages</a><ul>
+<li class="chapter" data-level="3.1" data-path="before-you-start.html"><a href="http://rdpeng.github.io/RProgDA/before-you-start.html"><i class="fa fa-check"></i><b>3.1</b> Before You Start</a><ul style="display: none;">
+<li class="chapter" data-level="3.1.1" data-path="before-you-start.html"><a href="http://rdpeng.github.io/RProgDA/before-you-start.html#mac-os"><i class="fa fa-check"></i><b>3.1.1</b> Mac OS</a></li>
+<li class="chapter" data-level="3.1.2" data-path="before-you-start.html"><a href="http://rdpeng.github.io/RProgDA/before-you-start.html#windows"><i class="fa fa-check"></i><b>3.1.2</b> Windows</a></li>
+<li class="chapter" data-level="3.1.3" data-path="before-you-start.html"><a href="http://rdpeng.github.io/RProgDA/before-you-start.html#unixlinux"><i class="fa fa-check"></i><b>3.1.3</b> Unix/Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="r-packages.html"><a href="http://rdpeng.github.io/RProgDA/r-packages.html"><i class="fa fa-check"></i><b>3.2</b> R Packages</a><ul style="display: none;">
+<li class="chapter" data-level="3.2.1" data-path="r-packages.html"><a href="http://rdpeng.github.io/RProgDA/r-packages.html#basic-structure-of-an-r-package"><i class="fa fa-check"></i><b>3.2.1</b> Basic Structure of an R Package</a></li>
+<li class="chapter" data-level="3.2.2" data-path="r-packages.html"><a href="http://rdpeng.github.io/RProgDA/r-packages.html#description-file"><i class="fa fa-check"></i><b>3.2.2</b> DESCRIPTION File</a></li>
+<li class="chapter" data-level="3.2.3" data-path="r-packages.html"><a href="http://rdpeng.github.io/RProgDA/r-packages.html#namespace-file"><i class="fa fa-check"></i><b>3.2.3</b> NAMESPACE File</a></li>
+<li class="chapter" data-level="3.2.4" data-path="r-packages.html"><a href="http://rdpeng.github.io/RProgDA/r-packages.html#the-r-sub-directory"><i class="fa fa-check"></i><b>3.2.4</b> The R Sub-directory</a></li>
+<li class="chapter" data-level="3.2.5" data-path="r-packages.html"><a href="http://rdpeng.github.io/RProgDA/r-packages.html#the-man-sub-directory"><i class="fa fa-check"></i><b>3.2.5</b> The man Sub-directory</a></li>
+<li class="chapter" data-level="3.2.6" data-path="r-packages.html"><a href="http://rdpeng.github.io/RProgDA/r-packages.html#summary-11"><i class="fa fa-check"></i><b>3.2.6</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="the-devtools-package.html"><a href="http://rdpeng.github.io/RProgDA/the-devtools-package.html"><i class="fa fa-check"></i><b>3.3</b> The <code>devtools</code> Package</a><ul style="display: none;">
+<li class="chapter" data-level="3.3.1" data-path="the-devtools-package.html"><a href="http://rdpeng.github.io/RProgDA/the-devtools-package.html#key-devtools-functions"><i class="fa fa-check"></i><b>3.3.1</b> Key <code>devtools</code> functions</a></li>
+<li class="chapter" data-level="3.3.2" data-path="the-devtools-package.html"><a href="http://rdpeng.github.io/RProgDA/the-devtools-package.html#creating-a-package"><i class="fa fa-check"></i><b>3.3.2</b> Creating a package</a></li>
+<li class="chapter" data-level="3.3.3" data-path="the-devtools-package.html"><a href="http://rdpeng.github.io/RProgDA/the-devtools-package.html#other-functions"><i class="fa fa-check"></i><b>3.3.3</b> Other functions</a></li>
+<li class="chapter" data-level="3.3.4" data-path="the-devtools-package.html"><a href="http://rdpeng.github.io/RProgDA/the-devtools-package.html#summary-12"><i class="fa fa-check"></i><b>3.3.4</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="documentation.html"><a href="http://rdpeng.github.io/RProgDA/documentation.html"><i class="fa fa-check"></i><b>3.4</b> Documentation</a><ul style="display: none;">
+<li class="chapter" data-level="3.4.1" data-path="documentation.html"><a href="http://rdpeng.github.io/RProgDA/documentation.html#vignettes-and-readme-files"><i class="fa fa-check"></i><b>3.4.1</b> Vignettes and README files</a></li>
+<li class="chapter" data-level="3.4.2" data-path="documentation.html"><a href="http://rdpeng.github.io/RProgDA/documentation.html#knitr-markdown"><i class="fa fa-check"></i><b>3.4.2</b> Knitr / Markdown</a></li>
+<li class="chapter" data-level="3.4.3" data-path="documentation.html"><a href="http://rdpeng.github.io/RProgDA/documentation.html#common-markdown-formatting-elements"><i class="fa fa-check"></i><b>3.4.3</b> Common Markdown formatting elements</a></li>
+<li class="chapter" data-level="3.4.4" data-path="documentation.html"><a href="http://rdpeng.github.io/RProgDA/documentation.html#common-knitr-chunk-options"><i class="fa fa-check"></i><b>3.4.4</b> Common knitr chunk options</a></li>
+<li class="chapter" data-level="3.4.5" data-path="documentation.html"><a href="http://rdpeng.github.io/RProgDA/documentation.html#help-files-and-roxygen2"><i class="fa fa-check"></i><b>3.4.5</b> Help files and roxygen2</a></li>
+<li class="chapter" data-level="3.4.6" data-path="documentation.html"><a href="http://rdpeng.github.io/RProgDA/documentation.html#common-roxygen2-tags"><i class="fa fa-check"></i><b>3.4.6</b> Common <code>roxygen2</code> tags</a></li>
+<li class="chapter" data-level="3.4.7" data-path="documentation.html"><a href="http://rdpeng.github.io/RProgDA/documentation.html#common-roxygen2-formatting-tags"><i class="fa fa-check"></i><b>3.4.7</b> Common roxygen2 formatting tags</a></li>
+<li class="chapter" data-level="3.4.8" data-path="documentation.html"><a href="http://rdpeng.github.io/RProgDA/documentation.html#summary-13"><i class="fa fa-check"></i><b>3.4.8</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="data-within-a-package.html"><a href="http://rdpeng.github.io/RProgDA/data-within-a-package.html"><i class="fa fa-check"></i><b>3.5</b> Data Within a Package</a><ul style="display: none;">
+<li class="chapter" data-level="3.5.1" data-path="data-within-a-package.html"><a href="http://rdpeng.github.io/RProgDA/data-within-a-package.html#data-for-demos"><i class="fa fa-check"></i><b>3.5.1</b> Data for Demos</a></li>
+<li class="chapter" data-level="3.5.2" data-path="data-within-a-package.html"><a href="http://rdpeng.github.io/RProgDA/data-within-a-package.html#internal-data"><i class="fa fa-check"></i><b>3.5.2</b> Internal Data</a></li>
+<li class="chapter" data-level="3.5.3" data-path="data-within-a-package.html"><a href="http://rdpeng.github.io/RProgDA/data-within-a-package.html#data-packages"><i class="fa fa-check"></i><b>3.5.3</b> Data Packages</a></li>
+<li class="chapter" data-level="3.5.4" data-path="data-within-a-package.html"><a href="http://rdpeng.github.io/RProgDA/data-within-a-package.html#summary-14"><i class="fa fa-check"></i><b>3.5.4</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="software-testing-framework-for-r-packages.html"><a href="http://rdpeng.github.io/RProgDA/software-testing-framework-for-r-packages.html" title="3.6 Software Testing Framework for R Packages"><i class="fa fa-check"></i><b>3.6</b> Software Testing Framework for R Packages</a><ul style="display: none;">
+<li class="chapter" data-level="3.6.1" data-path="software-testing-framework-for-r-packages.html"><a href="http://rdpeng.github.io/RProgDA/software-testing-framework-for-r-packages.html#the-testthat-package"><i class="fa fa-check"></i><b>3.6.1</b> The <code>testthat</code> Package</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="passing-cran-checks.html"><a href="http://rdpeng.github.io/RProgDA/passing-cran-checks.html"><i class="fa fa-check"></i><b>3.7</b> Passing CRAN checks</a></li>
+<li class="chapter" data-level="3.8" data-path="open-source-licensing.html"><a href="http://rdpeng.github.io/RProgDA/open-source-licensing.html"><i class="fa fa-check"></i><b>3.8</b> Open Source Licensing</a><ul style="display: none;">
+<li class="chapter" data-level="3.8.1" data-path="open-source-licensing.html"><a href="http://rdpeng.github.io/RProgDA/open-source-licensing.html#the-general-public-license"><i class="fa fa-check"></i><b>3.8.1</b> The General Public License</a></li>
+<li class="chapter" data-level="3.8.2" data-path="open-source-licensing.html"><a href="http://rdpeng.github.io/RProgDA/open-source-licensing.html#the-mit-license"><i class="fa fa-check"></i><b>3.8.2</b> The MIT License</a></li>
+<li class="chapter" data-level="3.8.3" data-path="open-source-licensing.html"><a href="http://rdpeng.github.io/RProgDA/open-source-licensing.html#the-cc0-license"><i class="fa fa-check"></i><b>3.8.3</b> The CC0 License</a></li>
+<li class="chapter" data-level="3.8.4" data-path="open-source-licensing.html"><a href="http://rdpeng.github.io/RProgDA/open-source-licensing.html#why-open-source"><i class="fa fa-check"></i><b>3.8.4</b> Why Open Source?</a></li>
+<li class="chapter" data-level="3.8.5" data-path="open-source-licensing.html"><a href="http://rdpeng.github.io/RProgDA/open-source-licensing.html#summary-15"><i class="fa fa-check"></i><b>3.8.5</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="version-control-and-github.html"><a href="http://rdpeng.github.io/RProgDA/version-control-and-github.html"><i class="fa fa-check"></i><b>3.9</b> Version Control and GitHub</a><ul style="display: none;">
+<li class="chapter" data-level="3.9.1" data-path="version-control-and-github.html"><a href="http://rdpeng.github.io/RProgDA/version-control-and-github.html#git"><i class="fa fa-check"></i><b>3.9.1</b> git</a></li>
+<li class="chapter" data-level="3.9.2" data-path="version-control-and-github.html"><a href="http://rdpeng.github.io/RProgDA/version-control-and-github.html#initializing-a-git-repository"><i class="fa fa-check"></i><b>3.9.2</b> Initializing a git repository</a></li>
+<li class="chapter" data-level="3.9.3" data-path="version-control-and-github.html"><a href="http://rdpeng.github.io/RProgDA/version-control-and-github.html#committing"><i class="fa fa-check"></i><b>3.9.3</b> Committing</a></li>
+<li class="chapter" data-level="3.9.4" data-path="version-control-and-github.html"><a href="http://rdpeng.github.io/RProgDA/version-control-and-github.html#browsing-history"><i class="fa fa-check"></i><b>3.9.4</b> Browsing history</a></li>
+<li class="chapter" data-level="3.9.5" data-path="version-control-and-github.html"><a href="http://rdpeng.github.io/RProgDA/version-control-and-github.html#linking-local-repo-to-github-repo"><i class="fa fa-check"></i><b>3.9.5</b> Linking local repo to GitHub repo</a></li>
+<li class="chapter" data-level="3.9.6" data-path="version-control-and-github.html"><a href="http://rdpeng.github.io/RProgDA/version-control-and-github.html#syncing-rstudio-and-github"><i class="fa fa-check"></i><b>3.9.6</b> Syncing RStudio and GitHub</a></li>
+<li class="chapter" data-level="3.9.7" data-path="version-control-and-github.html"><a href="http://rdpeng.github.io/RProgDA/version-control-and-github.html#issues"><i class="fa fa-check"></i><b>3.9.7</b> Issues</a></li>
+<li class="chapter" data-level="3.9.8" data-path="version-control-and-github.html"><a href="http://rdpeng.github.io/RProgDA/version-control-and-github.html#pull-request"><i class="fa fa-check"></i><b>3.9.8</b> Pull request</a></li>
+<li class="chapter" data-level="3.9.9" data-path="version-control-and-github.html"><a href="http://rdpeng.github.io/RProgDA/version-control-and-github.html#merge-conflicts"><i class="fa fa-check"></i><b>3.9.9</b> Merge conflicts</a></li>
+<li class="chapter" data-level="3.9.10" data-path="version-control-and-github.html"><a href="http://rdpeng.github.io/RProgDA/version-control-and-github.html#summary-16"><i class="fa fa-check"></i><b>3.9.10</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="software-design-and-philosophy.html"><a href="http://rdpeng.github.io/RProgDA/software-design-and-philosophy.html" title="3.10 Software Design and Philosophy"><i class="fa fa-check"></i><b>3.10</b> Software Design and Philosophy</a><ul style="display: none;">
+<li class="chapter" data-level="3.10.1" data-path="software-design-and-philosophy.html"><a href="http://rdpeng.github.io/RProgDA/software-design-and-philosophy.html#the-unix-philosophy"><i class="fa fa-check"></i><b>3.10.1</b> The Unix Philosophy</a></li>
+<li class="chapter" data-level="3.10.2" data-path="software-design-and-philosophy.html"><a href="http://rdpeng.github.io/RProgDA/software-design-and-philosophy.html#default-values-1"><i class="fa fa-check"></i><b>3.10.2</b> Default Values</a></li>
+<li class="chapter" data-level="3.10.3" data-path="software-design-and-philosophy.html"><a href="http://rdpeng.github.io/RProgDA/software-design-and-philosophy.html#naming-things"><i class="fa fa-check"></i><b>3.10.3</b> Naming Things</a></li>
+<li class="chapter" data-level="3.10.4" data-path="software-design-and-philosophy.html"><a href="http://rdpeng.github.io/RProgDA/software-design-and-philosophy.html#playing-well-with-others"><i class="fa fa-check"></i><b>3.10.4</b> Playing Well With Others</a></li>
+<li class="chapter" data-level="3.10.5" data-path="software-design-and-philosophy.html"><a href="http://rdpeng.github.io/RProgDA/software-design-and-philosophy.html#summary-17"><i class="fa fa-check"></i><b>3.10.5</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="continuous-integration.html"><a href="http://rdpeng.github.io/RProgDA/continuous-integration.html"><i class="fa fa-check"></i><b>3.11</b> Continuous Integration</a><ul style="display: none;">
+<li class="chapter" data-level="3.11.1" data-path="continuous-integration.html"><a href="http://rdpeng.github.io/RProgDA/continuous-integration.html#web-services-for-continuous-integration"><i class="fa fa-check"></i><b>3.11.1</b> Web Services for Continuous Integration</a></li>
+<li class="chapter" data-level="3.11.2" data-path="continuous-integration.html"><a href="http://rdpeng.github.io/RProgDA/continuous-integration.html#summary-18"><i class="fa fa-check"></i><b>3.11.2</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3.12" data-path="cross-platform-development.html"><a href="http://rdpeng.github.io/RProgDA/cross-platform-development.html"><i class="fa fa-check"></i><b>3.12</b> Cross Platform Development</a><ul style="display: none;">
+<li class="chapter" data-level="3.12.1" data-path="cross-platform-development.html"><a href="http://rdpeng.github.io/RProgDA/cross-platform-development.html#handling-paths"><i class="fa fa-check"></i><b>3.12.1</b> Handling Paths</a></li>
+<li class="chapter" data-level="3.12.2" data-path="cross-platform-development.html"><a href="http://rdpeng.github.io/RProgDA/cross-platform-development.html#rappdirs"><i class="fa fa-check"></i><b>3.12.2</b> rappdirs</a></li>
+<li class="chapter" data-level="3.12.3" data-path="cross-platform-development.html"><a href="http://rdpeng.github.io/RProgDA/cross-platform-development.html#options-and-starting-r"><i class="fa fa-check"></i><b>3.12.3</b> Options and Starting R</a></li>
+<li class="chapter" data-level="3.12.4" data-path="cross-platform-development.html"><a href="http://rdpeng.github.io/RProgDA/cross-platform-development.html#package-installation"><i class="fa fa-check"></i><b>3.12.4</b> Package Installation</a></li>
+<li class="chapter" data-level="3.12.5" data-path="cross-platform-development.html"><a href="http://rdpeng.github.io/RProgDA/cross-platform-development.html#environmental-attributes"><i class="fa fa-check"></i><b>3.12.5</b> Environmental Attributes</a></li>
+<li class="chapter" data-level="3.12.6" data-path="cross-platform-development.html"><a href="http://rdpeng.github.io/RProgDA/cross-platform-development.html#summary-19"><i class="fa fa-check"></i><b>3.12.6</b> Summary</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="building-data-visualization-tools.html"><a href="http://rdpeng.github.io/RProgDA/building-data-visualization-tools.html"><i class="fa fa-check"></i><b>4</b> Building Data Visualization Tools</a><ul>
+<li class="chapter" data-level="4.1" data-path="basic-plotting-with-ggplot2.html"><a href="http://rdpeng.github.io/RProgDA/basic-plotting-with-ggplot2.html"><i class="fa fa-check"></i><b>4.1</b> Basic Plotting With ggplot2</a><ul style="display: none;">
+<li class="chapter" data-level="4.1.1" data-path="basic-plotting-with-ggplot2.html"><a href="http://rdpeng.github.io/RProgDA/basic-plotting-with-ggplot2.html#initializing-a-ggplot-object"><i class="fa fa-check"></i><b>4.1.1</b> Initializing a <code>ggplot</code> object</a></li>
+<li class="chapter" data-level="4.1.2" data-path="basic-plotting-with-ggplot2.html"><a href="http://rdpeng.github.io/RProgDA/basic-plotting-with-ggplot2.html#plot-aesthetics"><i class="fa fa-check"></i><b>4.1.2</b> Plot aesthetics</a></li>
+<li class="chapter" data-level="4.1.3" data-path="basic-plotting-with-ggplot2.html"><a href="http://rdpeng.github.io/RProgDA/basic-plotting-with-ggplot2.html#creating-a-basic-ggplot-plot"><i class="fa fa-check"></i><b>4.1.3</b> Creating a basic ggplot plot</a></li>
+<li class="chapter" data-level="4.1.4" data-path="basic-plotting-with-ggplot2.html"><a href="http://rdpeng.github.io/RProgDA/basic-plotting-with-ggplot2.html#geoms"><i class="fa fa-check"></i><b>4.1.4</b> Geoms</a></li>
+<li class="chapter" data-level="4.1.5" data-path="basic-plotting-with-ggplot2.html"><a href="http://rdpeng.github.io/RProgDA/basic-plotting-with-ggplot2.html#using-multiple-geoms"><i class="fa fa-check"></i><b>4.1.5</b> Using multiple geoms</a></li>
+<li class="chapter" data-level="4.1.6" data-path="basic-plotting-with-ggplot2.html"><a href="http://rdpeng.github.io/RProgDA/basic-plotting-with-ggplot2.html#constant-aesthetics"><i class="fa fa-check"></i><b>4.1.6</b> Constant aesthetics</a></li>
+<li class="chapter" data-level="4.1.7" data-path="basic-plotting-with-ggplot2.html"><a href="http://rdpeng.github.io/RProgDA/basic-plotting-with-ggplot2.html#other-useful-plot-additions"><i class="fa fa-check"></i><b>4.1.7</b> Other useful plot additions</a></li>
+<li class="chapter" data-level="4.1.8" data-path="basic-plotting-with-ggplot2.html"><a href="http://rdpeng.github.io/RProgDA/basic-plotting-with-ggplot2.html#example-plots"><i class="fa fa-check"></i><b>4.1.8</b> Example plots</a></li>
+<li class="chapter" data-level="4.1.9" data-path="basic-plotting-with-ggplot2.html"><a href="http://rdpeng.github.io/RProgDA/basic-plotting-with-ggplot2.html#extensions-of-ggplot2"><i class="fa fa-check"></i><b>4.1.9</b> Extensions of <code>ggplot2</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="customizing-ggplot2-plots.html"><a href="http://rdpeng.github.io/RProgDA/customizing-ggplot2-plots.html"><i class="fa fa-check"></i><b>4.2</b> Customizing ggplot2 Plots</a><ul style="display: none;">
+<li class="chapter" data-level="4.2.1" data-path="customizing-ggplot2-plots.html"><a href="http://rdpeng.github.io/RProgDA/customizing-ggplot2-plots.html#guidelines-for-good-plots"><i class="fa fa-check"></i><b>4.2.1</b> Guidelines for good plots</a></li>
+<li class="chapter" data-level="4.2.2" data-path="customizing-ggplot2-plots.html"><a href="http://rdpeng.github.io/RProgDA/customizing-ggplot2-plots.html#scales-and-color"><i class="fa fa-check"></i><b>4.2.2</b> Scales and color</a></li>
+<li class="chapter" data-level="4.2.3" data-path="customizing-ggplot2-plots.html"><a href="http://rdpeng.github.io/RProgDA/customizing-ggplot2-plots.html#to-find-out-more"><i class="fa fa-check"></i><b>4.2.3</b> To find out more</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="mapping.html"><a href="http://rdpeng.github.io/RProgDA/mapping.html"><i class="fa fa-check"></i><b>4.3</b> Mapping</a><ul style="display: none;">
+<li class="chapter" data-level="4.3.1" data-path="mapping.html"><a href="http://rdpeng.github.io/RProgDA/mapping.html#basics-of-mapping"><i class="fa fa-check"></i><b>4.3.1</b> Basics of mapping</a></li>
+<li class="chapter" data-level="4.3.2" data-path="mapping.html"><a href="http://rdpeng.github.io/RProgDA/mapping.html#ggmap-google-maps-api"><i class="fa fa-check"></i><b>4.3.2</b> ggmap, Google Maps API</a></li>
+<li class="chapter" data-level="4.3.3" data-path="mapping.html"><a href="http://rdpeng.github.io/RProgDA/mapping.html#mapping-us-counties-and-states"><i class="fa fa-check"></i><b>4.3.3</b> Mapping US counties and states</a></li>
+<li class="chapter" data-level="4.3.4" data-path="mapping.html"><a href="http://rdpeng.github.io/RProgDA/mapping.html#more-advanced-mapping-spatial-objects"><i class="fa fa-check"></i><b>4.3.4</b> More advanced mapping – Spatial objects</a></li>
+<li class="chapter" data-level="4.3.5" data-path="mapping.html"><a href="http://rdpeng.github.io/RProgDA/mapping.html#where-to-find-more-on-mapping-with-r"><i class="fa fa-check"></i><b>4.3.5</b> Where to find more on mapping with R</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="htmlwidgets.html"><a href="http://rdpeng.github.io/RProgDA/htmlwidgets.html"><i class="fa fa-check"></i><b>4.4</b> htmlWidgets</a><ul style="display: none;">
+<li class="chapter" data-level="4.4.1" data-path="htmlwidgets.html"><a href="http://rdpeng.github.io/RProgDA/htmlwidgets.html#overview-of-htmlwidgets"><i class="fa fa-check"></i><b>4.4.1</b> Overview of htmlWidgets</a></li>
+<li class="chapter" data-level="4.4.2" data-path="htmlwidgets.html"><a href="http://rdpeng.github.io/RProgDA/htmlwidgets.html#plotly-package"><i class="fa fa-check"></i><b>4.4.2</b> <code>plotly</code> package</a></li>
+<li class="chapter" data-level="4.4.3" data-path="htmlwidgets.html"><a href="http://rdpeng.github.io/RProgDA/htmlwidgets.html#leaflet"><i class="fa fa-check"></i><b>4.4.3</b> Leaflet</a></li>
+<li class="chapter" data-level="4.4.4" data-path="htmlwidgets.html"><a href="http://rdpeng.github.io/RProgDA/htmlwidgets.html#creating-your-own-widget"><i class="fa fa-check"></i><b>4.4.4</b> Creating your own widget</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="the-grid-package.html"><a href="http://rdpeng.github.io/RProgDA/the-grid-package.html"><i class="fa fa-check"></i><b>4.5</b> The grid Package</a><ul style="display: none;">
+<li class="chapter" data-level="4.5.1" data-path="the-grid-package.html"><a href="http://rdpeng.github.io/RProgDA/the-grid-package.html#overview-of-grid-graphics"><i class="fa fa-check"></i><b>4.5.1</b> Overview of grid graphics</a></li>
+<li class="chapter" data-level="4.5.2" data-path="the-grid-package.html"><a href="http://rdpeng.github.io/RProgDA/the-grid-package.html#grobs"><i class="fa fa-check"></i><b>4.5.2</b> Grobs</a></li>
+<li class="chapter" data-level="4.5.3" data-path="the-grid-package.html"><a href="http://rdpeng.github.io/RProgDA/the-grid-package.html#viewports"><i class="fa fa-check"></i><b>4.5.3</b> Viewports</a></li>
+<li class="chapter" data-level="4.5.4" data-path="the-grid-package.html"><a href="http://rdpeng.github.io/RProgDA/the-grid-package.html#grid-graphics-coordinate-systems"><i class="fa fa-check"></i><b>4.5.4</b> Grid graphics coordinate systems</a></li>
+<li class="chapter" data-level="4.5.5" data-path="the-grid-package.html"><a href="http://rdpeng.github.io/RProgDA/the-grid-package.html#the-gridextra-package"><i class="fa fa-check"></i><b>4.5.5</b> The <code>gridExtra</code> package</a></li>
+<li class="chapter" data-level="4.5.6" data-path="the-grid-package.html"><a href="http://rdpeng.github.io/RProgDA/the-grid-package.html#find-out-more-about-grid-graphics"><i class="fa fa-check"></i><b>4.5.6</b> Find out more about grid graphics</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="building-a-new-theme.html"><a href="http://rdpeng.github.io/RProgDA/building-a-new-theme.html"><i class="fa fa-check"></i><b>4.6</b> Building a New Theme</a><ul style="display: none;">
+<li class="chapter" data-level="4.6.1" data-path="building-a-new-theme.html"><a href="http://rdpeng.github.io/RProgDA/building-a-new-theme.html#why-build-a-new-theme"><i class="fa fa-check"></i><b>4.6.1</b> Why Build a New Theme?</a></li>
+<li class="chapter" data-level="4.6.2" data-path="building-a-new-theme.html"><a href="http://rdpeng.github.io/RProgDA/building-a-new-theme.html#default-theme"><i class="fa fa-check"></i><b>4.6.2</b> Default Theme</a></li>
+<li class="chapter" data-level="4.6.3" data-path="building-a-new-theme.html"><a href="http://rdpeng.github.io/RProgDA/building-a-new-theme.html#creating-a-new-theme"><i class="fa fa-check"></i><b>4.6.3</b> Creating a New Theme</a></li>
+<li class="chapter" data-level="4.6.4" data-path="building-a-new-theme.html"><a href="http://rdpeng.github.io/RProgDA/building-a-new-theme.html#summary-20"><i class="fa fa-check"></i><b>4.6.4</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="building-new-graphical-elements.html"><a href="http://rdpeng.github.io/RProgDA/building-new-graphical-elements.html" title="4.7 Building New Graphical Elements"><i class="fa fa-check"></i><b>4.7</b> Building New Graphical Elements</a><ul style="display: none;">
+<li class="chapter" data-level="4.7.1" data-path="building-new-graphical-elements.html"><a href="http://rdpeng.github.io/RProgDA/building-new-graphical-elements.html#building-a-geom"><i class="fa fa-check"></i><b>4.7.1</b> Building a Geom</a></li>
+<li class="chapter" data-level="4.7.2" data-path="building-new-graphical-elements.html"><a href="http://rdpeng.github.io/RProgDA/building-new-graphical-elements.html#example-an-automatic-transparency-geom"><i class="fa fa-check"></i><b>4.7.2</b> Example: An Automatic Transparency Geom</a></li>
+<li class="chapter" data-level="4.7.3" data-path="building-new-graphical-elements.html"><a href="http://rdpeng.github.io/RProgDA/building-new-graphical-elements.html#summary-21"><i class="fa fa-check"></i><b>4.7.3</b> Summary</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="about-the-authors.html"><a href="http://rdpeng.github.io/RProgDA/about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body fixed">
+      <div class="body-inner">
+        <div class="book-header fixed" role="navigation" style="background-color: rgb(255, 255, 255);">
+          <a class="btn pull-left js-toolbar-action" aria-label="" href="http://rdpeng.github.io/RProgDA/#"><i class="fa fa-align-justify"></i></a><a class="btn pull-left js-toolbar-action" aria-label="Search" href="http://rdpeng.github.io/RProgDA/#"><i class="fa fa-search"></i></a><div class="dropdown pull-right  js-toolbar-action"><a class="btn toggle-dropdown" aria-label="Share" href="http://rdpeng.github.io/RProgDA/#"><i class="fa fa-share-alt"></i></a><div class="dropdown-menu dropdown-left"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div><div class="buttons"><button class="button size-5 ">Facebook</button><button class="button size-5 ">Google+</button><button class="button size-5 ">Twitter</button><button class="button size-5 ">Weibo</button><button class="button size-5 ">Instapaper</button></div></div></div><a class="btn pull-right js-toolbar-action" aria-label="" href="http://rdpeng.github.io/RProgDA/#"><i class="fa fa-facebook"></i></a><a class="btn pull-right js-toolbar-action" aria-label="" href="http://rdpeng.github.io/RProgDA/#"><i class="fa fa-twitter"></i></a><div class="dropdown pull-left font-settings js-toolbar-action"><a class="btn toggle-dropdown" aria-label="Font Settings" href="http://rdpeng.github.io/RProgDA/#"><i class="fa fa-font"></i></a><div class="dropdown-menu dropdown-right"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div><div class="buttons"><button class="button size-2 font-reduce">A</button><button class="button size-2 font-enlarge">A</button></div><div class="buttons"><button class="button size-2 ">Serif</button><button class="button size-2 ">Sans</button></div><div class="buttons"><button class="button size-3 ">White</button><button class="button size-3 ">Sepia</button><button class="button size-3 ">Night</button></div></div></div><h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="http://rdpeng.github.io/RProgDA/">Mastering Software Development in R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Mastering Software Development in R</h1>
+<h4 class="author"><em>Roger D. Peng, Sean Kross, and Brooke Anderson</em></h4>
+<h4 class="date"><em>2016-12-21</em></h4>
+</div>
+<div id="introduction" class="section level1 unnumbered">
+<h1>Introduction</h1>
+<div class="figure">
+<img src="./Mastering Software Development in R_files/cover-image_sm.png">
+
+</div>
+<div class="rmdwarning">
+<p>
+This book is under development.
+</p>
+</div>
+<p>This book is designed to be used in conjunction with the course sequence <em>Mastering Software Development in R</em>, available on Coursera. The book covers R software development for building data science tools. As the field of data science evolves, it has become clear that software development skills are essential for producing useful data science results and products. You will obtain rigorous training in the R language, including the skills for handling complex data, building R packages and developing custom data visualizations. You will learn modern software development practices to build tools that are highly reusable, modular, and suitable for use in a team-based environment or a community of developers.</p>
+<p>This work is licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p> 
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="http://rdpeng.github.io/RProgDA/setup.html" class="navigation navigation-next navigation-unique" aria-label="Next page" "="" style="margin-right: 17px;"><i class="fa fa-angle-right"></i></a>
+
+<script src="./Mastering Software Development in R_files/app.min.js.下载"></script>
+<script src="./Mastering Software Development in R_files/lunr.js.下载"></script>
+<script src="./Mastering Software Development in R_files/plugin-search.js.下载"></script>
+<script src="./Mastering Software Development in R_files/plugin-sharing.js.下载"></script>
+<script src="./Mastering Software Development in R_files/plugin-fontsettings.js.下载"></script>
+<script src="./Mastering Software Development in R_files/plugin-bookdown.js.下载"></script>
+<script src="./Mastering Software Development in R_files/jquery.highlight.js.下载"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+
+
+
+</div></div><audio controls="controls" style="display: none;"></audio></body><style type="text/css">#yddContainer{display:block;font-family:Microsoft YaHei;position:relative;width:100%;height:100%;top:-4px;left:-4px;font-size:12px;border:1px solid}#yddTop{display:block;height:22px}#yddTopBorderlr{display:block;position:static;height:17px;padding:2px 28px;line-height:17px;font-size:12px;color:#5079bb;font-weight:bold;border-style:none solid;border-width:1px}#yddTopBorderlr .ydd-sp{position:absolute;top:2px;height:0;overflow:hidden}.ydd-icon{left:5px;width:17px;padding:0px 0px 0px 0px;padding-top:17px;background-position:-16px -44px}.ydd-close{right:5px;width:16px;padding-top:16px;background-position:left -44px}#yddKeyTitle{float:left;text-decoration:none}#yddMiddle{display:block;margin-bottom:10px}.ydd-tabs{display:block;margin:5px 0;padding:0 5px;height:18px;border-bottom:1px solid}.ydd-tab{display:block;float:left;height:18px;margin:0 5px -1px 0;padding:0 4px;line-height:18px;border:1px solid;border-bottom:none}.ydd-trans-container{display:block;line-height:160%}.ydd-trans-container a{text-decoration:none;}#yddBottom{position:absolute;bottom:0;left:0;width:100%;height:22px;line-height:22px;overflow:hidden;background-position:left -22px}.ydd-padding010{padding:0 10px}#yddWrapper{color:#252525;z-index:10001;background:url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ab20.png);}#yddContainer{background:#fff;border-color:#4b7598}#yddTopBorderlr{border-color:#f0f8fc}#yddWrapper .ydd-sp{background-image:url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ydd-sprite.png)}#yddWrapper a,#yddWrapper a:hover,#yddWrapper a:visited{color:#50799b}#yddWrapper .ydd-tabs{color:#959595}.ydd-tabs,.ydd-tab{background:#fff;border-color:#d5e7f3}#yddBottom{color:#363636}#yddWrapper{min-width:250px;max-width:400px;}</style></html>
