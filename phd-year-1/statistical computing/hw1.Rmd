@@ -16,7 +16,17 @@ data(WorldPhones)
 WorldPhones
 ```
 
+### Clean Data
+```{r clean_data}
+library(tidyr)
+library(dplyr)
 
+WorldPhones %>%
+  tbl_df() %>%
+  mutate(year = factor(row.names(WorldPhones))) %>%
+  gather(country, number, -year) %>%
+  mutate(country = factor(country))
+```
 
 ## Part 2
 
