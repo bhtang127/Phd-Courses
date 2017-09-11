@@ -139,34 +139,63 @@ WorldPhones</code></pre>
 <div id="clean-data" class="section level3">
 <h3>Clean Data</h3>
 <pre class="r"><code>library(tidyr)
-library(dplyr)</code></pre>
-<pre><code>## 
-## Attaching package: 'dplyr'</code></pre>
-<pre><code>## The following objects are masked from 'package:stats':
-## 
-##     filter, lag</code></pre>
-<pre><code>## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union</code></pre>
-<pre class="r"><code>WorldPhones %&gt;%
-  tbl_df() %&gt;%
-  mutate(year = factor(row.names(WorldPhones))) %&gt;%
-  gather(country, number, -year) %&gt;%
-  mutate(country = factor(country))</code></pre>
-<pre><code>## # A tibble: 49 x 3
-##      year country number
-##    &lt;fctr&gt;  &lt;fctr&gt;  &lt;dbl&gt;
-##  1   1951  N.Amer  45939
-##  2   1956  N.Amer  60423
-##  3   1957  N.Amer  64721
-##  4   1958  N.Amer  68484
-##  5   1959  N.Amer  71799
-##  6   1960  N.Amer  76036
-##  7   1961  N.Amer  79831
-##  8   1951  Europe  21574
-##  9   1956  Europe  29990
-## 10   1957  Europe  32510
-## # ... with 39 more rows</code></pre>
+library(dplyr)
+
+WorldPhones %&gt;%
+    as.data.frame() %&gt;%
+    mutate(year = factor(row.names(WorldPhones))) %&gt;%
+    gather(country, number, -year) %&gt;%
+    mutate(country = factor(country))</code></pre>
+<pre><code>   year  country number
+1  1951   N.Amer  45939
+2  1956   N.Amer  60423
+3  1957   N.Amer  64721
+4  1958   N.Amer  68484
+5  1959   N.Amer  71799
+6  1960   N.Amer  76036
+7  1961   N.Amer  79831
+8  1951   Europe  21574
+9  1956   Europe  29990
+10 1957   Europe  32510
+11 1958   Europe  35218
+12 1959   Europe  37598
+13 1960   Europe  40341
+14 1961   Europe  43173
+15 1951     Asia   2876
+16 1956     Asia   4708
+17 1957     Asia   5230
+18 1958     Asia   6662
+19 1959     Asia   6856
+20 1960     Asia   8220
+21 1961     Asia   9053
+22 1951   S.Amer   1815
+23 1956   S.Amer   2568
+24 1957   S.Amer   2695
+25 1958   S.Amer   2845
+26 1959   S.Amer   3000
+27 1960   S.Amer   3145
+28 1961   S.Amer   3338
+29 1951  Oceania   1646
+30 1956  Oceania   2366
+31 1957  Oceania   2526
+32 1958  Oceania   2691
+33 1959  Oceania   2868
+34 1960  Oceania   3054
+35 1961  Oceania   3224
+36 1951   Africa     89
+37 1956   Africa   1411
+38 1957   Africa   1546
+39 1958   Africa   1663
+40 1959   Africa   1769
+41 1960   Africa   1905
+42 1961   Africa   2005
+43 1951 Mid.Amer    555
+44 1956 Mid.Amer    733
+45 1957 Mid.Amer    773
+46 1958 Mid.Amer    836
+47 1959 Mid.Amer    911
+48 1960 Mid.Amer   1008
+49 1961 Mid.Amer   1076</code></pre>
 </div>
 </div>
 <div id="part-2" class="section level2">
