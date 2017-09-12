@@ -24,12 +24,137 @@ library(dplyr)
 WorldPhones %>%
     as.data.frame() %>%
     mutate(year = factor(row.names(WorldPhones))) %>%
-    gather(country, number, -year) %>%
-    mutate(country = factor(country))
-    
+    gather(country, number, -year) 
 ```
 
 ## Part 2
+### Load Data
+```{r load_pm25_data, message=FALSE, warning=FALSE}
+library(readr)
+data <- read_csv("SPEC_2014.csv.zip")
+```
+### Preview Data
+```{r preview_data,message=FALSE, warning=FALSE}
+library(dplyr)
+names(data)
+head(select(data,c("Sample.Value","Parameter.Name",
+                   "State.Name","County.Name","City.Name" )))
+```
 
+### Solutions
+1.
+```{r q1, message=FALSE, warning=FALSE}
+data %>%
+  filter(Parameter.Name=="Bromine PM2.5 LC", State.Name=="Wisconsin") %>%
+  select(Sample.Value) %>%
+  summarize(Avg.Value = mean(Sample.Value))
+```
+So, the average value of “Bromine PM2.5 LC” in the state of Wisconsin is 0.003960482.
+
+2.
+```{r q2, message=FALSE, warning=FALSE}
+avg.data <- data %>%
+  select(c("Parameter.Name","Sample.Value")) %>%
+  group_by(Parameter.Name) %>%
+  summarize(Avg.Value = mean(Sample.Value))
+
+avg.data
+
+avg.data %>%
+  filter(Avg.Value == max(Avg.Value))
+```
+Therefore "OC CSN Unadjusted PM2.5 LC TOT" has the highest average level.
+
+3.
+```{r q3, message=FALSE, warning=FALSE}
+data %>%
+  select(c("Parameter.Name","Sample.Value",
+           "State.Code","County.Code","Site.Num")) %>%
+  filter(Parameter.Name == "Sulfate PM2.5 LC") %>%
+  filter(Sample.Value == max(Sample.Value))
+```
+Therefore "State 34 County 001 Site 0006" has the highest levels of “Sulfate PM2.5 LC”.
+
+4. 
+```{r q4, message=FALSE, warning=FALSE}
+c_a <- data %>%
+  select(c("Parameter.Name","Sample.Value","State.Name")) %>%
+  filter(Parameter.Name == "EC PM2.5 LC TOR" &
+         State.Name %in% c("California","Arizona")) %>%
+  group_by(State.Name) %>%
+  summarize(Avg.Value = mean(Sample.Value))
+
+c_a
+
+filter(c_a,State.Name=="California")[,"Avg.Value"] - filter(c_a,State.Name=="Arizona")[,"Avg.Value"] 
+```
+Therefore the average levels of “EC PM2.5 LC TOR” in California is 0.01856696 bigger than that in Arizona.
+
+5. 
+```{r q5, message=FALSE, warning=FALSE}
+data %>%
+  select(c("Parameter.Name","Sample.Value","Longitude")) %>%
+  filter(Parameter.Name %in% c("OC PM2.5 LC TOR","EC PM2.5 LC TOR")) %>%
+  mutate(Location = factor(Longitude < -100,labels=c("Eastern","Western"))) %>%
+  group_by(Parameter.Name, Location) %>%
+  summarize(Med.value = median(Sample.Value))
+```
+Median levels are shown above.
 
 ## Part 3
+
+### Load Data
+```{r xl, message=FALSE, warning=FALSE}
+library(readxl)
+EPA <- read_excel("aqs_sites.xlsx")
+```
+
+### Preview Data
+```{r preview_data2,message=FALSE, warning=FALSE}
+library(dplyr)
+library(tidyr)
+names(EPA)
+head(select(EPA,c("Land Use","Location Setting",
+                  "State Name","County Name","City Name" )))
+```
+
+### Solutions
+
+1.
+```{r q21, message=FALSE, warning=FALSE}
+EPA %>%
+  select(c("Land Use","Location Setting")) %>%
+  rename(Land.Use="Land Use", Location.Setting="Location Setting") %>%
+  filter(Land.Use == "RESIDENTIAL" & Location.Setting == "SUBURBAN") %>%
+  summarize(Amount = length(Land.Use))
+```
+Therefore, there are 3527 monitoring sites are labelled as both “RESIDENTIAL” for Land Use and “SUBURBAN” for Location Setting.
+
+2.
+```{r q22, message=FALSE, warning=FALSE}
+EPA_tidy <- EPA %>%
+  select(c("Land Use","Location Setting",
+           "State Code","County Code","Site Number")) %>%
+  rename(Land.Use="Land Use", Location.Setting="Location Setting")
+
+data <- data %>% 
+          mutate(State.Code = as.numeric(State.Code),
+                 County.Code = as.numeric(County.Code),
+                 Site.Num = as.numeric(Site.Num))
+
+total_data <- inner_join(data, EPA_tidy, by = c("State.Code" = "State Code",
+                                                "County.Code" = "County Code",
+                                                "Site.Num" = "Site Number"))
+
+total_data %>%
+  select(c("Parameter.Name","Sample.Value","Longitude",
+           "Land.Use","Location.Setting")) %>%
+  mutate(Location = factor(Longitude < -100,labels=c("Eastern","Western"))) %>%
+  filter(Location == "Eastern" & 
+         Parameter.Name %in% c("OC PM2.5 LC TOR","EC PM2.5 LC TOR") &
+         Land.Use == "RESIDENTIAL" &
+         Location.Setting == "SUBURBAN") %>%
+  group_by(Parameter.Name,Location,Land.Use,Location.Setting) %>%
+  summarize(Med.Value = median(Sample.Value))
+```
+Median values are shown above.

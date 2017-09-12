@@ -144,8 +144,7 @@ library(dplyr)
 WorldPhones %&gt;%
     as.data.frame() %&gt;%
     mutate(year = factor(row.names(WorldPhones))) %&gt;%
-    gather(country, number, -year) %&gt;%
-    mutate(country = factor(country))</code></pre>
+    gather(country, number, -year) </code></pre>
 <pre><code>   year  country number
 1  1951   N.Amer  45939
 2  1956   N.Amer  60423
@@ -200,9 +199,222 @@ WorldPhones %&gt;%
 </div>
 <div id="part-2" class="section level2">
 <h2>Part 2</h2>
+<div id="load-data-1" class="section level3">
+<h3>Load Data</h3>
+<pre class="r"><code>library(readr)
+data &lt;- read_csv(&quot;SPEC_2014.csv.zip&quot;)</code></pre>
+</div>
+<div id="preview-data" class="section level3">
+<h3>Preview Data</h3>
+<pre class="r"><code>library(dplyr)
+names(data)</code></pre>
+<pre><code>##  [1] &quot;State.Code&quot;          &quot;County.Code&quot;         &quot;Site.Num&quot;           
+##  [4] &quot;Parameter.Code&quot;      &quot;POC&quot;                 &quot;Latitude&quot;           
+##  [7] &quot;Longitude&quot;           &quot;Datum&quot;               &quot;Parameter.Name&quot;     
+## [10] &quot;Sample.Duration&quot;     &quot;Pollutant.Standard&quot;  &quot;Date.Local&quot;         
+## [13] &quot;Units.of.Measure&quot;    &quot;Event.Type&quot;          &quot;Observation.Count&quot;  
+## [16] &quot;Observation.Percent&quot; &quot;Sample.Value&quot;        &quot;X1st.Max.Value&quot;     
+## [19] &quot;X1st.Max.Hour&quot;       &quot;AQI&quot;                 &quot;Method.Code&quot;        
+## [22] &quot;State.Name&quot;          &quot;County.Name&quot;         &quot;City.Name&quot;          
+## [25] &quot;CBSA.Name&quot;           &quot;Date.of.Last.Change&quot;</code></pre>
+<pre class="r"><code>head(select(data,c(&quot;Sample.Value&quot;,&quot;Parameter.Name&quot;,
+                   &quot;State.Name&quot;,&quot;County.Name&quot;,&quot;City.Name&quot; )))</code></pre>
+<pre><code>## # A tibble: 6 x 5
+##   Sample.Value    Parameter.Name State.Name County.Name  City.Name
+##          &lt;dbl&gt;             &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;      &lt;chr&gt;
+## 1        0.000 Antimony PM2.5 LC    Alabama   Jefferson Birmingham
+## 2        0.000 Antimony PM2.5 LC    Alabama   Jefferson Birmingham
+## 3        0.000 Antimony PM2.5 LC    Alabama   Jefferson Birmingham
+## 4        0.012 Antimony PM2.5 LC    Alabama   Jefferson Birmingham
+## 5        0.008 Antimony PM2.5 LC    Alabama   Jefferson Birmingham
+## 6        0.000 Antimony PM2.5 LC    Alabama   Jefferson Birmingham</code></pre>
+</div>
+<div id="solutions" class="section level3">
+<h3>Solutions</h3>
+<ol style="list-style-type: decimal">
+<li></li>
+</ol>
+<pre class="r"><code>data %&gt;%
+  filter(Parameter.Name==&quot;Bromine PM2.5 LC&quot;, State.Name==&quot;Wisconsin&quot;) %&gt;%
+  select(Sample.Value) %&gt;%
+  summarize(Avg.Value = mean(Sample.Value))</code></pre>
+<pre><code>## # A tibble: 1 x 1
+##     Avg.Value
+##         &lt;dbl&gt;
+## 1 0.003960482</code></pre>
+<p>So, the average value of “Bromine PM2.5 LC” in the state of Wisconsin is 0.003960482.</p>
+<ol start="2" style="list-style-type: decimal">
+<li></li>
+</ol>
+<pre class="r"><code>avg.data &lt;- data %&gt;%
+  select(c(&quot;Parameter.Name&quot;,&quot;Sample.Value&quot;)) %&gt;%
+  group_by(Parameter.Name) %&gt;%
+  summarize(Avg.Value = mean(Sample.Value))
+
+avg.data</code></pre>
+<pre><code>## # A tibble: 86 x 2
+##                  Parameter.Name    Avg.Value
+##                           &lt;chr&gt;        &lt;dbl&gt;
+##  1            Aluminum PM2.5 LC 0.0530055039
+##  2        Ammonium Ion PM2.5 LC 0.7000857964
+##  3            Antimony PM2.5 LC 0.0051715344
+##  4             Arsenic PM2.5 LC 0.0003327170
+##  5              Barium PM2.5 LC 0.0024248165
+##  6 Black Carbon PM2.5 at 880 nm 0.5329133087
+##  7             Bromine PM2.5 LC 0.0024828012
+##  8             Cadmium PM2.5 LC 0.0014917894
+##  9             Calcium PM2.5 LC 0.0475444239
+## 10              Cerium PM2.5 LC 0.0002267075
+## # ... with 76 more rows</code></pre>
+<pre class="r"><code>avg.data %&gt;%
+  filter(Avg.Value == max(Avg.Value))</code></pre>
+<pre><code>## # A tibble: 1 x 2
+##                   Parameter.Name Avg.Value
+##                            &lt;chr&gt;     &lt;dbl&gt;
+## 1 OC CSN Unadjusted PM2.5 LC TOT  67.78383</code></pre>
+<p>Therefore “OC CSN Unadjusted PM2.5 LC TOT” has the highest average level.</p>
+<ol start="3" style="list-style-type: decimal">
+<li></li>
+</ol>
+<pre class="r"><code>data %&gt;%
+  select(c(&quot;Parameter.Name&quot;,&quot;Sample.Value&quot;,
+           &quot;State.Code&quot;,&quot;County.Code&quot;,&quot;Site.Num&quot;)) %&gt;%
+  filter(Parameter.Name == &quot;Sulfate PM2.5 LC&quot;) %&gt;%
+  filter(Sample.Value == max(Sample.Value))</code></pre>
+<pre><code>## # A tibble: 1 x 5
+##     Parameter.Name Sample.Value State.Code County.Code Site.Num
+##              &lt;chr&gt;        &lt;dbl&gt;      &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;
+## 1 Sulfate PM2.5 LC       14.835         34         001     0006</code></pre>
+<p>Therefore “State 34 County 001 Site 0006” has the highest levels of “Sulfate PM2.5 LC”.</p>
+<ol start="4" style="list-style-type: decimal">
+<li></li>
+</ol>
+<pre class="r"><code>c_a &lt;- data %&gt;%
+  select(c(&quot;Parameter.Name&quot;,&quot;Sample.Value&quot;,&quot;State.Name&quot;)) %&gt;%
+  filter(Parameter.Name == &quot;EC PM2.5 LC TOR&quot; &amp;
+         State.Name %in% c(&quot;California&quot;,&quot;Arizona&quot;)) %&gt;%
+  group_by(State.Name) %&gt;%
+  summarize(Avg.Value = mean(Sample.Value))
+
+c_a</code></pre>
+<pre><code>## # A tibble: 2 x 2
+##   State.Name Avg.Value
+##        &lt;chr&gt;     &lt;dbl&gt;
+## 1    Arizona 0.1791704
+## 2 California 0.1977374</code></pre>
+<pre class="r"><code>filter(c_a,State.Name==&quot;California&quot;)[,&quot;Avg.Value&quot;] - filter(c_a,State.Name==&quot;Arizona&quot;)[,&quot;Avg.Value&quot;] </code></pre>
+<pre><code>##    Avg.Value
+## 1 0.01856696</code></pre>
+<p>Therefore the average levels of “EC PM2.5 LC TOR” in California is 0.01856696 bigger than that in Arizona.</p>
+<ol start="5" style="list-style-type: decimal">
+<li></li>
+</ol>
+<pre class="r"><code>data %&gt;%
+  select(c(&quot;Parameter.Name&quot;,&quot;Sample.Value&quot;,&quot;Longitude&quot;)) %&gt;%
+  filter(Parameter.Name %in% c(&quot;OC PM2.5 LC TOR&quot;,&quot;EC PM2.5 LC TOR&quot;)) %&gt;%
+  mutate(Location = factor(Longitude &lt; -100,labels=c(&quot;Eastern&quot;,&quot;Western&quot;))) %&gt;%
+  group_by(Parameter.Name, Location) %&gt;%
+  summarize(Med.value = median(Sample.Value))</code></pre>
+<pre><code>## # A tibble: 4 x 3
+## # Groups:   Parameter.Name [?]
+##    Parameter.Name Location Med.value
+##             &lt;chr&gt;   &lt;fctr&gt;     &lt;dbl&gt;
+## 1 EC PM2.5 LC TOR  Eastern      0.17
+## 2 EC PM2.5 LC TOR  Western      0.06
+## 3 OC PM2.5 LC TOR  Eastern      0.88
+## 4 OC PM2.5 LC TOR  Western      0.43</code></pre>
+<p>Median levels are shown above.</p>
+</div>
 </div>
 <div id="part-3" class="section level2">
 <h2>Part 3</h2>
+<div id="load-data-2" class="section level3">
+<h3>Load Data</h3>
+<pre class="r"><code>library(readxl)
+EPA &lt;- read_excel(&quot;aqs_sites.xlsx&quot;)</code></pre>
+</div>
+<div id="preview-data-1" class="section level3">
+<h3>Preview Data</h3>
+<pre class="r"><code>library(dplyr)
+library(tidyr)
+names(EPA)</code></pre>
+<pre><code>##  [1] &quot;State Code&quot;            &quot;County Code&quot;          
+##  [3] &quot;Site Number&quot;           &quot;Latitude&quot;             
+##  [5] &quot;Longitude&quot;             &quot;Datum&quot;                
+##  [7] &quot;Elevation&quot;             &quot;Land Use&quot;             
+##  [9] &quot;Location Setting&quot;      &quot;Site Established Date&quot;
+## [11] &quot;Site Closed Date&quot;      &quot;Met Site State Code&quot;  
+## [13] &quot;Met Site County Code&quot;  &quot;Met Site Site Number&quot; 
+## [15] &quot;Met Site Type&quot;         &quot;Met Site Distance&quot;    
+## [17] &quot;Met Site Direction&quot;    &quot;GMT Offset&quot;           
+## [19] &quot;Owning Agency&quot;         &quot;Local Site Name&quot;      
+## [21] &quot;Address&quot;               &quot;Zip Code&quot;             
+## [23] &quot;State Name&quot;            &quot;County Name&quot;          
+## [25] &quot;City Name&quot;             &quot;CBSA Name&quot;            
+## [27] &quot;Tribe Name&quot;            &quot;Extraction Date&quot;</code></pre>
+<pre class="r"><code>head(select(EPA,c(&quot;Land Use&quot;,&quot;Location Setting&quot;,
+                  &quot;State Name&quot;,&quot;County Name&quot;,&quot;City Name&quot; )))</code></pre>
+<pre><code>## # A tibble: 6 x 5
+##     `Land Use`    `Location Setting` `State Name` `County Name`
+##          &lt;chr&gt;                 &lt;chr&gt;        &lt;chr&gt;         &lt;chr&gt;
+## 1  RESIDENTIAL              SUBURBAN      Alabama       Autauga
+## 2 AGRICULTURAL                 RURAL      Alabama       Autauga
+## 3       FOREST                 RURAL      Alabama       Autauga
+## 4      UNKNOWN                 RURAL      Alabama       Baldwin
+## 5   COMMERCIAL                 RURAL      Alabama       Baldwin
+## 6   COMMERCIAL URBAN AND CENTER CITY      Alabama       Baldwin
+## # ... with 1 more variables: `City Name` &lt;chr&gt;</code></pre>
+</div>
+<div id="solutions-1" class="section level3">
+<h3>Solutions</h3>
+<ol style="list-style-type: decimal">
+<li></li>
+</ol>
+<pre class="r"><code>EPA %&gt;%
+  select(c(&quot;Land Use&quot;,&quot;Location Setting&quot;)) %&gt;%
+  rename(Land.Use=&quot;Land Use&quot;, Location.Setting=&quot;Location Setting&quot;) %&gt;%
+  filter(Land.Use == &quot;RESIDENTIAL&quot; &amp; Location.Setting == &quot;SUBURBAN&quot;) %&gt;%
+  summarize(Amount = length(Land.Use))</code></pre>
+<pre><code>## # A tibble: 1 x 1
+##   Amount
+##    &lt;int&gt;
+## 1   3527</code></pre>
+<p>Therefore, there are 3527 monitoring sites are labelled as both “RESIDENTIAL” for Land Use and “SUBURBAN” for Location Setting.</p>
+<ol start="2" style="list-style-type: decimal">
+<li></li>
+</ol>
+<pre class="r"><code>EPA_tidy &lt;- EPA %&gt;%
+  select(c(&quot;Land Use&quot;,&quot;Location Setting&quot;,
+           &quot;State Code&quot;,&quot;County Code&quot;,&quot;Site Number&quot;)) %&gt;%
+  rename(Land.Use=&quot;Land Use&quot;, Location.Setting=&quot;Location Setting&quot;)
+
+data &lt;- data %&gt;% 
+          mutate(State.Code = as.numeric(State.Code),
+                 County.Code = as.numeric(County.Code),
+                 Site.Num = as.numeric(Site.Num))
+
+total_data &lt;- inner_join(data, EPA_tidy, by = c(&quot;State.Code&quot; = &quot;State Code&quot;,
+                                                &quot;County.Code&quot; = &quot;County Code&quot;,
+                                                &quot;Site.Num&quot; = &quot;Site Number&quot;))
+
+total_data %&gt;%
+  select(c(&quot;Parameter.Name&quot;,&quot;Sample.Value&quot;,&quot;Longitude&quot;,
+           &quot;Land.Use&quot;,&quot;Location.Setting&quot;)) %&gt;%
+  mutate(Location = factor(Longitude &lt; -100,labels=c(&quot;Eastern&quot;,&quot;Western&quot;))) %&gt;%
+  filter(Location == &quot;Eastern&quot; &amp; 
+         Parameter.Name %in% c(&quot;OC PM2.5 LC TOR&quot;,&quot;EC PM2.5 LC TOR&quot;) &amp;
+         Land.Use == &quot;RESIDENTIAL&quot; &amp;
+         Location.Setting == &quot;SUBURBAN&quot;) %&gt;%
+  group_by(Parameter.Name,Location,Land.Use,Location.Setting) %&gt;%
+  summarize(Med.Value = median(Sample.Value))</code></pre>
+<pre><code>## # A tibble: 2 x 5
+## # Groups:   Parameter.Name, Location, Land.Use [?]
+##    Parameter.Name Location    Land.Use Location.Setting Med.Value
+##             &lt;chr&gt;   &lt;fctr&gt;       &lt;chr&gt;            &lt;chr&gt;     &lt;dbl&gt;
+## 1 EC PM2.5 LC TOR  Eastern RESIDENTIAL         SUBURBAN      0.61
+## 2 OC PM2.5 LC TOR  Eastern RESIDENTIAL         SUBURBAN      1.51</code></pre>
+<p>Median values are shown above.</p>
+</div>
 </div>
 
 
