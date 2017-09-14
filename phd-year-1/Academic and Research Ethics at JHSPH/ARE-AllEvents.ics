@@ -1,0 +1,347 @@
+BEGIN:VCALENDAR
+PRODID: -//courseplus.jhu.edu//iCalUS()//EN
+VERSION:2.0
+METHOD:PUBLISH
+BEGIN:VTIMEZONE
+TZID:Eastern Time
+BEGIN:STANDARD
+DTSTART:20061101T020000
+RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=1SU;BYMONTH=11
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0500
+TZNAME:Standard Time
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:20060301T020000
+RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=2SU;BYMONTH=3
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0400
+TZNAME:Daylight Savings Time
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:585-8418-79990.courseplus.jhu.edu
+ORGANIZER;CN=JHSPH Online Course:MAILTO:ctlhelp@jhu.edu
+DTSTAMP:20170913T180724
+DTSTART;TZID=Eastern Time:20170801T000000
+DTEND;TZID=Eastern Time:20170801T000000
+SUMMARY:ARE - Course Overview
+LOCATION:https://courseplus.jhu.edu/core/go/course.home/coID/8418
+DESCRIPTION:Course Overview
+PRIORITY:1
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:585-8418-79991.courseplus.jhu.edu
+ORGANIZER;CN=JHSPH Online Course:MAILTO:ctlhelp@jhu.edu
+DTSTAMP:20170913T180724
+DTSTART;TZID=Eastern Time:20170801T000000
+DTEND;TZID=Eastern Time:20170801T000000
+SUMMARY:ARE - Introduction to Academic Ethics
+LOCATION:https://courseplus.jhu.edu/core/go/course.home/coID/8418
+DESCRIPTION:What You Need to Do to Complete the Academic Ethics Module
+PRIORITY:1
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:585-8418-79992.courseplus.jhu.edu
+ORGANIZER;CN=JHSPH Online Course:MAILTO:ctlhelp@jhu.edu
+DTSTAMP:20170913T180724
+DTSTART;TZID=Eastern Time:20170801T000000
+DTEND;TZID=Eastern Time:20170801T000000
+SUMMARY:ARE - Overview and Assignment
+LOCATION:https://courseplus.jhu.edu/core/go/course.home/coID/8418
+DESCRIPTION:How to Complete the Research Ethics Module and Get Your Certificate
+PRIORITY:1
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:585-8418-79993.courseplus.jhu.edu
+ORGANIZER;CN=JHSPH Online Course:MAILTO:ctlhelp@jhu.edu
+DTSTAMP:20170913T180724
+DTSTART;TZID=Eastern Time:20170801T000000
+DTEND;TZID=Eastern Time:20170801T000000
+SUMMARY:ARE - Certificate Drop Box
+LOCATION:https://courseplus.jhu.edu/core/go/course.home/coID/8418
+DESCRIPTION:You must submit your Research Ethics certificate here in order to complete this course.
+PRIORITY:1
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:585-8418-79993-due.courseplus.jhu.edu
+ORGANIZER;CN=JHSPH Online Course:MAILTO:ctlhelp@jhu.edu
+DTSTAMP:20170913T180724
+DTSTART;TZID=Eastern Time:20171020T170000
+DTEND;TZID=Eastern Time:20171020T170000
+SUMMARY:DUE: ARE - Certificate Drop Box
+LOCATION:https://courseplus.jhu.edu/core/go/course.home/coID/8418
+DESCRIPTION:You must submit your Research Ethics certificate here in order to complete this course.
+PRIORITY:1
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:585-8418-79994.courseplus.jhu.edu
+ORGANIZER;CN=JHSPH Online Course:MAILTO:ctlhelp@jhu.edu
+DTSTAMP:20170913T180724
+DTSTART;TZID=Eastern Time:20170801T000000
+DTEND;TZID=Eastern Time:20170801T000000
+SUMMARY:ARE - Lecture 1
+LOCATION:https://courseplus.jhu.edu/core/go/course.home/coID/8418
+DESCRIPTION:Introduction to the Responsible Conduct of Research
+PRIORITY:1
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:585-8418-79995.courseplus.jhu.edu
+ORGANIZER;CN=JHSPH Online Course:MAILTO:ctlhelp@jhu.edu
+DTSTAMP:20170913T180724
+DTSTART;TZID=Eastern Time:20170801T000000
+DTEND;TZID=Eastern Time:20170801T000000
+SUMMARY:ARE - Lecture 2
+LOCATION:https://courseplus.jhu.edu/core/go/course.home/coID/8418
+DESCRIPTION:Scientific Misconduct
+PRIORITY:1
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:585-8418-79996.courseplus.jhu.edu
+ORGANIZER;CN=JHSPH Online Course:MAILTO:ctlhelp@jhu.edu
+DTSTAMP:20170913T180724
+DTSTART;TZID=Eastern Time:20170801T000000
+DTEND;TZID=Eastern Time:20170801T000000
+SUMMARY:ARE - Lecture 3
+LOCATION:https://courseplus.jhu.edu/core/go/course.home/coID/8418
+DESCRIPTION:Conflict of Interest
+PRIORITY:1
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:585-8418-79997.courseplus.jhu.edu
+ORGANIZER;CN=JHSPH Online Course:MAILTO:ctlhelp@jhu.edu
+DTSTAMP:20170913T180724
+DTSTART;TZID=Eastern Time:20170801T000000
+DTEND;TZID=Eastern Time:20170801T000000
+SUMMARY:ARE - Lecture 4
+LOCATION:https://courseplus.jhu.edu/core/go/course.home/coID/8418
+DESCRIPTION:Data Management and Authorship Practices
+PRIORITY:1
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:585-8418-79998.courseplus.jhu.edu
+ORGANIZER;CN=JHSPH Online Course:MAILTO:ctlhelp@jhu.edu
+DTSTAMP:20170913T180724
+DTSTART;TZID=Eastern Time:20170801T000000
+DTEND;TZID=Eastern Time:20170801T000000
+SUMMARY:ARE - Lecture 5
+LOCATION:https://courseplus.jhu.edu/core/go/course.home/coID/8418
+DESCRIPTION:Human Subjects Research/Case Studies
+PRIORITY:1
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:585-8418-79999.courseplus.jhu.edu
+ORGANIZER;CN=JHSPH Online Course:MAILTO:ctlhelp@jhu.edu
+DTSTAMP:20170913T180724
+DTSTART;TZID=Eastern Time:20170801T000000
+DTEND;TZID=Eastern Time:20170801T000000
+SUMMARY:ARE - Lecture 6
+LOCATION:https://courseplus.jhu.edu/core/go/course.home/coID/8418
+DESCRIPTION:Animal Subjects Research
+PRIORITY:1
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:585-8418-80000.courseplus.jhu.edu
+ORGANIZER;CN=JHSPH Online Course:MAILTO:ctlhelp@jhu.edu
+DTSTAMP:20170913T180724
+DTSTART;TZID=Eastern Time:20170801T000000
+DTEND;TZID=Eastern Time:20170801T000000
+SUMMARY:ARE - Certificate
+LOCATION:https://courseplus.jhu.edu/core/go/course.home/coID/8418
+DESCRIPTION:Get Your Research Ethics Certificate of Completion
+PRIORITY:1
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:585-8418-80000-due.courseplus.jhu.edu
+ORGANIZER;CN=JHSPH Online Course:MAILTO:ctlhelp@jhu.edu
+DTSTAMP:20170913T180724
+DTSTART;TZID=Eastern Time:20171020T170000
+DTEND;TZID=Eastern Time:20171020T170000
+SUMMARY:DUE: ARE - Certificate
+LOCATION:https://courseplus.jhu.edu/core/go/course.home/coID/8418
+DESCRIPTION:Get Your Research Ethics Certificate of Completion
+PRIORITY:1
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:585-8418-80001.courseplus.jhu.edu
+ORGANIZER;CN=JHSPH Online Course:MAILTO:ctlhelp@jhu.edu
+DTSTAMP:20170913T180724
+DTSTART;TZID=Eastern Time:20170801T000000
+DTEND;TZID=Eastern Time:20171020T170000
+SUMMARY:ARE - Topic 1 Quiz
+LOCATION:https://courseplus.jhu.edu/core/go/course.home/coID/8418
+DESCRIPTION:Complete this after reviewing the materials in Topic 1
+PRIORITY:1
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:585-8418-80001-due.courseplus.jhu.edu
+ORGANIZER;CN=JHSPH Online Course:MAILTO:ctlhelp@jhu.edu
+DTSTAMP:20170913T180724
+DTSTART;TZID=Eastern Time:20171020T170000
+DTEND;TZID=Eastern Time:20171020T170000
+SUMMARY:DUE: ARE - Topic 1 Quiz
+LOCATION:https://courseplus.jhu.edu/core/go/course.home/coID/8418
+DESCRIPTION:Complete this after reviewing the materials in Topic 1
+PRIORITY:1
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:585-8418-80002.courseplus.jhu.edu
+ORGANIZER;CN=JHSPH Online Course:MAILTO:ctlhelp@jhu.edu
+DTSTAMP:20170913T180724
+DTSTART;TZID=Eastern Time:20170801T000000
+DTEND;TZID=Eastern Time:20171020T170000
+SUMMARY:ARE - Topic 2 Quiz
+LOCATION:https://courseplus.jhu.edu/core/go/course.home/coID/8418
+DESCRIPTION:Complete this after reviewing the materials in Topic 2
+PRIORITY:1
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:585-8418-80002-due.courseplus.jhu.edu
+ORGANIZER;CN=JHSPH Online Course:MAILTO:ctlhelp@jhu.edu
+DTSTAMP:20170913T180724
+DTSTART;TZID=Eastern Time:20171020T170000
+DTEND;TZID=Eastern Time:20171020T170000
+SUMMARY:DUE: ARE - Topic 2 Quiz
+LOCATION:https://courseplus.jhu.edu/core/go/course.home/coID/8418
+DESCRIPTION:Complete this after reviewing the materials in Topic 2
+PRIORITY:1
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:585-8418-80003.courseplus.jhu.edu
+ORGANIZER;CN=JHSPH Online Course:MAILTO:ctlhelp@jhu.edu
+DTSTAMP:20170913T180724
+DTSTART;TZID=Eastern Time:20170801T000000
+DTEND;TZID=Eastern Time:20171020T170000
+SUMMARY:ARE - Topic 3 Quiz
+LOCATION:https://courseplus.jhu.edu/core/go/course.home/coID/8418
+DESCRIPTION:Complete this after reviewing the materials in Topic 3
+PRIORITY:1
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:585-8418-80003-due.courseplus.jhu.edu
+ORGANIZER;CN=JHSPH Online Course:MAILTO:ctlhelp@jhu.edu
+DTSTAMP:20170913T180724
+DTSTART;TZID=Eastern Time:20171020T170000
+DTEND;TZID=Eastern Time:20171020T170000
+SUMMARY:DUE: ARE - Topic 3 Quiz
+LOCATION:https://courseplus.jhu.edu/core/go/course.home/coID/8418
+DESCRIPTION:Complete this after reviewing the materials in Topic 3
+PRIORITY:1
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:585-8418-80004.courseplus.jhu.edu
+ORGANIZER;CN=JHSPH Online Course:MAILTO:ctlhelp@jhu.edu
+DTSTAMP:20170913T180724
+DTSTART;TZID=Eastern Time:20170801T000000
+DTEND;TZID=Eastern Time:20171020T170000
+SUMMARY:ARE - Topic 4 Quiz
+LOCATION:https://courseplus.jhu.edu/core/go/course.home/coID/8418
+DESCRIPTION:Complete this after reviewing the materials in Topic 4
+PRIORITY:1
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:585-8418-80004-due.courseplus.jhu.edu
+ORGANIZER;CN=JHSPH Online Course:MAILTO:ctlhelp@jhu.edu
+DTSTAMP:20170913T180724
+DTSTART;TZID=Eastern Time:20171020T170000
+DTEND;TZID=Eastern Time:20171020T170000
+SUMMARY:DUE: ARE - Topic 4 Quiz
+LOCATION:https://courseplus.jhu.edu/core/go/course.home/coID/8418
+DESCRIPTION:Complete this after reviewing the materials in Topic 4
+PRIORITY:1
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:585-8418-80005.courseplus.jhu.edu
+ORGANIZER;CN=JHSPH Online Course:MAILTO:ctlhelp@jhu.edu
+DTSTAMP:20170913T180724
+DTSTART;TZID=Eastern Time:20170801T000000
+DTEND;TZID=Eastern Time:20171020T170000
+SUMMARY:ARE - Topic 5 Quiz
+LOCATION:https://courseplus.jhu.edu/core/go/course.home/coID/8418
+DESCRIPTION:Complete this after reviewing the materials in Topic 5
+PRIORITY:1
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:585-8418-80005-due.courseplus.jhu.edu
+ORGANIZER;CN=JHSPH Online Course:MAILTO:ctlhelp@jhu.edu
+DTSTAMP:20170913T180724
+DTSTART;TZID=Eastern Time:20171020T170000
+DTEND;TZID=Eastern Time:20171020T170000
+SUMMARY:DUE: ARE - Topic 5 Quiz
+LOCATION:https://courseplus.jhu.edu/core/go/course.home/coID/8418
+DESCRIPTION:Complete this after reviewing the materials in Topic 5
+PRIORITY:1
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:585-8418-80006.courseplus.jhu.edu
+ORGANIZER;CN=JHSPH Online Course:MAILTO:ctlhelp@jhu.edu
+DTSTAMP:20170913T180724
+DTSTART;TZID=Eastern Time:20170801T000000
+DTEND;TZID=Eastern Time:20171020T170000
+SUMMARY:ARE - Topic 6 Quiz
+LOCATION:https://courseplus.jhu.edu/core/go/course.home/coID/8418
+DESCRIPTION:Complete this after reviewing the materials in Topic 6
+PRIORITY:1
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:585-8418-80006-due.courseplus.jhu.edu
+ORGANIZER;CN=JHSPH Online Course:MAILTO:ctlhelp@jhu.edu
+DTSTAMP:20170913T180724
+DTSTART;TZID=Eastern Time:20171020T170000
+DTEND;TZID=Eastern Time:20171020T170000
+SUMMARY:DUE: ARE - Topic 6 Quiz
+LOCATION:https://courseplus.jhu.edu/core/go/course.home/coID/8418
+DESCRIPTION:Complete this after reviewing the materials in Topic 6
+PRIORITY:1
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+END:VCALENDAR
