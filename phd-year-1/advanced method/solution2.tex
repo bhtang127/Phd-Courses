@@ -20,6 +20,7 @@ footskip=.25in]{geometry}
 \author{Bohao Tang}
 
 \begin{document}
+\includepdf[pages=-]{HW2}
 
 \maketitle
 
@@ -187,6 +188,19 @@ footskip=.25in]{geometry}
     \item
     \begin{enumerate}[A.]
         \item 
+        \begin{proof}
+            First, since $P_i$ are projection matrix, then they are symmetric and idempotent. $\forall$ vecotr $\ttt{y}$, $\ttt{y}^\top \ttt{P}_i \ttt{y} = \ttt{y}^\top \ttt{P}_i \ttt{P}_i \ttt{y} = \ttt{y}^\top \ttt{P}_i^\top \ttt{P}_i \ttt{y} = ||\ttt{P}_i \ttt{y}||^2 \ge 0$. So $\ttt{P}_i$ are positive semidefinite.
+            For every $\ttt{y}$, we have $\ttt{P}_1 (\ttt{I} - \ttt{P}_1) \ttt{y} = 0$, and $\ttt{P}_1 - \ttt{P}_2, \ttt{P}_i$ are positive semidefinite. Therefore we have:
+            $$0 \le [(\ttt{I} - \ttt{P}_1)\ttt{y}]^\top (\ttt{P}_1 - \ttt{P}_2) [(\ttt{I} - \ttt{P}_1)\ttt{y}] = - [(\ttt{I} - \ttt{P}_1)\ttt{y}]^\top \ttt{P}_2 [(\ttt{I} - \ttt{P}_1)\ttt{y}] \le 0$$
+            So for every $\ttt{y}$, we have $\ttt{y}^\top (\ttt{I} - \ttt{P}_1)^\top \ttt{P}_2 (\ttt{I} - \ttt{P}_1) \ttt{y} = 0$, then since $(\ttt{I} - \ttt{P}_1)^\top \ttt{P}_2 (\ttt{I} - \ttt{P}_1)$ is symmetric, we have $(\ttt{I} - \ttt{P}_1)^\top \ttt{P}_2 (\ttt{I} - \ttt{P}_1) = \ttt{0}$.
+            
+            Because:
+            $$(\ttt{I} - \ttt{P}_1)^\top \ttt{P}_2 (\ttt{I} - \ttt{P}_1) = (\ttt{I} - \ttt{P}_1)^\top \ttt{P}_2^\top \ttt{P}_2 (\ttt{I} - \ttt{P}_1) = (\ttt{P}_2 (\ttt{I} - \ttt{P}_1))^\top \ttt{P}_2 (\ttt{I} - \ttt{P}_1) = \ttt{0}$$ 
+            We have $\ttt{P}_2 (\ttt{I} - \ttt{P}_1) = \ttt{0}$, which shows $\ttt{P}_2 = \ttt{P}_2 \ttt{P}_1$.
+            Meanwhile we have $$\ttt{P}_2 = \ttt{P}_2^\top = (\ttt{P}_2 \ttt{P}_1)^\top = \ttt{P}_1^\top \ttt{P}_2^\top = \ttt{P}_1 \ttt{P}_1$$
+            Therefore $\ttt{P}_1 \ttt{P}_2 = \ttt{P}_2 \ttt{P}_1 = \ttt{P}_2$.
+        \end{proof}
+
         \item 
         \begin{proof}
             Use results in A. We have:
