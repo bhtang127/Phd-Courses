@@ -1,0 +1,65 @@
+---
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1. 
+
+```{r mylm}
+mylm <- function(y,X){
+    # Transform to matrix
+    Y = as.matrix(Y); Xnew = as.matrix(X)
+  
+    # Check if numeric
+    if(!is.numeric(Y) | !is.numeric(Xnew))
+    stop("Y or X is not numeric!\n")
+    # Check for dimensions
+    dy = dim(Y) ; dx = dim(Xnew)
+    if(dy[2] != 1 | dy[1] != dx[1])
+    stop("Y or X has wrong dimensions\n")
+    # Check for ill conditioned elements.
+    # We can use is.finite to response only to finite real numbers
+    if(FALSE %in% is.finite(Y) | FALSE %in% is.finite(Xnew))
+    warning("Y or X is ill conditioned\n")
+    # Check if of full rank
+    D = cbind(1,Xnew)
+    DtD = t(D) %*% D
+    if(det(DtD) == 0)
+    stop("Design matrix is not full rank\n")
+    
+    # Regressing
+    DtD.inv = solve(DtD)
+    hat.matrix = D %*% DtD.inv %*% t(D)
+    beta = DtD.inv %*% t(D) %*% Y
+    fitted = D %*% beta
+    residuals = Y - fitted
+    SS.tot = sum((Y - mean(Y))^2)
+    if(SS.tot == 0)
+    warning("Y is constant!\n")
+    SS.res = sum((Y - fitted)^2)
+    SS.reg = SS.tot - SS.res
+    R2 = SS.reg / SS.tot
+    # Return result
+    result = list(beta = beta,
+                fitted = fitted,
+                residuals = residuals,
+                R2 = R2,
+                hatdiag = diag(hat.matrix))
+    return(result)
+}
+```
+
+2.
+
+```{r ex}
+data = read.table("HW2ex.txt")
+shape = dim(data)
+
+Y = data[,1]; X = data[,2:shape[2]]
+
+results = mylm(Y,X)
+plot(results$fitted, results$residuals, pch='.')
+```

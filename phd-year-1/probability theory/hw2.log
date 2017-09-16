@@ -1,16 +1,16 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.8.22)  16 SEP 2017 14:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.8.22)  16 SEP 2017 18:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/bhtan/Desktop/courses/phd-year-1/advanced method/solution2.tex"
-(c:/Users/bhtan/Desktop/courses/phd-year-1/advanced method/solution2.tex
+**"c:/Users/bhtan/Desktop/courses/phd-year-1/probability theory/hw2.tex"
+(c:/Users/bhtan/Desktop/courses/phd-year-1/probability theory/hw2.tex
 LaTeX2e <2017-04-15>
 Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
 (c:/texlive/2017/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-(c:/texlive/2017/texmf-dist/tex/latex/base/size12.clo
-File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+(c:/texlive/2017/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
 \c@section=\count80
@@ -107,14 +107,6 @@ Package: amsthm 2015/03/04 v2.20.2
 (c:/texlive/2017/texmf-dist/tex/latex/tools/enumerate.sty
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
 \@enLab=\toks25
-)
-(c:/texlive/2017/texmf-dist/tex/latex/tools/bm.sty
-Package: bm 2017/01/16 v1.2c Bold Symbol Support (DPC/FMi)
-\symboldoperators=\mathgroup6
-\symboldletters=\mathgroup7
-\symboldsymbols=\mathgroup8
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 141.
-LaTeX Info: Redefining \bm on input line 207.
 )
 (c:/texlive/2017/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2017/03/14 v6.85a Hypertext links for LaTeX
@@ -239,31 +231,21 @@ LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
 )
-(c:/texlive/2017/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count109
-\lst@gtempboxa=\box28
-\lst@token=\toks27
-\lst@length=\count110
-\lst@currlwidth=\dimen116
-\lst@column=\count111
-\lst@pos=\count112
-\lst@lostspace=\dimen117
-\lst@width=\dimen118
-\lst@newlines=\count113
-\lst@lineno=\count114
-\lst@maxwidth=\dimen119
-
-(c:/texlive/2017/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-\c@lstnumber=\count115
-\lst@skipnumbers=\count116
-\lst@framebox=\box29
+(c:/texlive/2017/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+\Gm@cnth=\count109
+\Gm@cntv=\count110
+\c@Gm@tempcnt=\count111
+\Gm@bindingoffset=\dimen116
+\Gm@wd@mp=\dimen117
+\Gm@odd@mp=\dimen118
+\Gm@even@mp=\dimen119
+\Gm@layoutwidth=\dimen120
+\Gm@layoutheight=\dimen121
+\Gm@layouthoffset=\dimen122
+\Gm@layoutvoffset=\dimen123
+\Gm@dimlist=\toks27
 )
-(c:/texlive/2017/texmf-dist/tex/latex/listings/listings.cfg
-File: listings.cfg 2015/06/04 1.6 listings configuration
-))
-Package: listings 2015/06/04 1.6 (Carsten Heinz)
-
 (c:/texlive/2017/texmf-dist/tex/latex/pdfpages/pdfpages.sty
 Package: pdfpages 2017/01/14 v0.5h Insert pages of external PDF documents (AM)
 
@@ -272,15 +254,15 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 (c:/texlive/2017/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count117
-\calc@Bcount=\count118
-\calc@Adimen=\dimen120
-\calc@Bdimen=\dimen121
+\calc@Acount=\count112
+\calc@Bcount=\count113
+\calc@Adimen=\dimen124
+\calc@Bdimen=\dimen125
 \calc@Askip=\skip50
 \calc@Bskip=\skip51
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count119
+\calc@Ccount=\count114
 \calc@Cskip=\skip52
 )
 (c:/texlive/2017/texmf-dist/tex/latex/eso-pic/eso-pic.sty
@@ -296,7 +278,7 @@ Package xcolor Info: Driver file: pdftex.def on input line 225.
 
 (c:/texlive/2017/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
-\Gread@gobject=\count120
+\Gread@gobject=\count115
 )
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
@@ -322,54 +304,39 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 99.
 )
-\Gin@req@height=\dimen122
-\Gin@req@width=\dimen123
+\Gin@req@height=\dimen126
+\Gin@req@width=\dimen127
 )
-\AM@pagewidth=\dimen124
-\AM@pageheight=\dimen125
+\AM@pagewidth=\dimen128
+\AM@pageheight=\dimen129
 
 (c:/texlive/2017/texmf-dist/tex/latex/pdfpages/pppdftex.def
 File: pppdftex.def 2017/01/14 v0.5h Pdfpages driver for pdfTeX (AM)
 )
-\AM@pagebox=\box30
+\AM@pagebox=\box28
 \AM@global@opts=\toks28
 \AM@toc@title=\toks29
-\c@AM@survey=\count121
-\AM@templatesizebox=\box31
-)
-(c:/texlive/2017/texmf-dist/tex/latex/geometry/geometry.sty
-Package: geometry 2010/09/12 v5.6 Page Geometry
-\Gm@cnth=\count122
-\Gm@cntv=\count123
-\c@Gm@tempcnt=\count124
-\Gm@bindingoffset=\dimen126
-\Gm@wd@mp=\dimen127
-\Gm@odd@mp=\dimen128
-\Gm@even@mp=\dimen129
-\Gm@layoutwidth=\dimen130
-\Gm@layoutheight=\dimen131
-\Gm@layouthoffset=\dimen132
-\Gm@layoutvoffset=\dimen133
-\Gm@dimlist=\toks30
-) (./solution2.aux)
-\openout1 = `solution2.aux'.
+\c@AM@survey=\count116
+\AM@templatesizebox=\box29
+) (./hw2.aux)
+\openout1 = `hw2.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-\AtBeginShipoutBox=\box32
-Package hyperref Info: Link coloring OFF on input line 22.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+\AtBeginShipoutBox=\box30
+Package hyperref Info: Link coloring OFF on input line 19.
 
 (c:/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -377,31 +344,64 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (c:/texlive/2017/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count125
+\c@section@level=\count117
 )
-LaTeX Info: Redefining \ref on input line 22.
-LaTeX Info: Redefining \pageref on input line 22.
-LaTeX Info: Redefining \nameref on input line 22.
+LaTeX Info: Redefining \ref on input line 19.
+LaTeX Info: Redefining \pageref on input line 19.
+LaTeX Info: Redefining \nameref on input line 19.
 
-(./solution2.out) (./solution2.out)
+(./hw2.out) (./hw2.out)
 \@outlinefile=\write3
-\openout3 = `solution2.out'.
+\openout3 = `hw2.out'.
 
-\c@lstlisting=\count126
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(56.9055pt, 483.69684pt, 56.90553pt)
+* v-part:(T,H,B)=(56.9055pt, 731.23582pt, 56.90552pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=483.69684pt
+* \textheight=731.23582pt
+* \oddsidemargin=-15.36449pt
+* \evensidemargin=-15.36449pt
+* \topmargin=-52.36449pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=11.0pt
+* \footskip=30.0pt
+* \marginparwidth=59.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 (c:/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count127
-\scratchdimen=\dimen134
-\scratchbox=\box33
-\nofMPsegments=\count128
-\nofMParguments=\count129
-\everyMPshowfont=\toks31
-\MPscratchCnt=\count130
-\MPscratchDim=\dimen135
-\MPnumerator=\count131
-\makeMPintoPDFobject=\count132
-\everyMPtoPDFconversion=\toks32
+\scratchcounter=\count118
+\scratchdimen=\dimen130
+\scratchbox=\box31
+\nofMPsegments=\count119
+\nofMParguments=\count120
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count121
+\MPscratchDim=\dimen131
+\MPnumerator=\count122
+\makeMPintoPDFobject=\count123
+\everyMPtoPDFconversion=\toks31
 ) (c:/texlive/2017/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -427,196 +427,94 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-*geometry* driver: auto-detecting
-*geometry* detected driver: pdftex
-*geometry* verbose mode - [ preamble ] result:
-* driver: pdftex
-* paper: a4paper
-* layout: <same size as paper>
-* layoutoffset:(h,v)=(0.0pt,0.0pt)
-* bindingoffset: 14.45377pt
-* modes: 
-* h-part:(L,W,R)=(57.81621pt, 467.42169pt, 57.81621pt)
-* v-part:(T,H,B)=(72.26999pt, 700.50687pt, 72.26999pt)
-* \paperwidth=597.50787pt
-* \paperheight=845.04684pt
-* \textwidth=467.42169pt
-* \textheight=700.50687pt
-* \oddsidemargin=-0.00002pt
-* \evensidemargin=-14.45378pt
-* \topmargin=-37.0pt
-* \headheight=12.0pt
-* \headsep=25.0pt
-* \topskip=12.0pt
-* \footskip=18.06749pt
-* \marginparwidth=44.0pt
-* \marginparsep=10.0pt
-* \columnsep=10.0pt
-* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
-* \hoffset=0.0pt
-* \voffset=0.0pt
-* \mag=1000
-* \@twocolumnfalse
-* \@twosidefalse
-* \@mparswitchfalse
-* \@reversemarginfalse
-* (1in=72.27pt=25.4mm, 1cm=28.453pt)
-
-<HW2.pdf, id=12, 614.295pt x 794.97pt>
-File: HW2.pdf Graphic file (type pdf)
- <use HW2.pdf>
-Package pdftex.def Info: HW2.pdf used on input line 23.
+<Homework2.pdf, id=4, 614.295pt x 794.97pt>
+File: Homework2.pdf Graphic file (type pdf)
+ <use Homework2.pdf>
+Package pdftex.def Info: Homework2.pdf used on input line 20.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
-File: HW2.pdf Graphic file (type pdf)
- <use HW2.pdf>
-Package pdftex.def Info: HW2.pdf used on input line 23.
+File: Homework2.pdf Graphic file (type pdf)
+
+<use Homework2.pdf>
+Package pdftex.def Info: Homework2.pdf used on input line 20.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ <Homework2.pdf, id=7, page=1, 614.295pt x 794.97pt>
+File: Homework2.pdf Graphic file (type pdf)
 
-<HW2.pdf, id=15, page=1, 614.295pt x 794.97pt>
-File: HW2.pdf Graphic file (type pdf)
- <use HW2.pdf, page 1>
-Package pdftex.def Info: HW2.pdf, page1 used on input line 23.
+<use Homework2.pdf, page 1>
+Package pdftex.def Info: Homework2.pdf, page1 used on input line 20.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
-File: HW2.pdf Graphic file (type pdf)
+File: Homework2.pdf Graphic file (type pdf)
+ <use Homework2.pdf, page 1>
+Package pdftex.def Info: Homework2.pdf, page1 used on input line 20.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+File: Homework2.pdf Graphic file (type pdf)
 
-<use HW2.pdf, page 1>
-Package pdftex.def Info: HW2.pdf, page1 used on input line 23.
+<use Homework2.pdf, page 1>
+Package pdftex.def Info: Homework2.pdf, page1 used on input line 20.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: HW2.pdf Graphic file (type pdf)
- <use HW2.pdf, page 1>
-Package pdftex.def Info: HW2.pdf, page1 used on input line 23.
+File: Homework2.pdf Graphic file (type pdf)
+ <use Homework2.pdf, page 1>
+Package pdftex.def Info: Homework2.pdf, page1 used on input line 20.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: HW2.pdf Graphic file (type pdf)
- <use HW2.pdf, page 1>
-Package pdftex.def Info: HW2.pdf, page1 used on input line 23.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: HW2.pdf Graphic file (type pdf)
+File: Homework2.pdf Graphic file (type pdf)
 
-<use HW2.pdf, page 1>
-Package pdftex.def Info: HW2.pdf, page1 used on input line 23.
+<use Homework2.pdf, page 1>
+Package pdftex.def Info: Homework2.pdf, page1 used on input line 20.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [1
 
- <./HW2.pdf{c:/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}>] <HW
-2.pdf, id=72, page=2, 614.295pt x 794.97pt>
-File: HW2.pdf Graphic file (type pdf)
+ <./Homework2.pdf{c:/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+>]
+LaTeX Font Info:    Try loading font information for U+msa on input line 23.
 
-<use HW2.pdf, page 2>
-Package pdftex.def Info: HW2.pdf, page2 used on input line 23.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: HW2.pdf Graphic file (type pdf)
- <use HW2.pdf, page 2>
-Package pdftex.def Info: HW2.pdf, page2 used on input line 23.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: HW2.pdf Graphic file (type pdf)
- <use HW2.pdf, page 2>
-Package pdftex.def Info: HW2.pdf, page2 used on input line 23.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [2 <./HW2.pdf>]
-LaTeX Font Info:    Try loading font information for U+msa on input line 26.
- (c:/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
+(c:/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 26.
+LaTeX Font Info:    Try loading font information for U+msb on input line 23.
 
 (c:/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [3] [4]
-Overfull \hbox (13.98672pt too wide) in paragraph at lines 174--178
-\OT1/cmr/m/n/12 sign ma-trix with tem-per-a-ture in Fahren-heit ($[][]$). Then 
-de-note $(\OML/cmm/m/it/12 []; ^^L[]; ^^L[]; []  ; ^^L[]\OT1/cmr/m/n/12 )[]$
+) [2]
+Overfull \hbox (4.61378pt too wide) in paragraph at lines 128--129
+[]\OT1/cmr/m/n/10.95 Then we have $\OMS/cmsy/m/n/10.95 A$ \OT1/cmr/m/n/10.95 is
+ a count-able col-lec-tion in $[]$ and there-fore $\OML/cmm/m/it/10.95 D \OMS/c
+msy/m/n/10.95 2 \OML/cmm/m/it/10.95 ^^[\OT1/cmr/m/n/10.95 ([])$. 
  []
 
-[5] <HW2code.pdf, id=125, 614.295pt x 794.97pt>
-File: HW2code.pdf Graphic file (type pdf)
- <use HW2code.pdf>
-Package pdftex.def Info: HW2code.pdf used on input line 215.
-(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
-File: HW2code.pdf Graphic file (type pdf)
-
-<use HW2code.pdf>
-Package pdftex.def Info: HW2code.pdf used on input line 215.
-(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
- <HW2code.pdf, id=128, page=1, 614.295pt x 794.97pt>
-File: HW2code.pdf Graphic file (type pdf)
-
-<use HW2code.pdf, page 1>
-Package pdftex.def Info: HW2code.pdf, page1 used on input line 215.
-(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
-File: HW2code.pdf Graphic file (type pdf)
- <use HW2code.pdf, page 1>
-Package pdftex.def Info: HW2code.pdf, page1 used on input line 215.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [6]
-File: HW2code.pdf Graphic file (type pdf)
-
-<use HW2code.pdf, page 1>
-Package pdftex.def Info: HW2code.pdf, page1 used on input line 215.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: HW2code.pdf Graphic file (type pdf)
- <use HW2code.pdf, page 1>
-Package pdftex.def Info: HW2code.pdf, page1 used on input line 215.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: HW2code.pdf Graphic file (type pdf)
- <use HW2code.pdf, page 1>
-Package pdftex.def Info: HW2code.pdf, page1 used on input line 215.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-
-[7 <./HW2code.pdf>] <HW2code.pdf, id=165, page=2, 614.295pt x 794.97pt>
-File: HW2code.pdf Graphic file (type pdf)
-
-<use HW2code.pdf, page 2>
-Package pdftex.def Info: HW2code.pdf, page2 used on input line 215.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: HW2code.pdf Graphic file (type pdf)
- <use HW2code.pdf, page 2>
-Package pdftex.def Info: HW2code.pdf, page2 used on input line 215.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: HW2code.pdf Graphic file (type pdf)
- <use HW2code.pdf, page 2>
-Package pdftex.def Info: HW2code.pdf, page2 used on input line 215.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-
-[8 <./HW2code.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 217.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 217.
- (./solution2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 217.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 217.
-Package rerunfilecheck Info: File `solution2.out' has not changed.
-(rerunfilecheck)             Checksum: B75F4CD8E39026919CB8CF88A5D0B64D;105.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 217.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 156.
+[3]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 156.
+ (./hw2.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 156.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 156.
+Package rerunfilecheck Info: File `hw2.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 156.
  ) 
 Here is how much of TeX's memory you used:
- 9048 strings out of 492995
- 129064 string characters out of 6136402
- 248566 words of memory out of 5000000
- 12452 multiletter control sequences out of 15000+600000
- 17666 words of font info for 65 fonts, out of 8000000 for 9000
+ 7740 strings out of 492995
+ 110220 string characters out of 6136402
+ 220005 words of memory out of 5000000
+ 11180 multiletter control sequences out of 15000+600000
+ 10478 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,18n,46p,451b,634s stack positions out of 5000i,500n,10000p,200000b,80000s
-<c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/tex
-live/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2017
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2017/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2017/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr17.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8
-.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb><c:/
-texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><c:/texlive
+ 37i,18n,43p,399b,673s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/tex
+live/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2017/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2017/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2017/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr17.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr6.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb>
+<c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive
 /2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2017/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2017/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmti12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmtt12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/lm/lmr10.pf
-b><c:/texlive/2017/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/texlive/2017
-/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/texlive/2017/texmf-dist/fonts/
-type1/public/lm/lmtti10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsf
-onts/symbols/msbm10.pfb>
-Output written on solution2.pdf (8 pages, 301393 bytes).
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2017/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2017/texmf-dist/fonts/type1
+/public/amsfonts/symbols/msbm10.pfb>
+Output written on hw2.pdf (3 pages, 143702 bytes).
 PDF statistics:
- 227 PDF objects out of 1000 (max. 8388607)
- 183 compressed objects within 2 object streams
- 32 named destinations out of 1000 (max. 500000)
- 67 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 122 PDF objects out of 1000 (max. 8388607)
+ 99 compressed objects within 1 object stream
+ 25 named destinations out of 1000 (max. 500000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
