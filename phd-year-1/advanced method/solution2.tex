@@ -38,7 +38,7 @@ footskip=.25in]{geometry}
                     &=& \frac{1}{A} \ttt{I}\ \sum_{j=1}^{A} \ttt{y}_i = \sum_{j=1}^{A} \ttt{y}_i / A
     \end{eqnarray}
     Where $\ttt{y}_i$ is vectors of length $B$ and $\ttt{y} = \begin{pmatrix}
-                                                                    \ttt{y}_1 & \ttt{y}_2 & \ttt{y}_3 & \cdots & \ttt{y}_A
+                                                                    \ttt{y}_1^\top & \ttt{y}_2^\top & \ttt{y}_3^\top & \cdots & \ttt{y}_A^\top
                                                               \end{pmatrix}^\top$
     
     \item
@@ -96,8 +96,8 @@ footskip=.25in]{geometry}
         \item
         \begin{enumerate}[i.]
             \item
-            Then the design matrix is $\ttt{J}_I \otimes \ttt{I}_J$, denote $\ttt{Y}_i = \begin{bmatrix} Y_{i1} & Y_{i1} & \cdots & Y_{iJ} \end{bmatrix}^\top$.
-            According to question one, we have that $\hat{\beta} = \sum_{j=1}^{I} \ttt{y}_i / I$.
+            Then the design matrix is $\ttt{J}_I \otimes \ttt{I}_J$, denote $\ttt{Y}_i = \begin{bmatrix} Y_{i1} & Y_{i2} & \cdots & Y_{iJ} \end{bmatrix}^\top$.
+            According to question one, we have that $\hat{\beta} = \sum_{j=1}^{I} \ttt{Y}_i / I$.
 
             \item
             Then the design matrix is $D = \begin{bmatrix} \ttt{J}_{IJ} & \ttt{J}_I \otimes \ttt{L} \end{bmatrix}$, where $\ttt{L} = \begin{pmatrix} \ttt{0} \\ \ttt{I}_{J-1}\end{pmatrix}$.
@@ -197,7 +197,7 @@ footskip=.25in]{geometry}
             Because:
             $$(\ttt{I} - \ttt{P}_1)^\top \ttt{P}_2 (\ttt{I} - \ttt{P}_1) = (\ttt{I} - \ttt{P}_1)^\top \ttt{P}_2^\top \ttt{P}_2 (\ttt{I} - \ttt{P}_1) = (\ttt{P}_2 (\ttt{I} - \ttt{P}_1))^\top \ttt{P}_2 (\ttt{I} - \ttt{P}_1) = \ttt{0}$$ 
             We have $\ttt{P}_2 (\ttt{I} - \ttt{P}_1) = \ttt{0}$, which shows $\ttt{P}_2 = \ttt{P}_2 \ttt{P}_1$.
-            Meanwhile we have $$\ttt{P}_2 = \ttt{P}_2^\top = (\ttt{P}_2 \ttt{P}_1)^\top = \ttt{P}_1^\top \ttt{P}_2^\top = \ttt{P}_1 \ttt{P}_1$$
+            Meanwhile we have $$\ttt{P}_2 = \ttt{P}_2^\top = (\ttt{P}_2 \ttt{P}_1)^\top = \ttt{P}_1^\top \ttt{P}_2^\top = \ttt{P}_1 \ttt{P}_2$$
             Therefore $\ttt{P}_1 \ttt{P}_2 = \ttt{P}_2 \ttt{P}_1 = \ttt{P}_2$.
         \end{proof}
 

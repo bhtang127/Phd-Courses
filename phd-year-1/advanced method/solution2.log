@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.8.22)  16 SEP 2017 14:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.8.22)  20 SEP 2017 10:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -613,7 +613,7 @@ b><c:/texlive/2017/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/texlive/2017
 /texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/texlive/2017/texmf-dist/fonts/
 type1/public/lm/lmtti10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsf
 onts/symbols/msbm10.pfb>
-Output written on solution2.pdf (8 pages, 301393 bytes).
+Output written on solution2.pdf (8 pages, 301421 bytes).
 PDF statistics:
  227 PDF objects out of 1000 (max. 8388607)
  183 compressed objects within 2 object streams
