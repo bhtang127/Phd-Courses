@@ -55,7 +55,7 @@ footskip=.25in]{geometry}
                                 &=& \int_0^1 dz \int_0^1 dy \int_0^{\min(1,\frac{tz}{y})} 1\ dx \\
                                 &=& \int_0^1 dz (\int_0^{tz} + \int_{tz}^1) \min(1,\frac{tz}{y}) dy \\
                                 &=& \int_0^1 (tz - tz\log{tz}) dz \\
-                                &=& \frac{3 t^2}{4} - \frac{t^2}{2}\log{t}
+                                &=& \frac{3 t}{4} - \frac{t}{2}\log{t}
     \end{eqnarray}
     And if $t > 1$, we have:
     \begin{eqnarray}
@@ -64,12 +64,12 @@ footskip=.25in]{geometry}
                                 &=& \int_0^1 dz \int_0^1 \min(1,\frac{tz}{y}) dy \\
                                 &=& (\int_0^{\frac{1}{t}} + \int_{\frac{1}{t}}^1) (\int_0^1 \min(1,\frac{tz}{y}) dy) dz \\
                                 &=& \int_{\frac{1}{t}}^1 1\ dz + \int_0^{\frac{1}{t}} dz ((\int_0^{tz} + \int_{tz}^1) \min(1,\frac{tz}{y}) dy) \\
-                                &=& (1 - \frac{1}{t}) + \frac{3}{4} = \frac{7}{4} - \frac{1}{t}
+                                &=& (1 - \frac{1}{t}) + \frac{3}{4t} = 1 - \frac{1}{4t}
     \end{eqnarray}
     Therefore:
     $$ \prob{\frac{XY}{Z} < t} = \begin{cases}
-                                    \frac{3 t^2}{4} - \frac{t^2}{2}\log{t} & 0< t \le 1 \\
-                                    \frac{7}{4} - \frac{1}{t} & t > 1  
+                                    \frac{3 t}{4} - \frac{t}{2}\log{t} & 0< t \le 1 \\
+                                    1 - \frac{1}{4t} & t > 1  
                                 \end{cases}$$
 
     \item
