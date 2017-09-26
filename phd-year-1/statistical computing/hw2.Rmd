@@ -1,0 +1,78 @@
+---
+title: "Homework 2"
+output: html_document
+author: "Bohao Tang"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Part 1
+```{r factorial}
+Factorial <- function(n) {
+    if(n < 0 | abs(round(n) - n) > 0)
+        return(NaN)
+    else {
+        f = 1
+        while(n > 0){
+            f = f * n
+            n = n - 1
+        }
+        return(f)
+    }
+}
+```
+```{r test}
+Factorial(4)
+Factorial(0)
+Factorial(-4)
+
+```
+
+# Part 2
+
+```{r visualize, warning=FALSE}
+library(readr)
+library(dplyr)
+library(ggplot2)
+mie <- read_csv("MIE.zip", col_types = "cicdi")
+mie.sub <- filter(mie, id == 20 & visit == 0 
+                  & room == "bedroom")
+qplot(timepoint, value, data = mie.sub)
+```
+```{r visual_func}
+visual <- function(id, visit, room, 
+                   dataset="MIE.zip", c_types="cicdi") {
+    mie <- read_csv(dataset, col_types = c_types)
+    
+    mie.sub <- mie
+    title = ''
+    
+    if(!hasArg(id) & !hasArg(visit) & !hasArg(room)) 
+        qplot(timepoint, value, data = mie) + ggtitle("All Data")
+    
+    else{
+        if(hasArg(id)){
+            mie.sub <- filter(mie.sub, 'id' == id)
+            title = paste(title, sprintf(" id = %s",id))
+        }
+        if(hasArg(visit)){
+            mie.sub <- filter(mie.sub, 'visit' == visit)
+            title = paste(title, sprintf(" visit = %s",visit))
+        }
+        if(hasArg(room)){
+            mie.sub <- filter(mie.sub, 'room' == room)
+            title = paste(title, sprintf(" room = %s",room))
+        }
+        if(count(mie.sub) == 0)
+            stop("Wrong Factors!\n")
+        
+        qplot(timepoint, value, data = mie.sub) + ggtitle(title)
+    }
+}
+
+```
+```{r visual_test}
+visual()
+```
