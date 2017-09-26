@@ -54,10 +54,14 @@
                 So $A^c \in \mathcal{C}$.
                 \item For every two sets $A, B$ in $\mathcal{C}$, $A \cup B$ is a finite union of sets of form $(x,y]$, we prove now that every this kind of set is in $\mathcal{C}$.
 
-                Suppose $W = \cup_{i=1}^n (x_i, y_i]$, then if $(x_i, y_i]$ are pairwise disjoint or $n = 1$, then we just need to put the end points in order to see that $W$ is in $\mathcal{C}$.
-                If $n > 1$ and $(x_i, y_i]$ are not pairwise joint, then we can find some $(x_{i_0},y_{i_0}]$ and some $(x_{i_1},y_{i_1}],(x_{i_2},y_{i_2}], \cdots ,(x_{i_k},y_{i_k}], k \ge 1$, such that $(x_{i_0},y_{i_0}] \cap (x_{i_j},y_{i_j}] \neq \emptyset$.
-                Then is easy to see that (by induction) $\cup_{j=1}^k (x_{i_j},y_{i_j}] \cup (x_{i_0},y_{i_0}] = (\min_{0\le i \le k} x_i, \max_{0\le i \le k} y_i]$. So we can replace these $k+1$ sets by one set of form $(x,y]$, where make the number of sets $n$ decrease at least $1$. 
-                And we can continuously do this, since $n$ is finite. We finally will reduce $n$ to $1$ or reduce $\{(x_i,y_i]\}$ to a pairwise disjoint collection. Therefore $W$ is all in $\mathcal{C}$.
+                Suppose $W = \cup_{i=1}^n (x_i, y_i]$, then:
+                
+                If $(x_i, y_i]$ are pairwise disjoint or $n = 1$, then we just need to put the end points in order to see that $W$ is in $\mathcal{C}$.
+                
+                If $n > 1$ and $(x_i, y_i]$ are not pairwise joint, then we can find some $(x_{i_0},y_{i_0}]$ and some $(x_{i_1},y_{i_1}],(x_{i_2},y_{i_2}], \cdots ,(x_{i_k},y_{i_k}], k \ge 1$, such that for any $j$: $(x_{i_0},y_{i_0}] \cap (x_{i_j},y_{i_j}] \neq \emptyset$.
+                Then is easy to see that (by induction) $\cup_{j=1}^k (x_{i_j},y_{i_j}] \cup (x_{i_0},y_{i_0}] = (\min_{0\le i \le k} x_i, \max_{0\le i \le k} y_i]$. So we can replace these $k+1$ sets by one set of form $(x,y]$ and make $W$ unchanged. Then the number $n$ of total sets in the union will decrease at least $1$ (decrease $k$ and $k > 1$). 
+                
+                And we can continuously do this when $W = \cup_{i=1}^n (x_i,y_i]$ for some not pairwise disjoint $(x_i, y_i]$ and $n > 1$, since $n$ is finite. We finally will reduce $n$ to $1$ or reduce $\{(x_i,y_i]\}$ to a pairwise disjoint collection but leave $W$ unchanged. Therefore $W$ is in $\mathcal{C}$.
 
                 So that $A \cup B \in \mathcal{C}$.
             \end{enumerate}
@@ -93,7 +97,7 @@
                 Therefore $A^c \in \Sigma_1$ and $\Sigma_2$ $\Rightarrow$ $A^c \in \Sigma_1 \cap \Sigma_2$.
                 \item
                 For all $\{A_i\}$ in $\Sigma_1 \cap \Sigma_2$, we have all $A_i$ are in $\Sigma_1$ and $\Sigma_2$. 
-                Therefore $\cup_{i=1}^\infty A_i \in \Sigma_1$ and $\cup_{i=1}^\infty A_i \in \Sigma_2$ $\Rightarrow$ $\cup_{i=1}^\infty \in \Sigma_1 \cap \Sigma_2$.
+                Therefore $\cup_{i=1}^\infty A_i \in \Sigma_1$ and $\cup_{i=1}^\infty A_i \in \Sigma_2$ $\Rightarrow$ $\cup_{i=1}^\infty A_i \in \Sigma_1 \cap \Sigma_2$.
             \end{enumerate}
             So, $\Sigma_1 \cap \Sigma_2$ is also $\sigma$-algebra.
         \end{proof}
@@ -112,28 +116,26 @@
         So if $\mathcal{B}_R \times \mathcal{B}_R$ is $\sigma$-algebra, then open unit circle will be in it. However, this is not the case since open cirle is not a Cartrsian product of any set. So $\mathcal{B}_R \times \mathcal{B}_R$ is not a $\sigma$-algebra.
 
         \item
-        I think is to prove $\sigma(\left\{[a,b] \times [c,d]\right\}) = \mathcal{B}_{R^2}$. (If $\mathcal{B} \times \mathcal{B}$ is defined like in 2.c., then it will not be a $\sigma$-algebra).
+        I think is to prove $\sigma(\left\{[a,b] \times [c,d] : a\le b\ \&\ c \le d\ \&\ a,b,c,d \in \mathcal{R}\right\}) = \mathcal{B}_{R^2}$. (If $\mathcal{B} \times \mathcal{B}$ is defined like in 2.c., then it will not be a $\sigma$-algebra).
         \begin{proof}
-            $\mathcal{B}_{R^2}$ contains all open sets, hence it also contains all closed sets $\Rightarrow$ all $[a,b] \times [c,d] \in \mathcal{B}_{R^2} $ $\Rightarrow \sigma(\left\{[a,b] \times [c,d]\right\}) \subset \mathcal{B}_{R^2}$.
+            $\mathcal{B}_{R^2}$ contains all open sets, hence it also contains all closed sets (it's complementary of open sets) $\Rightarrow$ all $[a,b] \times [c,d] \in \mathcal{B}_{R^2} $ $\Rightarrow \sigma(\left\{\text{All Closed Rectangles}\right\}) \subset \mathcal{B}_{R^2}$.
             
-            On the other side we only prove that all open sets are in $\sigma(\left\{[a,b] \times [c,d]\right\})$.
+            On the other side we only need to prove that all open sets are in $\sigma(\left\{\text{All Closed Rectangles}\right\})$.
             
-            First, for every open rectangle $A = (a,b) \times (c,d)$: $A = \cup_{n=1}^\infty [a+\frac{b-a}{4n}, b-\frac{b-a}{4n}] \times [c+\frac{d-c}{4n}, d-\frac{d-c}{4n}]$.
-            Therefore $A \in \sigma(\left\{[a,b] \times [c,d]\right\})$ $\Rightarrow \sigma(\left\{(a,b) \times (c,d)\right\}) \subset \sigma(\left\{[a,b] \times [c,d]\right\})$.
-
-            Second, for every open set $O$, set $S = O \cap \mathbb{Q}^2$. Consider (we use $\{p,q\}$ to denote the point $(p,q) \in R^2$ and $(a,b)$ to denote open interval to avoid confusing):
-            $$\mathcal{A} = \{(p,q) \times (r,s) \subset O : \{p,r\} \in S; \{q,s\} \in S\}$$
-            and $D = \cup_{C \in \mathcal{A}} C$
+            For every open set $O$, set $S = O \cap \mathbb{Q}^2$. Consider $D = \cup_{C \in \mathcal{A}} C$. (we use $\{p,q\}$ to denote the point $(p,q) \in R^2$ and $(a,b)$ to denote open interval to avoid confusing) where:
+            $$\mathcal{A} = \{[p,q] \times [r,s] \subset O : \{p,r\} \in S; \{q,s\} \in S\}$$
             
-            Then we have $\mathcal{A}$ is a countable collection in $\left\{(a,b) \times (c,d)\right\}$ and therefore $D \in \sigma(\left\{(a,b) \times (c,d)\right\})$.
+            Then we have $\mathcal{A}$ is a countable collection (since $\mathbb{Q}^4$ is countable and $\mathcal{A}$ is indiced by a subset of it, therefore $\mathcal{A}$ is countable) in $\left\{\text{All Closed Rectangles}\right\}$ and therefore $D \in \sigma(\left\{\text{All Closed Rectangles}\right\})$.
             
-            Finally, we argue that $D = O$. In the definition of $D$, we have obviously $D \subset O$. On the other hand, for every point $x = \{u,v\} \in O$, since $O$ is open, there is a open rectangle $x \in (a,b)\times(c,d) \subset O$.
+            Finally, we argue that $D = O$. In the definition of $D$, we have obviously $D \subset O$ (every set in $\mathcal{A}$ is contained in $O$). 
+            
+            On the other hand, for every point $x = \{u,v\} \in O$, since $O$ is open, there is a open rectangle $x \in (a,b)\times(c,d) \subset O$.
             Then we have $a < u < b$ and $c < v < d$. Since $\mathbb{Q}$ is dense, we can find rational number $p,q,r,s$ such that $a<p<u<q<b$ and $c<r<v<s<d$. 
-            Therefore $\{u,v\} \in (p,q)\times(r,s) \in \mathcal{A}$ $\Rightarrow \{u,v\} \in D$ $\Rightarrow O \subset D$. Therefore $D = O$.
+            Therefore $[p,q]\times[r,s] \subset (a,b)\times(c,d) \subset O$ $\Rightarrow [p,q]\times[r,s] \in \mathcal{A}$. Since $\{u,v\} \in [p,q]\times[r,s]$ $\Rightarrow \{u,v\} \in D$ and the arbitary of $\{u,v\}$, we get $O \subset D$. Therefore $D = O$.
 
-            So every open set is in $\sigma(\left\{(a,b) \times (c,d)\right\})$ $\Rightarrow \mathcal{B}_{R^2} \subset \sigma(\left\{(a,b) \times (c,d)\right\}) \subset \sigma(\left\{[a,b] \times [c,d]\right\})$.
+            So every open set is in $\sigma(\left\{\text{All Closed Rectangles}\right\})$ $\Rightarrow \mathcal{B}_{R^2} \subset \sigma(\left\{\text{All Closed Rectangles}\right\})$.
 
-            Then $\mathcal{B}_{R^2} = \sigma(\left\{[a,b] \times [c,d]\right\})$.
+            Then $\mathcal{B}_{R^2} = \sigma(\left\{[a,b] \times [c,d] : a\le b\ \&\ c \le d\ \&\ a,b,c,d \in \mathcal{R}\right\})$.
         \end{proof}
 
     \end{enumerate}
