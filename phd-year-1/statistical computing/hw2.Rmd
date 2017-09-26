@@ -54,15 +54,18 @@ visual <- function(id, visit, room,
     
     else{
         if(hasArg(id)){
-            mie.sub <- filter(mie.sub, 'id' == id)
+            input_id = as.character(id)
+            mie.sub <- filter(mie.sub, id == input_id)
             title = paste(title, sprintf(" id = %s",id))
         }
         if(hasArg(visit)){
-            mie.sub <- filter(mie.sub, 'visit' == visit)
+            input_visit = int(visit)
+            mie.sub <- filter(mie.sub, visit == input_visit)
             title = paste(title, sprintf(" visit = %s",visit))
         }
         if(hasArg(room)){
-            mie.sub <- filter(mie.sub, 'room' == room)
+            input_room = as.character(room)
+            mie.sub <- filter(mie.sub, room == input_room)
             title = paste(title, sprintf(" room = %s",room))
         }
         if(count(mie.sub) == 0)
@@ -73,6 +76,31 @@ visual <- function(id, visit, room,
 }
 
 ```
-```{r visual_test}
+```{r visual_test, error=FALSE}
 visual()
+visual(room="bedroom")
+visual(id=20, room="bedroom")
+```
+
+```{r bootstrap}
+source("median_testdata.R")
+
+bootstrap.med.ci <- function(data, times=1000, level=0.95) {
+    medians = c()
+    data.aux = data[!is.na(data)]
+    for(it in 1:times){
+        samples = sample(data.aux, replace = TRUE)
+        medians = c(medians, median(samples))
+    }
+    q1 = (1 - level) / 2; q2 = (1 + level) / 2
+    c(quantile(medians, q1), quantile(medians, q2))
+} 
+```
+
+```{r boot_test}
+bootstrap.med.ci(x1)
+bootstrap.med.ci(x2)
+bootstrap.med.ci(x3)
+bootstrap.med.ci(x4)
+bootstrap.med.ci(x5)
 ```
