@@ -1,0 +1,103 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath, amssymb,amsthm,enumerate,mathtools}
+\usepackage{hyperref}
+\usepackage{cite}
+\usepackage{geometry}
+\usepackage{pdfpages}
+
+\geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+} 
+
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\prob}[1]{\textbf{P} \left( #1 \right)}
+
+\title{Probability Theory Homework 3}
+\author{Bohao Tang}
+\date{\today} 
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}[1.1.6]
+    \item
+    $\mathcal{A}$ is not an algebra, hence not a $\sigma$-algebra. We raise an example that the union of two sets whose asymptotic density exist may not have asymptotic density, therefore $\mathcal{A}$ is not an algebra:
+
+    Consider $A_1$ is the set of all odd numbers. And $A_2$ is the set that contains all even number in the closed interval $[2^{2k}, 2^{2k+1}]$, and all odd number in $[2^{2k+1}, 2^{2k+2}]$, where $k \in \mathbb{N}$.
+    First we prove that $A_1$ and $A_2$ all have asymptotic density $\frac{1}{2}$:
+
+    For $A_1$, consider the parity of $n$, when $n = 2k, k\in \mathbb{N}$, $|A_1 \cap \{1,2,\cdots,n\}| / n = \frac{1}{2}$, when $n = 2k + 1, k \in \mathbb{N}$, $|A_1 \cap \{1,2,\cdots,n\}| / n = \frac{n + 1}{2n}$. Therefore we have that $\frac{1}{2} \le |A_1 \cap \{1,2,\cdots,n\}| / n \le \frac{n+1}{2n} \to \frac{1}{2}$. By approximation theory, we have $\lim |A_1 \cap \{1,2,\cdots,n\}| / n = \frac{1}{2}$.
+
+    For $A_2$, there are $1 + \floor{2^{2k-1}}$ ($\floor{\cdot}$ is round down function) even numbers in the interval $[2^{2k}, 2^{2k+1}]$, and $2^{2k}$ odd numbers in $[2^{2k+1}, 2^{2k+2}]$.
+    
+    If $n = 2^{2k}+l$, where $0 \le l < 2^{2k}$ (suppose $k > 1$, we are considering the limit, so the situation when $n$ is small will not influence), then:
+    \begin{eqnarray}
+        |A_1 \cap \{1,2,\cdots,2^{2k}\}| &=& \sum_{m=0}^{k-1}(1 + \floor{2^{2m-1}}) + \sum_{m=0}^{k-1} 2^{2m} =  2^{2k-1} + k-1
+    \end{eqnarray}
+    And for $k$ we have $(\log_2 n)/2 \ge (\log_2 2^{2k})/2 = k$ and $\log_2 n < \log_2 2^{2k+1} = 2k + 1 \Rightarrow k > \frac{\log_2 n - 1}{2} $. Consider the parity of $l$, we get:
+    \begin{eqnarray}
+        2^{2k-1} + k-1 + \frac{l}{2} &\le& |A_1 \cap \{1,2,\cdots,n\}| \le 2^{2k-1} + k-1 + \frac{l+2}{2} \\
+        |A_1 \cap \{1,2,\cdots,n\}| / n &\le& \frac{2^{2k-1} + l/2 + k}{2^{2k} + l} \le \frac{n+\log_2 n }{2n} \\
+        |A_1 \cap \{1,2,\cdots,n\}| / n &\ge& \frac{2^{2k-1} + l/2 + k - 1}{2^{2k} + l} \ge \frac{n+\log_2 n -3}{2n}
+    \end{eqnarray}
+    If $n = 2^{2k+1}+l$, where $0 \le l < 2^{2k+1}$. After totally similiar computation, we have:
+    \begin{eqnarray}
+        |A_1 \cap \{1,2,\cdots,n\}| / n &\le& \frac{2^{2k} + l/2 + k}{2^{2k+1} + l} \le \frac{n+\log_2 n -1}{2n} \\
+        |A_1 \cap \{1,2,\cdots,n\}| / n &\ge& \frac{2^{2k} + (l-1)/2 + k}{2^{2k+1} + l} \ge \frac{n+\log_2 n -3}{2n}
+    \end{eqnarray}
+    Therefore for every $n > 17$, we have:
+    $$\frac{1}{2} \leftarrow \frac{n+\log_2 n -3}{2n} \le |A_1 \cap \{1,2,\cdots,n\}| \le \frac{n+\log_2 n }{2n} \to \frac{1}{2}$$
+    By approximation theory, we have $\lim |A_1 \cap \{1,2,\cdots,n\}| / n = \frac{1}{2}$.
+
+    Now, consider the union of $A_1, A_2$. First $A_1 \cup A_2$ contains and only contains all numbers in interval $[2^{2k}, 2^{2k+1}]$ and all odd numbers in $[2^{2k+1}, 2^{2k+2}]$, where $k \in \mathbb{N}$.
+    We denote $p_k = |(A_1 \cup A_2) \cap \{1,2,\cdots, 2^{2k}\}| / 2^{2k}$ and $q_k = |(A_1 \cup A_2) \cap \{1,2,\cdots, 2^{2k+1}\}| / 2^{2k+1}$. Then for $k > 1$:
+    \begin{eqnarray}
+        p_k &=& \frac{1}{2^{2k}} \left\{1 + \sum_{l=0}^{k-1} (2^{2l}+1) + \sum_{l=0}^{k-1} 2^{2l}\right\} = \frac{2^{2k+1} - 2 +3k}{3\times2^{2k}} \to \frac{2}{3} \\
+        q_k &=& \frac{1}{2^{2k+1}} \left\{\sum_{l=0}^{k} (2^{2l}+1) + \sum_{l=0}^{k-1} 2^{2l}\right\} = \frac{5^{2k+1} - 4 +6k}{6\times2^{2k+1}} \to \frac{5}{6}         
+    \end{eqnarray}
+    $\lim p_k \ne \lim q_k$ and $p_k, q_k$ are just two subarrays of $|(A_1 \cup A_2) \cap \{1,2,\cdots, n\}| / n$. Therefore, $\lim |(A_1 \cup A_2) \cap \{1,2,\cdots, n\}| / n$ does not exist. Hence $A_1 \cup A_2$ is not in $\mathcal{A}$.
+
+\end{enumerate}
+
+\begin{enumerate}[1.2.2]
+    \item
+    $\prob{\chi \ge 4} = \int_4^\infty \frac{1}{\sqrt{\pi}} e^{-\frac{y^2}{2}} d y$. Since Theorem 1.2.3:
+    $$(\frac{1}{x} - \frac{1}{x^3})e^{-\frac{x^2}{2}} \le \int_x^\infty e^{-\frac{y^2}{2}} d y \le \frac{1}{x}e^{-\frac{x^2}{2}}$$
+    We have:
+    $$\frac{15}{64}e^{-8} \le \prob{\chi \ge 4} \le \frac{1}{4} e^{-8}$$
+\end{enumerate}
+
+\begin{enumerate}[1.2.3]
+    \item
+    First we notice that distribution function $F$ is non-decreasing, if $t > s$ then $\{X \le s\} \subset \{X \le t\} \Rightarrow \prob{X\le t} \ge \prob{X \le s}$.
+    
+    Then for every discontinuity $x$, since $F$ is monotonic, the left limit and right limit of $F$ at the point $x$ will always exist.
+    Denote them by $F(x-), F(x+)$. Since $F$ is non-decreasing, $F(x-) \le F(x+)$ and since $x$ is a discontinuity, $F(x-) < F(x+)$. There is always a rational number in non-empty open set $(F(x-), F(x+))$, we choose one and denote by $r_x$.
+    
+    Then we get a map from discontinuity set $D$ to rational number $\mathbb{Q}$, call it $\phi$: $\phi(x) = r_x$ for $x \in D$.
+    We now proof that $\phi$ is an injection so that $D$ is countable (since $\mathbb{Q}$ is conutable).
+    \begin{proof}
+        $\forall x_1,x_2 \in D: x_1 < x_2$, we assert that $r_{x_1} < r_{x_2}$. If $r_{x_1} \ge r_{x_2}$ then $F(x_1 +) > r_{x_1} \ge r_{x_2} > F(x_2 -)$. Therefore we can choose a $y_1 \in (x_1,\frac{x_1+x_2}{2})$ and $F(y_1) > r_{x_1}$($F(y_1)$ can be arbitary close to $F(x_1+)$!).
+        And also we can find a $y_2 \in (\frac{x_1+x_2}{2}, x_2)$, such that $F(y_2) < r_{x_2}$. Then we get that $y_1 < y_2$ but $F(y_1) > F(y_2)$, which is contradict to the non-decreasing of $F$. So $r_{x_1} < r_{x_2}$ and therefore $\phi$ is an injection.
+    \end{proof}
+\end{enumerate}
+
+\begin{enumerate}[1.2.5]
+    \item
+    I think this problem is to prove that the density of $g(X)$ is $f(g^{-1}(y))/g'(g^{-1}(y))$, and the support is in $[g(\alpha), g(\beta)]$.
+    \begin{proof}
+        Suppose the distribution function of $X$ is $F$. Then because $g$ is strictly increasing, we have that $\prob{g(\alpha) \le g(X) \le g(\beta)} = \prob{\alpha \le X \le \beta} = 1$. So the density outside $(g(\alpha), g(\beta))$ is $0$. 
+        For $y$ in $(g(\alpha), g(\beta))$, we have that:
+        \begin{equation} \label{df}
+            \prob{g(X) \le y} = \prob{X \le g^{-1}(y)} = F(g^{-1}(y))            
+        \end{equation}
+        Since $g$ is differentiable and strictly increasing, we have $\frac{dg^{-1}}{dx}|_y = \frac{1}{g'(g^{-1}(y))}$. Along with $F' = f$, we differentiate equation \ref{df} to get the density of $g(X)$ at point $y$ is $f(g^{-1}(y))/g'(g^{-1}(y))$.
+    \end{proof}
+\end{enumerate}
+
+\end{document}
+
