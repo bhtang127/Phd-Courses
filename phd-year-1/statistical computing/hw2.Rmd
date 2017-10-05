@@ -9,6 +9,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Part 1
+The function is writen in iteration:
 ```{r factorial}
 Factorial <- function(n) {
     if(n < 0 | abs(round(n) - n) > 0)
@@ -23,6 +24,7 @@ Factorial <- function(n) {
     }
 }
 ```
+Here are some tests:
 ```{r test}
 Factorial(4)
 Factorial(0)
@@ -32,18 +34,18 @@ Factorial(-4)
 
 # Part 2
 
-```{r visualize, warning=FALSE}
-library(readr)
-library(dplyr)
-library(ggplot2)
-mie <- read_csv("MIE.zip", col_types = "cicdi")
-mie.sub <- filter(mie, id == 20 & visit == 0 
-                  & room == "bedroom")
-qplot(timepoint, value, data = mie.sub)
-```
-```{r visual_func}
+In this part we design a visualizing function. The function `visual` requires packasges `readr`, `dplyr`, `ggplot2`. And it has five parameters: `id`, `visit`, `room`, `dataset` and `c_types`, where the first three specify the subset to visualize, and the last two acutually you shouldn't change them. 
+
+In the function, I include the packages and then judge which parameters the user have put in. Whenever the user do a specification via `id`, `visit` or `room` (they can use them singlely, doublely or use then all), we do a `filter` to the data. And If the user do not specify any property, we just plot out the whole dataset. After all the `filter` function, if the projected data is null, we raise a __Wrong Factors__ error, if not, we plot out the whole projected dataset.
+
+The code is shown below:
+```{r visual_func, message=FALSE, warning=FALSE}
 visual <- function(id, visit, room, 
                    dataset="MIE.zip", c_types="cicdi") {
+    library(readr)
+    library(dplyr)
+    library(ggplot2)
+    
     mie <- read_csv(dataset, col_types = c_types)
     
     mie.sub <- mie
@@ -76,17 +78,31 @@ visual <- function(id, visit, room,
 }
 
 ```
-```{r visual_test, error=FALSE}
+Here are some tests:
+```{r visual_test, error=FALSE, message=FALSE, warning=FALSE}
 visual()
 visual(room="bedroom")
 visual(id=20, room="bedroom")
 ```
 
-```{r bootstrap}
+
+# Part 3
+
+In this part, I wrote an function called `bootstrap.med.ci` to compute the ci of median via bootstrap method. The function have three parameters: `data`, `times` and `level`. The function will find `level` level of confidential interval of the `data` by resampling it `times` times.
+
+In the function, I changed the data to `numeric` type and remove the `NA` part. So if the data can not be change to `numeric` type or you consider the `NA` should be dealed in another way, you should not use my function.
+
+The computing method is to resample the original data `times` times, and in each sample we compute the sample mean. Then we get `times` medians. Ather this we find the `(1-level)/2` quantile and `(1+level)/2` quantile of these medians. Then the interval between these two quantiles will be the bootstrap confidential interval.
+
+The output is of the structure of percentages along with interval end points. Typically the second line of output will be the two end points of the ci. 
+
+The code is shown below:
+```{r bootstrap, error=FALSE, message=FALSE, warning=FALSE}
 source("median_testdata.R")
 
 bootstrap.med.ci <- function(data, times=1000, level=0.95) {
     medians = c()
+    data = as.numeric(data)
     data.aux = data[!is.na(data)]
     for(it in 1:times){
         samples = sample(data.aux, replace = TRUE)
@@ -96,7 +112,7 @@ bootstrap.med.ci <- function(data, times=1000, level=0.95) {
     c(quantile(medians, q1), quantile(medians, q2))
 } 
 ```
-
+Here are some tests:
 ```{r boot_test}
 bootstrap.med.ci(x1)
 bootstrap.med.ci(x2)

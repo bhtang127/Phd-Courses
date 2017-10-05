@@ -39,7 +39,12 @@ footskip=.25in]{geometry}
 
     \item
     \begin{proof}
-    Suppose $k$ is a real number bigger than $1$, then by mean value theorem: 
+    I think $k$ here may be integer. But for every real number $k \ge 1$, if $x^k \in \mathbb{R}$ have definition for $x$ in whole line, then the proposition is true. Now we prove that.
+
+    If $k = 1$, there's nothing need to prove.
+    
+    If $k > 1$.
+    By mean value theorem: 
     \begin{eqnarray}
         |(X_i - \bar{X})^k - (X_i - \xi)^k| &\le& |\xi - \bar{X}| | \max_{t \ \text{between} \ X_i-\bar{X}, X_i-\xi} k t^{k-1} | \\        
                                             &\le& |\xi - \bar{X}| k (|X_i - \bar{X}|^{k-1} + |X_i - \xi|^{k-1}) \\
