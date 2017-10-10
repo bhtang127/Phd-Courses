@@ -93,16 +93,16 @@ footskip=.25in]{geometry}
         $$f(z_1, z_2) = \frac{\lambda^n n^n}{(n-2)! z_1^n} e^{-\lambda n / z_1}  \bm{1}_{z_1 > 0} \times e^{-n\lambda(z_2 - \beta)} \bm{1}_{z_2 > \beta}$$
         Since $f(z_1, z_2)$ can be factorized into production of function of $z_1$ and function of $z_2$, we know that $\hat{\lambda}$ and $\hat{\beta}$ are independent. 
 
-        By the factorization, we know that $n (\hat{\beta} - \beta) \sim \exp(\lambda)$, therefore $\sqrt{n} (\hat{\beta} - \beta) \cp 0$.
-        Recall the CLT we have that $\sqrt{n}\left\{\bar{X} - (\frac{1}{\lambda} + \beta)\right\} \cp N(0, \frac{1}{\lambda^2})$, by Slutsky's Theorem we have:
-        $$\sqrt{n}(\bar{X} - X_{(1)} - \frac{1}{\lambda}) = \sqrt{n}(\bar{X} - \frac{1}{\lambda} - \beta) - \sqrt{n}(X_{(1)} - \beta) \cp N(0, \frac{1}{\lambda^2})$$
+        By the factorization, we know that $n (\hat{\beta} - \beta) \sim \exp(\lambda)$, therefore $\sqrt{n} (\hat{\beta} - \beta) \cd 0$.
+        Recall the CLT we have that $\sqrt{n}\left\{\bar{X} - (\frac{1}{\lambda} + \beta)\right\} \cd N(0, \frac{1}{\lambda^2})$, by Slutsky's Theorem we have:
+        $$\sqrt{n}(\bar{X} - X_{(1)} - \frac{1}{\lambda}) = \sqrt{n}(\bar{X} - \frac{1}{\lambda} - \beta) - \sqrt{n}(X_{(1)} - \beta) \cd N(0, \frac{1}{\lambda^2})$$
         By delta method we have:
-        $$\sqrt{n}(\hat{\lambda} - \lambda) \cp N(0, \lambda^2)$$
+        $$\sqrt{n}(\hat{\lambda} - \lambda) \cd N(0, \lambda^2)$$
 
         In conclusion, the estimators $\hat{\lambda}$ and $\hat{\beta}$ are consistent and mutual independent. But they are not in the same scale.
         \begin{eqnarray}
-            n (\hat{\beta} - \beta) &\cp& \exp(\lambda) \\
-            \sqrt{n}(\hat{\lambda} - \lambda) &\cp& N(0, \lambda^2)
+            n (\hat{\beta} - \beta) &\cd& \exp(\lambda) \\
+            \sqrt{n}(\hat{\lambda} - \lambda) &\cd& N(0, \lambda^2)
         \end{eqnarray}
 
     \end{enumerate}

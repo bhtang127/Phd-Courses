@@ -49,17 +49,17 @@ footskip=.25in]{geometry}
         \item $26 \times 26 + 26 \times 26 \times 26 = 18252$
         \item $26 \times 26 + 26 \times 26 \times 26 + 26 \times 26 \times 26 \times 26 = 475228$
     \end{enumerate}
-    \item 
-    We can deal $\{1,2,3\}$ as one number and arrange the $n-2$ numbers in order first, then we arrange ${1,2,3}$ in order. Therefore:
-    $\textbf{P} = \frac{ ( n - 2 ) ! \times 3 ! }{ n ! } = \frac{6}{n ( n - 1 )}$ , where $n$ must no less than $3$. 
-    \item 
-    It's equivalent to choose $7$ children from $10$ to have one and only one gift, therefore the number of results is $\binom{10}{3} = 120$.
-    \item 
-    It's the sum of ways to choose $t$ elements in $(x_1,x_2,\cdots,x_n)$ to be $1$ , where $t$ ranges from $k$ to $n$. And that's $\sum_{t=k}^{n} \binom{n}{t}$
-    \item 
-    $\textbf{P} = \frac{|\text{choose $r$ spaces occupied out of the rest $N-2$ spaces}|}{|\text{choose $r$ occupied out of N}|} = \frac{\binom{N - 2}{r}}{\binom{N}{r}} = \frac{(N - r) (N - r - 1)}{N (N - 1)}$,
-    where $r \le N-2$. And obviously $\textbf{P} = 0$ when $r > N-2$.
-    \item I'm a little confused about the meaning of "doubles" here, I think it means 2 dices are in same number.
+        \item 
+        We can deal $\{1,2,3\}$ as one number and arrange the $n-2$ numbers in order first, then we arrange ${1,2,3}$ in order. Therefore:
+        $\textbf{P} = \frac{ ( n - 2 ) ! \times 3 ! }{ n ! } = \frac{6}{n ( n - 1 )}$ , where $n$ must no less than $3$. 
+        \item 
+        It's equivalent to choose $7$ children from $10$ to have one and only one gift, therefore the number of results is $\binom{10}{3} = 120$.
+        \item 
+        It's the sum of ways to choose $t$ elements in $(x_1,x_2,\cdots,x_n)$ to be $1$ , where $t$ ranges from $k$ to $n$. And that's $\sum_{t=k}^{n} \binom{n}{t}$
+        \item 
+        $\textbf{P} = \frac{|\text{choose $r$ spaces occupied out of the rest $N-2$ spaces}|}{|\text{choose $r$ occupied out of N}|} = \frac{\binom{N - 2}{r}}{\binom{N}{r}} = \frac{(N - r) (N - r - 1)}{N (N - 1)}$,
+        where $r \le N-2$. And obviously $\textbf{P} = 0$ when $r > N-2$.
+        \item I'm a little confused about the meaning of "doubles" here, I think it means 2 dices are in same number.
     \begin{enumerate}
         \item $\textbf{P} = \frac{|\{(1,1),(2,2)\}|}{6 \times 6} / \frac{|\{(1,1),(1,2),(2,1),(1,3),(3,1),(2,2)\}|}{6 \times 6} = \frac{1}{3}$
         \item $\textbf{P} = \frac{5 + 5}{6 \times 6} / \frac{6 \times 6 - 6}{6 \times 6} = \frac{1}{3}$
