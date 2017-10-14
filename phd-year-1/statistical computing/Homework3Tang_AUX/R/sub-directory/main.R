@@ -4,6 +4,13 @@ library(tidyr)
 library(readr)
 library(magrittr)
 
+#' An S4 class to represent the longitudinal data
+#' 
+#' @slot id numeric type 
+#' @slot visit numeric type
+#' @slot room character type
+#' @slot value numeric type
+#' @slot timepoint numeric type
 setClass("LongitudinalData", slots = c(id = "numeric",
                                        visit = "numeric",
                                        room = "character",
