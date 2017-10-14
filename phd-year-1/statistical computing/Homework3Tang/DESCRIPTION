@@ -1,0 +1,9 @@
+Package: Homework3Tang
+Title: Longitudinal Data Class for R
+Description: Build a class and several summarizing method to deal with longitudinal data
+Version: 0.0.1
+Author: Bohao Tang<bhtang@jhu.edu>
+Maintainer: Bohao Tang<bhtang@jhu.edu>
+License: file LICENSE
+Depends: R(>=2.14.0), methods, readr, dyplr, tidyr, readr, magrittr
+Date: 2017-10-14

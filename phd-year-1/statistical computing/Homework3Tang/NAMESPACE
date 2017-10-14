@@ -1,0 +1,3 @@
+exportClasses("LongitudinalData","ld_project","ld_summary")
+exportMethods("make_LD","print","subject","visit","room","summary")
+importFrom(tidyr, "spread")
