@@ -1,0 +1,90 @@
+Hello, everyone. I am going to be talking to you about responsible conduct of research. My name is Sharon Krag. I'm a professor of biochemistry and molecular biology, and have been on faculty here at the Bloomberg School for more than a couple of years. So I will be telling you about this topic from both the faculty point of view and from an administrator's point of view. 
+
+But the important thing is that we're going to go through a number of topics on responsible conduct of research that you as a researcher, a future researcher, will need to know about. Those topics include such things as mentorship, data management, scientific misconduct, authorship, conflict of interest, animals and humans as research subjects. And one of the things that we'll be talking about shortly is academic ethics, which is not completely relevant to a research student. But a research student in training, it is very relevant to. 
+
+I'd like to talk about these various topics from two approaches. One from the point of view of ethics and morals, but the other from a point of view of regulations and procedures. And what you will see during our discussions is that there's always this interplay between what's the right thing to do and what the rules, and regulations, and procedures require you to do as a researcher. 
+
+So we are going to begin this discussion with the definition of terms. It's always good to understand what you are talking about because every field, every discussion always has some words which I'm going to assume you understand an which I'm going to be using in a little bit different context. So let's define some terms. 
+
+The first term is research ethics. This is a, I think, an older phrase to describe responsible conduct of research. It was used because we had been thinking a lot about academic ethics, which is another one of these terms. And I'll start there and then move up. 
+
+So academic ethics is one's behavior, and the rules and regulations surrounding your behavior in a course. And it is a responsibility, as we'll find out, of both the faculty and the students. 
+
+By contrast, when you're doing research-- not when you're in a class, but when you're doing the work in a research group or in a laboratory-- then you will be thinking about things in terms of research ethics in contrast to academic ethics. There are a number of principles that are the same. But in general, research ethics are those behaviors, and ethics, and morals which involve the conduct of research. 
+
+Now, another issue is the difference between research fraud, also known as a scientific misconduct, and other questionable research practices. So not everything you do as a researcher will be covered by regulation, or a policy, or a procedure. There are many things that you do in the realm of authorship, for example, or data management where it's just good research practice that you're interested in. There's no rules and regulations. 
+
+But there are other parts of this research ethics world-- for example, fraud in research-- where there are very particular rules, and regulations, and ways of approaching that you have to know about. 
+
+So in general, what we're going to be talking about is responsible conduct of research. We are going to be not talking so much about the ethics. But we are going to be giving those when appropriate. And again, I'm going to be doing this discussion from two points of view-- both the ethics, the principles, what you need to know about doing research, and whatever rules and regulations, some of them federal, that you have to worry about. 
+
+Now, there is a book called The Responsible Science-- Ensuring the Integrity of Research Process, which has been published by the National Academy of Sciences. And if you haven't looked at that book-- in fact, it's a series of two books which is very readable. And what I have done is copied from this book. And one of the comments that goes to the point of what is responsible conduct of research. And the quotation is as follows. 
+
+"There is a clear demarcation between misconduct in science and questionable research practices. The two categories are not equivalent. And they require different types of responses by the research community and research institutions." Unquote. 
+
+So this is what I was talking about before. So there are certain rules and regulations that are applicable to fraud in research or scientific misconduct. And then there are a lot of best practices that you as a researcher, first of all, need to know both of those, and you need to know the difference. 
+
+So what does questionable research practices mean anyway? Well, the best way to tell you what it means is to tell you some examples. And so here are some examples of a questionable research practice. And as we go through these, hopefully you will remember them because you will hear them again in further discussions. 
+
+So for example, failure to retain significant research data for a reasonable period is a questionable research practice that we will discuss at some length when we talk about data management. Just to give you a peek into what we're going to be talking about. The responsibility of you as a researcher is to retain your research data for at least, in my view, seven years after you publish it. 
+
+And we'll talk about why that's important. But one of the reasons is that you need to be able to share that data that was the basis of your discussions and the basis of your work. But also, you need to protect yourself from allegations of scientific misconduct. And the only way you can do that is by retaining your research data. 
+
+But as an example of why this is a questionable research practice as opposed to a regulation is that no one can figure out how long you need to keep it for. So there is a lot of discussion currently. There's a lot of people putting in their two cents. And no one has come to a consensus in terms of how long you need to keep your research data. 
+
+And it might bring a smile to you to know that this researcher, Dr. Krag, never throws out research data. And if you saw my office, you would understand that. 
+
+A second questionable research practice is to maintain inadequate research records, especially for results that are published or are relied on by others. So remember as a researcher, you're only one small part of a large research process. And if you haven't maintained an adequate research notebook or a research project book that tells everybody exactly what you did, and what you observed, and what you were trying to do, then it's for nothing. 
+
+Because it's the research record that is the most important part of the research process. And so you need to be sure that you maintain an adequate research record. And if you do not, that is definitely a questionable research practice. 
+
+Another point, which is a questionable practice, is to confer or request authorship on the basis of a specialized service or a contribution that is not significantly related to the research reported in the paper. This is sometimes referred to as giving honorary authorships. And as we will talk about in the section on authorship, this is really a questionable research practice. You do not want to confer on folks authorship when they don't deserve it. 
+
+There's a great deal of recognition that goes along with authorship , but a great deal of responsibility. And you want to make sure that you give authorship to people who had a significant part of the work and were not just honorary casts of characters. 
+
+Another questionable research practice is to refuse to give peers reasonable access to unique research materials or data that support published papers. Again, this is an aspect of data management which we will come back to later. But remember that when you're doing basic research or you're doing applied research, you're doing research of any sort, the idea is to be part of the bigger picture and to give people open access to what you've done. 
+
+Now, that access starts when you publish your work. But don't get into the habit of refusing to give folks access to what you've done because that's really not a honorable practice of doing research. 
+
+Another questionable research practice. Remember, we're doing the opposites here of what's good behavior. So another questionable research practice is to use inappropriate statistical or other methods of measurement to enhance the significance of research findings. 
+
+Now, this practice borders on scientific misconduct, as we will talk about soon. Scientific misconduct is the intentional fabrication, falsification, or plagiarism of research data. But here, we're not really making up the data. And we're not really throwing away parts of the data that might be not according to our thinking about what should be. And it's not plagiarizing. It's just using an inappropriate method of measurement. 
+
+So it's just not good science. And you will be spending a lot of your efforts and your education trying to understand in your research field what are reasonable, appropriate methods. And when you learn that, and then when you use an inappropriate one, or one that's just not cutting edge, or just not appropriate for what you want to be doing, then that falls in the category of a questionable research practice. 
+
+Another questionable research practice is to inadequately supervise research subordinates or exploiting them. And we will very shortly talk about one of the aspects of responsible conduct of research, which is mentorship. So this is the opposite. This is to run away from the responsibility of mentorship. And it is a questionable research practice. 
+
+I think research students always enjoy hearing about this because they're the ones that get the brunt of inadequate mentorship. And it is important for you as a research student to realize that it is a responsibility of your mentor to do the best job that he or she can. 
+
+So the final questionable research practice which, remember, comes from this book Responsible Science, put out by the National Academy of Sciences, is misrepresenting speculations as fact or releasing preliminary research results, especially in the public media, without providing sufficient data to allow peers to judge the validity of the results or to reproduce the experiments. 
+
+One of the issues for a research scientist is to be sure that they publish their research data in a peer-reviewed publication so that everybody in their field can have a chance to look at that information and make sure that the significance and the discussion of the results is appropriate. And this is the very cornerstone of how research should be done. That is, you do your work. You do it in an honorable and ethical way. And then you publish that work so that everybody can see it. And you make sure that it's published in a peer-reviewed format. 
+
+And you don't, as we say, publish in the New York Times. In other words, you don't just tell people about your research without having already described it in the scientific literature. Because although you may think that you know more about everything than anybody else, the fact of the matter is that your role as a scientist is to collect the facts, to generate the hypotheses, and then to share those data and those hypotheses with your fellow scientists. 
+
+But you could be wrong. And so the issue really is not to circumvent or make in a shorter way your studies known to the public through the press before you have made that work known in a peer-reviewed format to your fellow scientists. 
+
+So the point here, in case you've missed it, is that in research there is this constant interplay between ethics or morals, professional conduct-- you're a researcher, this is your scientific professional conduct-- and the ever-present government regulations having to do with research. And this will be a constant theme as we will discuss these various aspects. There's always this interplay. And we'll try to cover all of these things-- ethics, professional conduct, and government regulations. 
+
+So as promised, I would like to spend some time talking to you about mentorship because this is an important aspect of responsible conduct of research. A research mentor is expected to supervise the work of the trainee, whether that trainee is an undergraduate student, a predoctoral student, or a postdoctoral fellow. 
+
+Now, the supervision of these various trainees at different levels may be slightly different. But the mentor should not assume that even a seasoned postdoctoral fellow does not need some supervision. So clearly a research mentor, one of their major responsibilities is to be a good supervisor. 
+
+The research mentor needs to ensure that trainees' research is completed in a sound and honest way. They need to show the trainee what good research is. And that could vary in terms of what methods are used and what strategies are used from discipline to discipline. But the research mentor needs to instruct and teach the trainee what is good research. 
+
+The research mentor needs to teach and instruct the trainee how research is carried out, what methods would you use, how does that change as science moves forward. So it's very important for the mentor to pay attention to what the trainee is a learning and to be involved in the instruction of that trainee. 
+
+And this instruction needs to be done in a positive and supportive, but challenging way. So the idea of research education is to positively support the trainee, but always challenge that trainee to the limits that they can accomplish. And of course, that may change from trainee to trainee. But this is a very important aspect of research mentorship. 
+
+The mentor also needs to socialize the trainee in the community of science, otherwise known as networking. They need to help the trainee establish a scientific network. And this is a very important part. Research mentors should take undergraduate students, and predoctoral students, and postdoctoral students to various scientific meetings or workshops. They should involve the trainees in discussions with other investigators that come to the institution to give seminars, for example. 
+
+One of the popular approaches to this is that when a department or a research group invite say outside speaker for a seminar, then the students and postdoctoral fellows are often given a chance to have a pizza lunch with this person. And in that context, the trainees can interact with people other than their direct mentor. And that's a very important part of research mentorship. 
+
+Finally, the research mentor needs to teach the trainee applicable government institutional research requirements. I always smile at this because I always think that a research mentor needs to be supportive of your taking a course in responsible conduct of research, but often they are not. They're wanting you to get your work done instead of learning how to do good research. 
+
+But it's important by the way that a research mentor behaves themselves so you can follow their example. For the research mentor to understand that responsible conduct of research is the way to go. And that, remember, this responsible conduct of research involves these applicable government and institutional requirements as well as ethical and moral behavior. 
+
+So when we come back, what we'll be talking about is another aspect of this whole idea of responsible conduct of research. But it is in the context of training. And that is academic ethics for a research trainee when they're taking classes. 
+
+Copyright (c) 2014 Johns Hopkins University. All Rights Reserved. 
+Lecture transcripts are copyright protected and provided to accommodate students under the Americans with Disabilities Act. They are prepared as written representations of the spoken lectures and should be used in conjunction with the course lectures and not as a substitution for viewing them. If you have any concerns about the transcript, please contact the course instructor or teaching assistant.
