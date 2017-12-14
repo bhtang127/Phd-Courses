@@ -1,0 +1,69 @@
+---
+title: "Coding"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(magrittr)
+```
+
+## 1
+Visualize the data.
+```{r visual, message=FALSE,warning=FALSE}
+library("nlme")
+library("ggplot2")
+
+Raildata = Rail
+ggplot(Raildata, aes(x=Rail, y=travel)) +
+    geom_boxplot(fill="grey80", color="blue")
+
+```
+(a). 
+Here's the mean `u`, effects `effects` and test information of fixed effect model:
+```{r q1a, message=FALSE,warning=FALSE}
+library(dplyr)
+u = mean(Raildata$travel)
+effects = Raildata %>%
+        group_by(Rail) %>%
+        summarise(means=mean(travel)-u)
+print(u)
+print(effects)
+summary(aov(travel~Rail, Raildata))
+```
+(b). Fitted model:
+```{r q1b, message=FALSE,warning=FALSE}
+library(lme4)
+Rail.mixed = lmer(travel ~ 1 + (1|Rail), Raildata)
+summary(Rail.mixed)
+```
+(c).Use the fomula like in 1.2(b) to calculate the BLUPs and compare with results in 2.1(a), we can find that BLUPs is a little shrinked towards zero.
+```{r q1c, message=FALSE,warning=FALSE}
+sigma_u = 24.805
+sigma = 4.021
+u = 66.50
+BLUPs = Raildata %>%
+            group_by(Rail) %>%
+            summarise(effects = 3*sigma_u^2/(sigma^2+3*sigma_u^2) * (mean(travel)-u))
+print(BLUPs)
+```
+
+## 2
+
+(a).
+Visualize the data.
+```{r q2a, message=FALSE,warning=FALSE}
+library(lattice)
+data("Pixel")
+xyplot(pixel ~ day | Dog + Side, data=Pixel, type='o', pch=20)
+```
+
+(b).
+We regard the two $\beta_1$ in this question as a typo, we fit three fixed effects $\beta_0,\beta_1,\beta_2$.
+Here's the result, it says that the estimates for $\beta_0,\beta_1,\beta_2$ are 1074.496, 4.87216 and -0.24739.
+And for the random effect, for `Dog` level, the standard deviation is 22.82; for `Side` within `Dog`, std is 15.70 and for the random error, the std is `12.92`.
+```{r q2b, message=FALSE,warning=FALSE}
+D = mutate(Pixel,day2=day^2)
+fit = lmer(pixel~day+day2+(1|Dog/Side), data=D)
+summary(fit)
+```
