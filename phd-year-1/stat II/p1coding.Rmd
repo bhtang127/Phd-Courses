@@ -1,0 +1,85 @@
+---
+title: "Coding Part"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Problem 1
+(i). 
+```{r i}
+Y = source("data8.txt")$value
+
+m = mean(Y)
+v = var(Y)
+
+theta1 = m - v / m
+theta2 = theta1 * v / m
+mme = c(theta1,theta2)
+print(mme)
+```
+
+(ii). 
+```{r ii}
+f <- function(Y){
+    function(para){
+        t1 = para[1]
+        t2 = para[2]
+        500 * log(gamma(t1^2/t2)) + 500 * log(t1) -
+        500 * t1^2 / t2 * log(t1/t2) - 
+        (t1^2/t2 - 1) * sum(log(Y)) + t1 / t2 * sum(Y)
+    }
+}
+
+mle = optim(mme, f(Y))
+print(mle$par)
+```
+
+(iii). 
+```{r iii}
+mle = optim(mme, f(Y), hessian = T)
+eigenvalues = svd(mle$hessian)$d
+print(eigenvalues)
+```
+
+(iv). 
+```{r iv}
+t1 = mle$par[1]
+t2 = mle$par[2]
+p_mle = qgamma(0.95, shape = t1^2 / t2, scale = t2 / t1)
+print(p_mle)
+```
+
+(V).
+
+
+## Problem 2
+
+(i). 
+```{r 2i}
+X = source("p2data")$value
+
+u_mle = mean(X)
+print(u_mle)
+```
+(ii). 
+```{r 2ii}
+gu_mle = exp(-mean(X))
+print(gu_mle)
+```
+
+(iii). 
+```{r 2iii}
+X0 = (X == 0)
+gu_ub = mean(X0)
+print(gu_ub)
+```
+
+(v). 
+```{r 2v}
+gu_BW = (49 / 50)^(50 * mean(X))
+print(gu_BW)
+```
+
