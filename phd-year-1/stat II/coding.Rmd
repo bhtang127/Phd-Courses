@@ -1,6 +1,6 @@
 ---
 title: "Coding Part"
-output: html_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
@@ -37,15 +37,15 @@ mle = optim(mme, f(Y))
 print(mle$par)
 ```
 
-(iii). 
-```{r iii}
+(iii). The eigenvalues of hessian are all positive, therefore hessian is positive definite, so this is indeed the local minimum of minus log likelihood, which is the local maximum of likelihood. 
+```{r iii, warning=FALSE}
 mle = optim(mme, f(Y), hessian = T)
 eigenvalues = svd(mle$hessian)$d
 print(eigenvalues)
 ```
 
 (iv). 
-```{r iv}
+```{r iv, warning=FALSE}
 t1 = mle$par[1]
 t2 = mle$par[2]
 p_mle = qgamma(0.95, shape = t1^2 / t2, scale = t2 / t1)
