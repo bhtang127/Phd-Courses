@@ -53,7 +53,33 @@ print(p_mle)
 ```
 
 (V).
+```{r v, warning=FALSE}
+estimator <- function(path){
+    Y = source(path)$value
+    m = mean(Y)
+    v = var(Y)
+    theta1 = m - v / m
+    theta2 = theta1 * v / m
+    mme = c(theta1,theta2)
+    mle = optim(mme, f(Y))$par
+    mle
+}
 
+theta12 = c()
+for(i in 1:10){
+    path = paste("data", i, ".txt",sep = "")
+    theta12 = rbind(theta12, estimator(path))
+}
+print(theta12)
+
+var1 = var(theta12[,1])
+var2 = var(theta12[,2])
+cov12 = cov(theta12[,1], theta12[,2])
+
+print(var1)
+print(var2)
+print(cov12)
+```
 
 ## Problem 2
 
