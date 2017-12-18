@@ -48,7 +48,7 @@ print(eigenvalues)
 ```{r iv, warning=FALSE}
 t1 = mle$par[1]
 t2 = mle$par[2]
-p_mle = qgamma(0.95, shape = t1^2 / t2, scale = t2 / t1)
+p_mle = qgamma(0.95, shape = t1^2 / t2 + 1, scale = t2 / t1)
 print(p_mle)
 ```
 
