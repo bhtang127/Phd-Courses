@@ -1,0 +1,59 @@
+---
+title: "Coding"
+author: "Bohao Tang"
+date: "February 25, 2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 6.18
+
+```{r 6.18, message=FALSE, warning=FALSE}
+library("VGAM")
+
+Alligators = read.table("Alligators2.txt", header = TRUE)
+
+fit <- vglm(formula = cbind(y2,y3,y4,y5,y1) ~ size + gender + factor(lake),
+            family = multinomial, data = Alligators)
+
+summary(fit)
+
+1 - pchisq(55.2285,40)
+
+fitted(fit)
+```
+
+## 7.31
+
+#### a.
+```{r 7.31a, message=FALSE, warning=FALSE}
+Homicide = read.table("Homicide.txt", header = TRUE)
+
+fit.poi <- glm(count ~ race, family=poisson, data=Homicide)
+
+summary(fit.poi)
+logLik(fit.poi)
+```
+
+#### b.
+```{r 7.31b, message=FALSE, warning=FALSE}
+library("MASS")
+
+fit.nb <- glm.nb(count ~ race, data=Homicide)
+
+summary(fit.nb)
+```
+
+#### c.
+```{r 7.31c, message=FALSE, warning=FALSE}
+print(exp(1.7331+0.14657*c(qnorm(0.025),qnorm(0.975))))
+print(exp(1.7331+0.2385*c(qnorm(0.025),qnorm(0.975))))
+```
+
+#### overdispersion
+```{r 7.31o, message=FALSE, warning=FALSE}
+```
+

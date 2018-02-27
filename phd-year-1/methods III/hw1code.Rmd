@@ -1,0 +1,63 @@
+---
+title: "Coding"
+output: pdf_document
+---
+
+# 6.
+Here we have that "x1_covariate1" is just the intercept term, so we don't need to include it since we already add intercept in our algorithm.
+We use least square estimator of beta to initialize our algorithm.
+```{r p6}
+myLR <- function(Y, X, it_max=25, eps=1e-8){
+    D = cbind(1, X)
+    p = dim(D)[2]
+    beta = solve(t(D) %*% D) %*% t(D) %*% Y
+    prob = exp(D %*% beta) / (1 + exp(D %*% beta))
+    for(i in 1:it_max){
+        WAUX = diag(array(prob * (1-prob)))
+        W = solve(t(D) %*% WAUX %*% D)
+        dbeta = W %*% t(D) %*% (Y - prob)
+        if(norm(dbeta,"2") <= eps)
+            break
+        beta = beta + dbeta
+        prob = exp(D %*% beta) / (1 + exp(D %*% beta))
+    }
+    std = sqrt(diag(W))
+    result = list(beta = beta, std = std)
+    return(result)
+}
+
+data = read.csv("Ex0107.txt", sep=" ")
+Y = data$y_response
+X2 = data$x2_covariate2
+
+fit = glm(Y ~ X2, family = binomial)
+result = myLR(Y,X2)
+
+summary(fit)
+print(result)
+```
+And we can see here my estimator consists with R function.
+
+
+# 7.
+```{r p7, message=F, warning=F}
+library(magrittr)
+library(dplyr)
+
+data2 = read.csv("Ex0109.csv")
+counts = aggregate(cbind(Pro05,Anti05,Pro06,Anti06,Pro07,Anti07) ~ Party, data = data2, sum)
+print(counts)
+
+X = rbind(c(5,0),
+          c(6,0),
+          c(7,0),
+          c(5,1),
+          c(6,1),
+          c(7,1))
+colnames(X) = c("Year","Party")
+Pro = c(2825,1905,3242,346,366,671)
+Anti = c(551,332,554,2957,1840,3105)
+fit = glm(cbind(Pro,Anti) ~ X, family=binomial)
+summary(fit)
+```
+We can see here the p value for Party is extremely small, so the behavior of two parties towards pro-environment voting is significant different regardless of year effect. 

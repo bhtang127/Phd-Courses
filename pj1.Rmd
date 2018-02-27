@@ -1,0 +1,38 @@
+---
+title: "CS420 Project1"
+author: "Bohao Tang"
+date: "February 20, 2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Loop Efficiency
+
+a. lll  
+
+b. mmm
+
+c. nnn
+
+d. qqq
+
+## Loop Parallelism
+
+1. 
+    a. aaa
+    b. bbb
+2.
+    a. ccc
+    b. ddd
+3.
+    a. eee
+    b. fff
+    c. ggg
+
+## An Optimized Version
+
+a. ppp
+b. qqq
