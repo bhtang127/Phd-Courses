@@ -21,7 +21,7 @@ fit <- vglm(formula = cbind(y2,y3,y4,y5,y1) ~ size + gender + factor(lake),
 
 summary(fit)
 
-1 - pchisq(55.2285,40)
+1 - pchisq(50.2637,40)
 
 fitted(fit)
 ```
