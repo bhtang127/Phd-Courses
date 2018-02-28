@@ -98,3 +98,48 @@ Therefore the ture estimate variance for $\hat{\beta}$ is 0.14657 * 1.744356 = 0
 ```{r 7.3102, message=FALSE, warning=FALSE}
 print(exp(1.7331+0.2556703*c(qnorm(0.025),qnorm(0.975))))
 ```
+
+## 10.
+
+#### (i)
+```{r jane11, message=FALSE,warning=FALSE}
+library(tidyverse)
+
+Jane = read_csv("Ex0205.csv")
+```
+
+#### (ii)
+For the first question, we build the Multinormal model like this:
+$$ \log{\frac{\pi_{ij}}{\pi_{i1}}} = \beta_{0j} + \beta_{1j} b_i^{SI} + \beta_{2j} b_i^{SS}$$
+Where $\pi_{ij}$ is the probability for $j^{th}$ word in $i^{th}$ data, $b_i^{()}$ are the flags for book name
+
+Then we fit the model:
+```{r jane21, message=FALSE, warning=FALSE}
+Jane_herself_2 = Jane %>% 
+                    filter(Book != "SanditonII") %>%
+                    spread(Word,Count)
+
+fit.jane21 <- vglm(formula = cbind(an,that,this,with,without,a) ~ factor(Book),
+            family = multinomial, data = Jane_herself_2)
+
+summary(fit.jane21)
+```
+
+We notice that the residual deviance (12.587 with df=10) didn't give much evidence against this model. So we accept this model. Then the estimated coefficients for Sandition and Sense&Sensibility is significant not zero, which means an inconsistent between Jane's writing. For example, the estimation $-0.77851$ for $\hat{\beta_1}$ means that given a word, The ratio of mean apperance for this word and word `a` is exp(-0.77851) = 0.459 times for book Sanditon vs book sense&sensibility.
+
+For the second question, we build model like this:
+$$ \log{\frac{\pi_{ij}}{\pi_{i1}}} = \beta_{0j} + \beta_{1j} o_i$$
+Where $o_i$ is the flag for $i^{th}$ whether or not belong to Jane. (We add the correspond count for Jane's three books together for each word)
+
+Then we fit the model:
+
+```{r jane, message=FALSE, warning=FALSE}
+Jane_compare_2 = Jane %>% 
+                mutate(Original = (Book != "SanditonII")) %>% 
+                group_by(Word,Original) %>%
+                summarize(Count = sum(Count)) %>%
+                spread(Word,Count)
+fit.jane22 <- vglm(formula = cbind(an,that,this,with,without,a) ~ factor(Original),
+            family = multinomial, data = Jane_compare_2)
+summary(fit.jane22)
+```
