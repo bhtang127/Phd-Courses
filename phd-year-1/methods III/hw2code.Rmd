@@ -11,6 +11,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## 6.18
 
+Here we do a similiar thing as in Example 6.3.2. The basic main effect model is:
+$$ \log{\frac{\pi_{ij}}{\pi_{i1}}} = \beta_{j0} + \beta_{j1} s_i + \beta_{j2} g_i + \beta_{j3} z_{i}^{O} +\beta_{j4} z_{i}^{T} + \beta_{j5} z_{i}^{G} $$
+For $j = 2,3,4,5$. Here the notation is the same as in Eample 6.3.2. And $g_i$ is the gender for alligator $i$. Then we fit the model: 
 ```{r 6.18, message=FALSE, warning=FALSE}
 library("VGAM")
 
@@ -20,15 +23,26 @@ fit <- vglm(formula = cbind(y2,y3,y4,y5,y1) ~ size + gender + factor(lake),
             family = multinomial, data = Alligators)
 
 summary(fit)
-
-1 - pchisq(50.2637,40)
-
-fitted(fit)
 ```
+
+The residual deviance 50.2637 with $df = 40$ doesn't give much evidence against our model, because the $p$ value is not small:
+```{r p}
+1 - pchisq(50.2637,40)
+```
+
+Drop `size` or `gender` will cause a significant loss while no significant loss to drop `gender`. But dropping `gender` we will get the same result as in Example 6.3.2. Therefore here we accept our original model.
+
+We have:
+$$ \log{\frac{\hat{\pi}_{i2}}{\hat{\pi}_{i1}}} = -2.9477 + 1.3363 s_2 - 0.463 g_2 + 2.6937 z_{2}^{O} + 2.9363 z_{2}^{T} + 1.7805 z_{2}^{G} $$
+
+For a given lake and gender, for small alligators the estimated odds that primary food choice was invertebrates instead of fish are exp(1.3363) = 3.8 times the estimated odds for large alligators. The estimated effect is imprecise, as the Wald 95% con dence interval is exp[1.3363 ± 1.96(0.4412)] = (1.602, 9.034). For a given lake and size, for gender = 0 alligators the estimated odds that primary food choice was invertebrates instead of fish are exp(0.463) = 1.5888 times the estimated odds for gender=1 alligators. The estimated effect is also imprecise, as the Wald 95% con dence interval is exp[0.463 ± 1.96(0.3955)] = (0.7318, 3.44933).
+The lake effects indicate that the estimated odds that the primary food choice was invertebrates instead of fish are relatively higher at lakes Ocklawaha, Trafford and George than they are at Lake Hancock.
 
 ## 7.31
 
 #### a.
+We fit the model like below:
+$$\log{\mu_i} = \beta_0 + \beta_1 x_i$$
 ```{r 7.31a, message=FALSE, warning=FALSE}
 Homicide = read.table("Homicide.txt", header = TRUE)
 
@@ -38,7 +52,12 @@ summary(fit.poi)
 logLik(fit.poi)
 ```
 
+Then the $\hat{\beta} = 1.73314$ means the estimated log ratio of mean for black and white people is $1.73314$.
+
 #### b.
+Maybe the time interval to collect the response for each people is not fixed but rather a random variable. Then the Poisson assumption is inadequate.
+
+Here we fit the corresponding negative binomial model: 
 ```{r 7.31b, message=FALSE, warning=FALSE}
 library("MASS")
 
@@ -47,13 +66,35 @@ fit.nb <- glm.nb(count ~ race, data=Homicide)
 summary(fit.nb)
 ```
 
+Here, the AIC for NB2 is much smaller than that for Poisson (1001.8 vs 1122). The much larger SE(0.2385 vs 0.14657) also the estimated NB2 dispersion parameter is 1/0.2023 = 4.943 is much larger than 1. We can notice that Poisson model had overdispersion.
+
 #### c.
+Here we are calculating the Wald 95% CI for $\beta$. We have:
+
+For Poisson model:
 ```{r 7.31c, message=FALSE, warning=FALSE}
 print(exp(1.7331+0.14657*c(qnorm(0.025),qnorm(0.975))))
+```
+
+For Negative Binomial model:
+```{r 7.31c2, message=FALSE, warning=FALSE}
 print(exp(1.7331+0.2385*c(qnorm(0.025),qnorm(0.975))))
 ```
 
+Since we have enough evidence that Poisson GLM have an overdispersion, we rather believe the larger interval for $\hat{\beta}$. Also the AIC shows that NB GLM is a better model, so we choose (3.5,9.0) to be our CI.
+
 #### overdispersion
+The only thing we need to do is to estimate the overdispersion term $\sigma^2$ for $var(Y_i) = \sigma^2 \mu_i$.
+
+We have:
 ```{r 7.31o, message=FALSE, warning=FALSE}
+n = length(Homicide$Obs)
+p = 1
+sigma_2 = 1 / (n-p) * sum((Homicide$count - fitted(fit.poi))^2 / fitted(fit.poi))
+sigma_2
 ```
 
+Therefore the ture estimate variance for $\hat{\beta}$ is 0.14657 * 1.744356 = 0.2556703. So the CI is 
+```{r 7.3102, message=FALSE, warning=FALSE}
+print(exp(1.7331+0.2556703*c(qnorm(0.025),qnorm(0.975))))
+```
