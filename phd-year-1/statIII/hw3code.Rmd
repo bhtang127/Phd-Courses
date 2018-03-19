@@ -1,0 +1,79 @@
+---
+title: "Coding Part"
+author: "Bohao Tang"
+date: "March 9, 2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r v,message=FALSE,warning=FALSE}
+Y1 = c(2,1,4,5,3,4,4,5,8,8,9,12,14,14,15)
+Y2 = c(0,1,0,0,3,2,3,4,2,5,6,6,4,6,7)
+
+Poisson.ratio.exactCI <- function(Y1, Y2, searchlist, nsamples, alpha, interval=FALSE){
+    n = length(Y1)
+    results = c()
+    if(!interval){
+        for( beta in searchlist ){
+            flag = 1
+            for( i in 1:n ){
+               samples = rbinom(nsamples, Y1[i]+Y2[i], beta/(1+beta))
+               inf = quantile(samples, (1-alpha)/2)
+               sup = quantile(samples, (1+alpha)/2)
+               if(Y1[i] < inf || Y1[i] > sup){
+                   flag = 0
+                   break
+               }
+            }
+            if(flag){
+                results = c(results, beta)
+            }
+        }
+    }
+    else{
+        for( beta in searchlist ){
+            flag = 1
+            for( i in 1:n ){
+               samples = rbinom(nsamples, Y1[i]+Y2[i], beta/(1+beta))
+               inf = quantile(samples, (1-alpha)/2)
+               sup = quantile(samples, (1+alpha)/2)
+               if(Y1[i] < inf || Y1[i] > sup){
+                   flag = 0
+                   break
+               }
+            }
+            if(flag){
+                results = c(results, beta)
+                break
+            }
+        }
+        for( beta in rev(searchlist) ){
+            flag = 1
+            for( i in 1:n ){
+               samples = rbinom(nsamples, Y1[i]+Y2[i], beta/(1+beta))
+               inf = quantile(samples, (1-alpha)/2)
+               sup = quantile(samples, (1+alpha)/2)
+               if(Y1[i] < inf || Y1[i] > sup){
+                   flag = 0
+                   break
+               }
+            }
+            if(flag){
+                results = c(results, beta)
+                break
+            }
+        }
+    }
+    results
+}
+
+betas = Poisson.ratio.exactCI(Y1, Y2, seq(0, 10, by=1), 10000, 0.95)
+betas
+betas = Poisson.ratio.exactCI(Y1, Y2, seq(1, 6, by=0.1), 100000, 0.95)
+betas
+betas = Poisson.ratio.exactCI(Y1, Y2, seq(1.0, 5.2, by=0.01), 1000000, 0.95, interval=TRUE)
+betas
+```

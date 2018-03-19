@@ -35,7 +35,7 @@ Drop `size` or `gender` will cause a significant loss while no significant loss 
 We have:
 $$ \log{\frac{\hat{\pi}_{i2}}{\hat{\pi}_{i1}}} = -2.9477 + 1.3363 s_2 - 0.463 g_2 + 2.6937 z_{2}^{O} + 2.9363 z_{2}^{T} + 1.7805 z_{2}^{G} $$
 
-For a given lake and gender, for small alligators the estimated odds that primary food choice was invertebrates instead of fish are exp(1.3363) = 3.8 times the estimated odds for large alligators. The estimated effect is imprecise, as the Wald 95% con dence interval is exp[1.3363 Â± 1.96(0.4412)] = (1.602, 9.034). For a given lake and size, for gender = 0 alligators the estimated odds that primary food choice was invertebrates instead of fish are exp(0.463) = 1.5888 times the estimated odds for gender=1 alligators. The estimated effect is also imprecise, as the Wald 95% con dence interval is exp[0.463 Â± 1.96(0.3955)] = (0.7318, 3.44933).
+For a given lake and gender, for small alligators the estimated odds that primary food choice was invertebrates instead of fish are exp(1.3363) = 3.8 times the estimated odds for large alligators. The estimated effect is imprecise, as the Wald 95% con dence interval is exp(1.3363 ± 1.96(0.4412)) = (1.602, 9.034). For a given lake and size, for gender = 0 alligators the estimated odds that primary food choice was invertebrates instead of fish are exp(0.463) = 1.5888 times the estimated odds for gender=1 alligators. The estimated effect is also imprecise, as the Wald 95% con dence interval is exp(0.463 ± 1.96(0.3955)) = (0.7318, 3.44933).
 The lake effects indicate that the estimated odds that the primary food choice was invertebrates instead of fish are relatively higher at lakes Ocklawaha, Trafford and George than they are at Lake Hancock.
 
 ## 7.31
@@ -49,7 +49,6 @@ Homicide = read.table("Homicide.txt", header = TRUE)
 fit.poi <- glm(count ~ race, family=poisson, data=Homicide)
 
 summary(fit.poi)
-logLik(fit.poi)
 ```
 
 Then the $\hat{\beta} = 1.73314$ means the estimated log ratio of mean for black and white people is $1.73314$.
@@ -102,11 +101,51 @@ print(exp(1.7331+0.2556703*c(qnorm(0.025),qnorm(0.975))))
 ## 10.
 
 #### (i)
+For the question one, if the books are consistent, than they follow the main effect model as:
+$$ \log{\mu_i} = \beta_0 + \beta_1 b_i^{SI} + \beta_2 b_i^{SS} + \eta_1 w_i^{an} + \eta_2 w_i^{that} + \eta_3 w_i^{this} + \eta_4 w_i^{with} + \eta_5 w_i^{without} $$
+
+Here $\mu_i$ is the mean count for $i^{th}$ data. $b_i^{()}, w_i^{()}$ are the flag for book and word. If this model holds, then the relative appearence (ratio of mean) for each word is $\eta_i - \eta_j$ ($\eta_0 = 0$ for word `a`) which does not influenced by the book flag $\beta_i$. So the books are consistent.
+Therefore we compare this model with the full model to make the decision.
 ```{r jane11, message=FALSE,warning=FALSE}
 library(tidyverse)
-
 Jane = read_csv("Ex0205.csv")
+
+Jane_herself = Jane %>% filter(Book != "SanditonII")
+
+fit.jane11.full = glm(Count ~ Book:Word, family=poisson, data=Jane_herself)
+fit.jane11.homo = glm(Count ~ factor(Book) + factor(Word), 
+                      family=poisson, data=Jane_herself)
+summary(fit.jane11.homo)
 ```
+
+Then we find that the AIC for main effect model is less than that of full model (127.34 vs 134.76). Also the residul devience for main effect model is 12.587 with df=10, which has a p value of $0.2476881$, no significant loss. So we may choose the main effect model, which means that the books are consistent.
+
+For the question two, we also compare the main effect model:
+$$ \log{\mu_i} = \beta_0 + \beta_1 o_i + \eta_1 w_i^{an} + \eta_2 w_i^{that} + \eta_3 w_i^{this} + \eta_4 w_i^{with} + \eta_5 w_i^{without} $$
+with the full model, where here the $o_i$ is the flag for whether the book is written by Jane. Then we have:
+```{r jane12, message=FALSE, warning=FALSE}
+Jane_compare = Jane %>% 
+                mutate(Original = (Book != "SanditonII"))
+fit.jane12.full <- glm(Count ~ Original:Word,
+                       family = poisson, data = Jane_compare)
+fit.jane12.homo <- glm(Count ~ factor(Original) + factor(Word),
+                       family = poisson, data = Jane_compare)
+summary(fit.jane12.full)
+summary(fit.jane12.homo)
+```
+Now the residual deviance is 140.34-108.6=31.74 with df=17-12=5. So the p value is 6.688744e-06, there is a significant difference between the style of Jane and the ghost writer.
+
+For question three, the model is the same as in question two. But the data for Jane here only contains SantitonI:
+```{r jane13, message=FALSE, warning=FALSE}
+Jane_s12 = Jane %>% 
+            filter(Book=="SanditonI" | Book=="SanditonII")
+fit.jane13.full <- glm(Count ~ factor(Book):factor(Word), 
+                       family = poisson, data = Jane_s12)
+fit.jane13.homo <- glm(Count ~ factor(Book) + factor(Word),
+                       family = poisson, data = Jane_s12)
+summary(fit.jane13.homo)
+```
+We get a residual deviance of 19.777 with df=5, therefore a p value of $0.001376036$, still a significant loss. So the ghost writer didn't follow the style in SanditonI.
 
 #### (ii)
 For the first question, we build the Multinormal model like this:
@@ -125,21 +164,34 @@ fit.jane21 <- vglm(formula = cbind(an,that,this,with,without,a) ~ factor(Book),
 summary(fit.jane21)
 ```
 
-We notice that the residual deviance (12.587 with df=10) didn't give much evidence against this model. So we accept this model. Then the estimated coefficients for Sandition and Sense&Sensibility is significant not zero, which means an inconsistent between Jane's writing. For example, the estimation $-0.77851$ for $\hat{\beta_1}$ means that given a word, The ratio of mean apperance for this word and word `a` is exp(-0.77851) = 0.459 times for book Sanditon vs book sense&sensibility.
+We notice that the estimate $\hat{\beta_{1j}}$ and $\hat{\beta_{2j}}$ are mostly not significant away from zero(see the $p$ value), which means for many words the ratio of odds between different book is not significant away from one. Therefore we can regard a consistence between Jane's writing. 
 
 For the second question, we build model like this:
-$$ \log{\frac{\pi_{ij}}{\pi_{i1}}} = \beta_{0j} + \beta_{1j} o_i$$
-Where $o_i$ is the flag for $i^{th}$ whether or not belong to Jane. (We add the correspond count for Jane's three books together for each word)
+$$ \log{\frac{\pi_{ij}}{\pi_{i1}}} = \beta_{0j} + \beta_{1j} o_i $$
+Where $o_i$ is the flag for $i^{th}$ whether or not belong to Jane.
 
 Then we fit the model:
 
-```{r jane, message=FALSE, warning=FALSE}
+```{r jane22, message=FALSE, warning=FALSE}
 Jane_compare_2 = Jane %>% 
                 mutate(Original = (Book != "SanditonII")) %>% 
-                group_by(Word,Original) %>%
-                summarize(Count = sum(Count)) %>%
                 spread(Word,Count)
-fit.jane22 <- vglm(formula = cbind(an,that,this,with,without,a) ~ factor(Original),
+fit.jane22 <- vglm(formula = cbind(an,that,this,with,without,a) ~ Original,
             family = multinomial, data = Jane_compare_2)
 summary(fit.jane22)
 ```
+
+Here we can see some significant value for $\beta_{1j}$(see the p value). For this result we can say that compared to the ghost writer Jane used less `an` and more `that` (the estimated odds ratio for `an` and `that` between two writer based on `a` is exp(-0.89437)=0.4089 and exp(0.71859)=2.05154), and no significant difference for other words (based on the odds). Therefore we can say that the ghost writer didn't strictly follow Jane's pattern.
+
+For the third question, the model is same as in second question, but now Jane's data only contains the book SanditonI
+We fit the model.
+```{r jane23, message=FALSE, warning=FALSE}
+Jane_s12_2 = Jane %>% 
+                filter(Book=="SanditonI" | Book=="SanditonII") %>%
+                spread(Word,Count)
+fit.jane23 <- vglm(formula = cbind(an,that,this,with,without,a) ~ Book,
+            family = multinomial, data = Jane_s12_2)
+summary(fit.jane23)
+```
+
+The result is similiar to question 2. We can see some significant value for $\beta_{1j}$(see the p value). We can say that compared to the SanditonI, the ghost writer used more `an` and more `with` (the estimated odds ratio for `an` and `with` between two writer based on `a` is exp(1.1657)=3.208 and exp(0.6253)=1.8688), and no significant difference for other words (based on the odds). Therefore we can say this ghost writer's work is not good.
