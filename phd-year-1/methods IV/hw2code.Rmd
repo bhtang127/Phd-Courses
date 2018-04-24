@@ -1,0 +1,29 @@
+---
+title: "HW2Coding"
+author: "Bohao Tang"
+date: "April 23, 2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Q3
+
+### (1) Implement the EM algorithm
+
+```{r EM, warning=FALSE, message=FALSE}
+Log.Likelihood <- function(data, theta){
+    mui = theta[1]
+    sig2 = theta[2]
+    siga2 = theta[3]
+    loglik = 0
+    gids = unique(data$gid)
+    for(i in gids){
+        data.groupi = data[data$gid == i]
+        loglik = loglik + sum(log(dnorm(data.groupi$Y), mui, sig2 + siga2))
+    }
+}
+
+```

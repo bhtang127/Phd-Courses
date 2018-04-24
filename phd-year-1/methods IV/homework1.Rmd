@@ -1,0 +1,106 @@
+---
+title: "Homework1"
+author: "Bohao Tang"
+date: "April 8, 2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1
+
+It's reasonable at a glance to assume that the number of moons conditionally follow a possion distribution. So we use possion glm here to analysis the data.
+
+We may answer the question by fit the model of formula `Moons ~ Distance + Diameter * Mass`, compare it with its submodels and correct for overdispersion.
+
+**But** in this dataset, even you fit a more complicated formula, say `Moons ~ Distance * Diameter * Mass`, the residual deviance is significant large:
+
+```{r 1, message=FALSE, warning=FALSE}
+library(tidyverse)
+planets = read.csv("Ex0206.csv")
+
+fit = glm(Moons ~ Distance * Diameter * Mass, family = poisson, data=planets)
+1 - pchisq( fit$deviance, fit$df.residual )
+```
+
+We may deal it as overdispersion or raise power in our formula to gain complexity. If we know nothing about the data, this is fine. But as for this dataset, it's obvious that the probability to form a moon (proportional to poisson mean) has nothing to do with an **exponential of polynomial** of this three variables. So it's a very bad statement if we answer the question through this way.
+
+However I'm not going to do an entire mathematical modeling here, but at least add some variables based on some basic knowledge of physics.
+
+First, it's reasonable to assume that the probability to form a moon $p_m$ is propotional to the probability of a random particle near the planet surface having velocity smaller than the escape velocity $v_e$. From Maxwell velocity distribution, we can approximate $log(p_m)$ as $c_0 + c_1 v_e^2 + c_2 log(v_e)$ where $c_0, c_1, c_2$ are unknown parameters to be regressioned. And $v_e$ is proportional to $\sqrt{\frac{Mass}{Diameter}}$. Notice that $log(v_e)$ is linear combination of $log(Mass)$ and $log(Diameter)$.
+
+Second, the sun and the space near planet may also influence the probability, then we add surface area, surface gravity, sun gravity, density and so on. But they are more reasonable to appear in log scale and you will find out they are all linear combination of $log(Mass), log(Distance), log(Diameter)$. So we just add this three term.
+
+You will find that even we just change variables to the log scale and add the $v_e^2$ term. We use less variables than above, but the residual deviance is insignificant as below. (Notice that if you don't add the $v_e^2$ term, the deviance will become significant. So the escape velocity assumption seems relativly reasonable)
+
+```{r better, message=FALSE, warning=FALSE}
+fit = glm(Moons ~ log(Distance) + log(Mass) + log(Diameter) + I(Mass/Diameter), 
+          family = poisson, data = planets)
+summary(fit)
+1 - pchisq( fit$deviance, fit$df.residual )
+```
+
+We can use best subset selection to select a best model after I add those variables. But for simplicity we just use the model showed above. Now the chisq goodness-of-fit test shows the fit is acceptable without adding overdispersion term.
+```{r gof}
+1 - pchisq(sum(fit$residuals^2 / fit$fitted.values), fit$df.residual)
+```
+
+Then we have the moon number formula as (only in the mean value sense):
+$$ Moon =  \frac{Distance^{0.2598} Diameter^{3.0887}}{Mass^{0.7905}} e^{0.03069\frac{Mass}{Diameter} - 0.06243} $$
+
+And for the question, it's not precise to state which is more influencial. If you just see the model, and say `Diameter` is more significant and in the formula it has bigger power. But the `Diameter` and `Mass` may not influence the result directly, maybe is density more influencial and somthing like this. For example, as shown in this formula, you can't directly tell if a larger (in diameter) planet will have more moons. But you can say for the planets with fixed escape velocity, the larger it is, the more moons it will have. This is a highly reasonable result. Since if a planet have a fixed escape velocity, things are equally hard to escape it in some sense, so the larger diameter it has, it will have more space near the planet to form moons. (Actually you will find that if you fixed $v_e$ and `Distance`, the Moon number will approximatly proportional to `Diameter^2`, which is just the surface area of the planet, thus the indicator of space near the planet).
+
+Then we plot the leverage to find isolated influencial points.
+```{r outlier}
+lev = hat(model.matrix(fit))
+plot(lev)
+```
+
+Then there are only one isolated (extremely) influencial point as `Ceres` for too small (in Mass and Diameter). Notice that if you do formula `Moons ~ Distance + Diameter * Mass`, there will be three this influential point.
+
+## 2
+
+We use clogit of package `survival` to answer these question. That's a function to maximize conditionally likelihood.
+
+#### (1)
+```{r cancer1, message=FALSE, warning=FALSE}
+library(survival)
+
+cancer = read.table("endometrial.txt", header = TRUE)
+
+cfit = clogit(Case ~ Est + Gall + Hyp + Ob + Non, 
+              data = cancer)
+summary(cfit)
+```
+
+So we can tell that `Estrogen usage` and `Gallbladder disease` are significant and the rest `Hypertension`, `Obesity` and `Non-estrogen drug` are not significant.
+
+#### (2)
+
+Fit the model: 
+
+```{r cancer2, message=FALSE, warning=FALSE}
+cfit.sig = clogit(Case ~ Est + Gall, data = cancer)
+summary(cfit.sig)
+```
+
+And see the statistics in the `Likelihood ratio test` term, subtruct to statistics and test on chisq with df be the difference of df among two models. That is:
+
+```{r cancer2.1, message=FALSE, warning=FALSE}
+1 - pchisq(46.52 - 43.89, 3)
+```
+
+Far larger than 0.05, so we don't suffer a significant loss for dropping those variables. Therefore we can say extra factors add no predictive information in this sense.
+
+#### (3)
+
+That can be found by fit the model:
+
+```{r cancer3, message=FALSE, warning=FALSE}
+cfit.co = clogit(Case ~ Est * Gall, data = cancer)
+summary(cfit.co)
+```
+
+Since the interaction term `Est:Gall` is significant, we can say this two factor have interaction in causing Endometrial cancer.

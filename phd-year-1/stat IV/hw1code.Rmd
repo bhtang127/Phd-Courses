@@ -1,0 +1,147 @@
+---
+title: "Coding Part"
+author: "Bohao Tang"
+date: "April 1, 2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## iv
+
+Two distribution is 
+$$Y = 1 + 2X + \epsilon$$
+
+and 
+$$Y = 1 + 2X^2 + \epsilon$$
+
+Where $X, \epsilon$ mutual independent and $\epsilon, X \sim N(0,1)$.
+
+Then the regression $E(Y|X) = \beta_0 + \beta_1 X$ correctly specifies first distribution and misspecifies the second.
+
+```{r model}
+model1 = function(X, eps){
+    1 + 2*X + eps
+}
+model2 = function(X, eps){
+    1 + 2 * X^2 + eps
+}
+```
+
+For the first situation, we run estimation 10000 times, each have 1000 samples and only focus on $\beta_1$. The red dashed line is the true $\beta_1$:
+
+```{r iv1, message=FALSE, warning=FALSE}
+library(ggplot2)
+
+beta1 = c()
+
+n = 1000
+for(i in 1:10000){
+    X = rnorm(n, 0, 1)
+    eps = rnorm(n, 0, 1)
+    
+    Y = model1(X, eps)
+    
+    estimator = cov(X, Y) / var(X)
+    
+    beta1 = c(beta1, estimator)
+}
+
+data = data.frame(value = beta1)
+data$method = "OLS_Correct_Specified"
+
+ggplot(data, aes(value, fill = method)) + 
+    geom_histogram(alpha = 0.5, aes(y = ..density..), position = 'identity') +
+    geom_vline(xintercept = 2, linetype="dashed", color="firebrick2") + 
+    ggtitle("True parameter = 2")
+
+```
+
+Then the bias and variance for $\hat{\beta_1}$ is:
+```{r bv1}
+bias = mean(beta1) - 2
+bias
+
+variance = var(beta1)
+variance
+```
+
+In the second situation, now true $\beta_1$ doesn't exit, we need to compare the result to $\beta_1^* = \frac{Cov(X, Y)}{Var(X)} = 0$. We do the same thing as above:
+
+```{r iv2, message=FALSE, warning=FALSE}
+beta1mis = c()
+
+n = 1000
+for(i in 1:10000){
+    X = rnorm(n, 0, 1)
+    eps = rnorm(n, 0, 1)
+    
+    Y = model2(X, eps)
+    
+    estimator = cov(X, Y) / var(X)
+    
+    beta1mis = c(beta1mis, estimator)
+}
+
+datamis = data.frame(value = beta1mis)
+datamis$method = "OLS_Misspecified"
+
+ggplot(datamis, aes(value, fill = method)) + 
+    geom_histogram(alpha = 0.5, aes(y = ..density..), position = 'identity') +
+    geom_vline(xintercept = 0, linetype="dashed", color="firebrick2") + 
+    ggtitle("True parameter = 0")
+
+```
+
+Then the bias and variance for $\hat{\beta_1^*}$ is:
+```{r bv2}
+bias = mean(beta1mis) - 0
+bias
+
+variance = var(beta1mis)
+variance
+```
+
+## v
+
+We do the model:
+
+$$Y = 1 + 2X + \epsilon$$
+where $X, \epsilon$ mutual independent and $\epsilon, X \sim N(0,1)$.
+
+And the second estimator mentioned in homework solution, which is just a median of slopes. We use data from `iv` for OLS estimator and for second estimator:
+
+```{r v1, message=FALSE, warning=FALSE}
+slope = c()
+
+n = 1000
+index = 1:1000
+oddi = index[index%%2 == 1]
+eveni = index[index%%2 == 0]
+for(i in 1:10000){
+    X = rnorm(n, 0, 1)
+    eps = rnorm(n, 0, 1)
+    
+    Y = model1(X, eps)
+    
+    estimator = 
+        median( (Y[eveni] - Y[oddi]) / (X[eveni] - X[oddi]) )
+    
+    slope = c(slope, estimator)
+}
+
+slopes = data.frame(value = slope)
+slopes$method = "Average slopes"
+
+estimators = rbind(data, slopes)
+
+ggplot(estimators, aes(value, fill = method)) + 
+    geom_histogram(alpha = 0.5, aes(y = ..density..), position = 'identity') +
+    geom_vline(xintercept = 2, linetype="dashed", color="firebrick2") + 
+    ggtitle("True parameter = 2")
+
+```
+
+Therefore we can see OLS is a better estimator for $\beta_1$.
