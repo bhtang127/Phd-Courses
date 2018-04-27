@@ -11,19 +11,93 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Q3
 
-### (1) Implement the EM algorithm
-
-```{r EM, warning=FALSE, message=FALSE}
+```{r EM}
 Log.Likelihood <- function(data, theta){
     mui = theta[1]
     sig2 = theta[2]
     siga2 = theta[3]
+    
     loglik = 0
     gids = unique(data$gid)
     for(i in gids){
-        data.groupi = data[data$gid == i]
-        loglik = loglik + sum(log(dnorm(data.groupi$Y), mui, sig2 + siga2))
+        groupi = data$Y[data$gid == i]
+        n = length(groupi)
+        vm = sig2 * diag(n) + siga2 * matrix(1,n,n)
+        quad = t(groupi-mui) %*% solve(vm) %*% (groupi-mui)
+        lik = 1 / sqrt(det(2*pi * vm)) * exp(-0.5 * quad)
+        loglik = loglik + log(lik)
     }
+    
+    loglik
 }
 
+Init <- function(data){
+    mui = mean(data$Y)
+    sig2 = var(data$Y)
+    siga2 = var(data$Y)
+    c(mui, sig2, siga2)
+}
+
+Estep <- function(data, theta){
+    mui.old = theta[1]
+    sig2.old = theta[2]
+    siga2.old = theta[3]
+    
+    mui = c()
+    eta = c()
+    gids = unique(data$gid)
+    for(i in gids){
+        groupi = data$Y[data$gid == i]
+        ni = length(groupi)
+        mui.i = siga2.old * ni * mean(groupi) + sig2.old * mui.old
+        mui.i = mui.i / (ni*siga2.old + sig2.old)
+        eta.i = mui.i^2 + sig2.old*siga2.old / (ni*siga2.old + sig2.old)
+        mui = c(mui, mui.i)
+        eta = c(eta, eta.i)
+    }
+    
+    list(mui=mui, eta=eta)
+}
+
+Mstep <- function(data, Es){
+    muis = Es$mui
+    etas = Es$eta
+    N = 0; s = 0
+    gids = unique(data$gid)
+    
+    for(i in gids){
+        groupi = data$Y[data$gid == i]
+        N = N + length(groupi)
+        s = s + sum(groupi^2 - 2*groupi*muis[i] + etas[i])
+    }
+    
+    mui.new = mean(muis)
+    sig2.new = s / N
+    siga2.new = mean(etas) - mui.new^2
+    
+    c(mui.new, sig2.new, siga2.new)
+}
+
+EM <- function(data, maxiter=25, eps=1e-6, plotout=TRUE){
+    theta = Init(data)
+    loglik = c() 
+    for(i in 1:maxiter){
+        Es = Estep(data, theta)
+        theta.new = Mstep(data, Es)
+        loglik = c(loglik, Log.Likelihood(data, theta))
+        if(norm(theta-theta.new,"2") < eps){
+            theta = theta.new
+            break
+        }
+        else { theta = theta.new }
+    }
+    if(plotout){
+        plot(1:length(loglik), loglik, type = "l")
+    }
+    theta
+}
+
+library(tidyverse)
+data = read.table("hw1-1.txt", header = TRUE)
+theta = EM(data)
 ```

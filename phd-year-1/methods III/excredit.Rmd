@@ -1,0 +1,32 @@
+---
+title: "Extra Credit"
+author: "Bohao Tang"
+date: "2018/3/1"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## (iv)
+
+### Prepare for the data and run jacknife.
+```{r data, warning=FALSE,message=FALSE}
+Ti = c(rep(0,30), rep(1,30))
+Xi = c(rep(0,12), rep(1,18), rep(0,14), rep(1,16))
+Y = c(rep(10,12), rep(11.5,18), rep(9.2,14), rep(10.4,16))
+
+D = cbind(1, Ti, Xi)
+
+beta2 = c()
+for(i in 1:60){
+    L = D[-i,]
+    W = Y[-i]
+    be = solve( t(L) %*% L ) %*% t(L) %*% W
+    beta2 = c(beta2, be[2,1])
+}
+
+SE = sqrt( 59/60 * sum( (beta2 - mean(beta2))^2 ) )
+print(SE)
+```
